@@ -108,7 +108,7 @@ class Child
      *
      * @return Child
      */
-    public function setUser(\OC\PlatformBundle\Entity\User $user)
+    public function setUser(\AppBundle\Entity\User $user)
     {
         $this->user = $user;
 
