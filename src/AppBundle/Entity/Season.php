@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * season
+ * season.
  *
  * @ORM\Table(name="season")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\seasonRepository")
@@ -35,9 +35,8 @@ class Season
      */
     private $dateEnd;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -47,7 +46,7 @@ class Season
     }
 
     /**
-     * Set dateBegin
+     * Set dateBegin.
      *
      * @param string $dateBegin
      *
@@ -61,7 +60,7 @@ class Season
     }
 
     /**
-     * Get dateBegin
+     * Get dateBegin.
      *
      * @return string
      */
@@ -71,7 +70,7 @@ class Season
     }
 
     /**
-     * Set dateEnd
+     * Set dateEnd.
      *
      * @param \DateTime $dateEnd
      *
@@ -85,7 +84,7 @@ class Season
     }
 
     /**
-     * Get dateEnd
+     * Get dateEnd.
      *
      * @return \DateTime
      */
@@ -94,4 +93,3 @@ class Season
         return $this->dateEnd;
     }
 }
-

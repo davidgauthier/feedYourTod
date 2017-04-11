@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * menu
+ * menu.
  *
  * @ORM\Table(name="menu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\menuRepository")
@@ -28,16 +28,14 @@ class Menu
      */
     private $name;
 
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Season")
      * @ORM\JoinColumn(nullable=false)
      */
     private $season;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -47,7 +45,7 @@ class Menu
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -61,7 +59,7 @@ class Menu
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -70,9 +68,8 @@ class Menu
         return $this->name;
     }
 
-
     /**
-     * Set season
+     * Set season.
      *
      * @param \AppBundle\Entity\Season $season
      *
@@ -86,7 +83,7 @@ class Menu
     }
 
     /**
-     * Get season
+     * Get season.
      *
      * @return \AppBundle\Entity\Season
      */

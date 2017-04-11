@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ChildFood
+ * ChildFood.
  *
  * @ORM\Table(name="child_food")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ChildFoodRepository")
@@ -21,7 +21,6 @@ class ChildFood
      */
     private $id;
 
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Child")
      * @ORM\JoinColumn(nullable=false)
@@ -34,18 +33,14 @@ class ChildFood
      */
     private $food;
 
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ChildFoodTag")
      * @ORM\JoinColumn(nullable=false)
      */
     private $childFoodTag;
 
-
-
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -55,7 +50,7 @@ class ChildFood
     }
 
     /**
-     * Set child
+     * Set child.
      *
      * @param \AppBundle\Entity\Child $child
      *
@@ -69,7 +64,7 @@ class ChildFood
     }
 
     /**
-     * Get child
+     * Get child.
      *
      * @return \AppBundle\Entity\Child
      */
@@ -79,7 +74,7 @@ class ChildFood
     }
 
     /**
-     * Set food
+     * Set food.
      *
      * @param \AppBundle\Entity\Food $food
      *
@@ -93,7 +88,7 @@ class ChildFood
     }
 
     /**
-     * Get food
+     * Get food.
      *
      * @return \AppBundle\Entity\Food
      */
@@ -103,7 +98,7 @@ class ChildFood
     }
 
     /**
-     * Set childFoodTag
+     * Set childFoodTag.
      *
      * @param \AppBundle\Entity\ChildFoodTag $childFoodTag
      *
@@ -117,7 +112,7 @@ class ChildFood
     }
 
     /**
-     * Get childFoodTag
+     * Get childFoodTag.
      *
      * @return \AppBundle\Entity\ChildFoodTag
      */
