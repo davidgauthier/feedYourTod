@@ -43,6 +43,13 @@ class Recipe
      */
     private $photoRecipe;
 
+    /**
+     * @var Season $season int
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Season")
+     */
+    private $season;
+
 
     /**
      * Get id
@@ -125,5 +132,29 @@ class Recipe
     public function getPhotoRecipe()
     {
         return $this->photoRecipe;
+    }
+
+    /**
+     * Set season
+     *
+     * @param \AppBundle\Entity\Season $season
+     *
+     * @return Recipe
+     */
+    public function setSeason(\AppBundle\Entity\Season $season = null)
+    {
+        $this->season = $season;
+
+        return $this;
+    }
+
+    /**
+     * Get season
+     *
+     * @return \AppBundle\Entity\Season
+     */
+    public function getSeason()
+    {
+        return $this->season;
     }
 }
