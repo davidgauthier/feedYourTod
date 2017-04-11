@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ChildFood
+ *
+ * @ORM\Table(name="child_food")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ChildFoodRepository")
+ */
+class ChildFood
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Child")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $child;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Food")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $food;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ChildFoodTag")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $childFoodTag;
+
+
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+
