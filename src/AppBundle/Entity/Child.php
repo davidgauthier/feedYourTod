@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Child
+ * Child.
  *
  * @ORM\Table(name="child")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ChildRepository")
@@ -35,16 +35,14 @@ class Child
      */
     private $birthDate;
 
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -54,7 +52,7 @@ class Child
     }
 
     /**
-     * Set firstName
+     * Set firstName.
      *
      * @param string $firstName
      *
@@ -68,7 +66,7 @@ class Child
     }
 
     /**
-     * Get firstName
+     * Get firstName.
      *
      * @return string
      */
@@ -78,7 +76,7 @@ class Child
     }
 
     /**
-     * Set birthDate
+     * Set birthDate.
      *
      * @param \DateTime $birthDate
      *
@@ -92,7 +90,7 @@ class Child
     }
 
     /**
-     * Get birthDate
+     * Get birthDate.
      *
      * @return \DateTime
      */
@@ -102,7 +100,7 @@ class Child
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param \AppBundle\Entity\User $user
      *
@@ -116,7 +114,7 @@ class Child
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return \AppBundle\Entity\User
      */

@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Recipe
+ * Recipe.
  *
  * @ORM\Table(name="recipe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RecipeRepository")
@@ -28,31 +28,29 @@ class Recipe
      */
     private $name;
 
-
     /**
-     * @var RecipeType $recipeType int
+     * @var RecipeType int
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\RecipeType")
      */
     private $recipeType;
 
     /**
-     * @var PhotoRecipe $photoRecipe int
+     * @var PhotoRecipe int
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PhotoRecipe")
      */
     private $photoRecipe;
 
     /**
-     * @var Season $season int
+     * @var Season int
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Season")
      */
     private $season;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -62,7 +60,7 @@ class Recipe
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -76,7 +74,7 @@ class Recipe
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -85,9 +83,8 @@ class Recipe
         return $this->name;
     }
 
-
     /**
-     * Set recipeType
+     * Set recipeType.
      *
      * @param \AppBundle\Entity\RecipeType $recipeType
      *
@@ -101,7 +98,7 @@ class Recipe
     }
 
     /**
-     * Get recipeType
+     * Get recipeType.
      *
      * @return \AppBundle\Entity\RecipeType
      */
@@ -111,7 +108,7 @@ class Recipe
     }
 
     /**
-     * Set photoRecipe
+     * Set photoRecipe.
      *
      * @param \AppBundle\Entity\PhotoRecipe $photoRecipe
      *
@@ -125,7 +122,7 @@ class Recipe
     }
 
     /**
-     * Get photoRecipe
+     * Get photoRecipe.
      *
      * @return \AppBundle\Entity\PhotoRecipe
      */
@@ -135,7 +132,7 @@ class Recipe
     }
 
     /**
-     * Set season
+     * Set season.
      *
      * @param \AppBundle\Entity\Season $season
      *
@@ -149,7 +146,7 @@ class Recipe
     }
 
     /**
-     * Get season
+     * Get season.
      *
      * @return \AppBundle\Entity\Season
      */

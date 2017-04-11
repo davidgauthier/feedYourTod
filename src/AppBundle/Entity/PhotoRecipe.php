@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PhotoRecipe
+ * PhotoRecipe.
  *
  * @ORM\Table(name="photo_recipe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PhotoRecipeRepository")
@@ -35,9 +35,8 @@ class PhotoRecipe
      */
     private $legend;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -47,7 +46,7 @@ class PhotoRecipe
     }
 
     /**
-     * Set src
+     * Set src.
      *
      * @param string $src
      *
@@ -61,7 +60,7 @@ class PhotoRecipe
     }
 
     /**
-     * Get src
+     * Get src.
      *
      * @return string
      */
@@ -71,7 +70,7 @@ class PhotoRecipe
     }
 
     /**
-     * Set legend
+     * Set legend.
      *
      * @param string $legend
      *
@@ -85,7 +84,7 @@ class PhotoRecipe
     }
 
     /**
-     * Get legend
+     * Get legend.
      *
      * @return string
      */

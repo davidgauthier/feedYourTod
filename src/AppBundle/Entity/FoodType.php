@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FoodType
+ * FoodType.
  *
  * @ORM\Table(name="food_type")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FoodTypeRepository")
@@ -28,9 +28,8 @@ class FoodType
      */
     private $wording;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -40,7 +39,7 @@ class FoodType
     }
 
     /**
-     * Set wording
+     * Set wording.
      *
      * @param string $wording
      *
@@ -54,7 +53,7 @@ class FoodType
     }
 
     /**
-     * Get wording
+     * Get wording.
      *
      * @return string
      */
@@ -63,4 +62,3 @@ class FoodType
         return $this->wording;
     }
 }
-
