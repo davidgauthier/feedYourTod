@@ -20,25 +20,26 @@ class LoadChildData extends AbstractFixture implements OrderedFixtureInterface
     {
         $childsData = array(
             array(
-                'user_id' =>  '4',
+                'user' =>  $this->getReference('user-0'),
                 'firstName' =>  'superboy',
-                'birthDate' =>  new \DateTime('20/03/1993'),
+                'birthDate' =>  new \DateTime('1993-03-20'),
             ),
             array(
-                'user_id' => '5',
+                'user' => $this->getReference('user-1'),
                 'firstName' => 'batboy',
-                'birthDate' => new \DateTime('20/01/1994')
+                'birthDate' => new \DateTime('1994-01-20'),
             ),
             array(
-                'user_id' => '6',
+                'user' => $this->getReference('user-1'),
                 'firstName' => 'spiderboy',
-                'birthDate' => new \DateTime('20/06/1995')
+                'birthDate' => new \DateTime('1995-06-20'),
             )
         );
 
         foreach ($childsData as $i => $childData){
             $child = new Child();
-            $child->setUser($childData['user_id']);
+
+            $child->setUser($childData['user']);
             $child->setFirstName($childData['firstName']);
             $child->setBirthDate($childData['birthDate']);
 
