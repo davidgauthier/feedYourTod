@@ -43,7 +43,7 @@ class LoadChildFoodData extends AbstractFixture implements OrderedFixtureInterfa
 
     public function getOrder()
     {
-        return 70;
+        return 80;
     }
 
 }

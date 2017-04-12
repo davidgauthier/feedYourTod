@@ -32,6 +32,6 @@ class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInte
     
     public function getOrder()
     {
-        return 60;
+        return 70;
     }
 }
