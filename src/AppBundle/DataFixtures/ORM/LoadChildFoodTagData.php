@@ -11,7 +11,7 @@ class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInte
 {
     public function load(ObjectManager $manager)
     {
-        $food = [
+        $childFoodTagsData = [
             'carrot',
             'banana',
             'shrimp',
@@ -20,12 +20,14 @@ class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInte
             'apple',
         ];
 
-        foreach ($food as $i => $food) {
+        foreach ($childFoodTagsData as $i => $cft) {
 
-            $childfoodtag = new ChildFoodTag();
-            $childfoodtag->setWording($food);
-            $manager->persist($childfoodtag);
-            $this->addReference('childFoodTag-'.$i, $childfoodtag);
+            $childFoodTag = new ChildFoodTag();
+
+            $childFoodTag->setWording($cft);
+            $manager->persist($childFoodTag);
+
+            $this->addReference('childFoodTag-'.$i, $childFoodTag);
         }
         $manager->flush();
     }

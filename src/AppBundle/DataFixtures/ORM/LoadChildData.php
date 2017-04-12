@@ -36,12 +36,12 @@ class LoadChildData extends AbstractFixture implements OrderedFixtureInterface
             )
         );
 
-        foreach ($childsData as $i => $childData){
+        foreach ($childsData as $i => $c){
             $child = new Child();
 
-            $child->setUser($childData['user']);
-            $child->setFirstName($childData['firstName']);
-            $child->setBirthDate($childData['birthDate']);
+            $child->setUser($c['user']);
+            $child->setFirstName($c['firstName']);
+            $child->setBirthDate($c['birthDate']);
 
             $manager->persist($child);
 

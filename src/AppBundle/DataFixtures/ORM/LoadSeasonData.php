@@ -12,7 +12,7 @@ class LoadSeasonData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
 
-        $seasons = array(
+        $seasonsData = array(
             array(
                 'name'      => 'Winter',
                 'begindate' => new \DateTime('2017-12-21'),
@@ -35,15 +35,15 @@ class LoadSeasonData extends AbstractFixture implements OrderedFixtureInterface
             ),
         );
 
-        foreach ($seasons as $i => $season) {
-            $s = new Season();
+        foreach ($seasonsData as $i => $s) {
+            $season = new Season();
 
-            $s->setName($season['name']);
-            $s->setDateBegin($season['begindate']);
-            $s->setDateEnd($season['enddate']);
+            $season->setName($s['name']);
+            $season->setDateBegin($s['begindate']);
+            $season->setDateEnd($s['enddate']);
 
-            $manager->persist($s);
-            $this->addReference('season-'.$i, $s);
+            $manager->persist($season);
+            $this->addReference('season-'.$i, $season);
         }
         $manager->flush();
     }
