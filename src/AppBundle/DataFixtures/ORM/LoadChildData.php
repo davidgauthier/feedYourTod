@@ -45,7 +45,7 @@ class LoadChildData extends AbstractFixture implements OrderedFixtureInterface
 
             $manager->persist($child);
 
-            $this->addReference('child -'.$i, $child);
+            $this->addReference('child-'.$i, $child);
         }
 
         $manager->flush();

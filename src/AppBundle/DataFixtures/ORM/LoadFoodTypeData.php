@@ -40,7 +40,7 @@ class LoadFoodTypeData extends AbstractFixture implements OrderedFixtureInterfac
 
             $manager->persist($food);
 
-            $this->addReference('foodType -'.$i, $food);
+            $this->addReference('foodType-'.$i, $food);
         }
 
         $manager->flush();
