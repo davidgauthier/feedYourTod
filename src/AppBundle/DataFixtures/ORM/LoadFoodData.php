@@ -11,30 +11,30 @@ class LoadFoodData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager){
 
-        $fooddetails = array(
+        $foodDetails = array(
             array(
                 'wording'     => 'egg',
-                'foodtype' => $this->getReference('foodType-0'),
+                'foodType' => $this->getReference('foodType-0'),
             ),
             array(
                 'wording'     => 'tomato',
-                'foodtype' => $this->getReference('foodType-1'),
+                'foodType' => $this->getReference('foodType-1'),
             ),
             array(
                 'wording'     => 'beef',
-                'foodtype' => $this->getReference('foodType-2'),
+                'foodType' => $this->getReference('foodType-2'),
             ),
             array(
                 'wording'   => 'Rice',
-                'foodtype' => $this->getReference('foodType-3'),
+                'foodType' => $this->getReference('foodType-3'),
             ),
         );
 
-        foreach ($fooddetails as $i => $fooddetail) {
+        foreach ($foodDetails as $i => $foodDetail) {
             $food = new Food();
 
-            $food->setWording($fooddetail['wording']);
-            $food->setFoodType($fooddetail['foodtype']);
+            $food->setWording($foodDetail['wording']);
+            $food->setFoodType($foodDetail['foodType']);
 
             $manager->persist($food);
             $this->addReference('food-'.$i, $food);
