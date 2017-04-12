@@ -7,7 +7,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use AppBundle\Entity\ChildFoodTag;
 
-class LoadChildFoodTypeData extends AbstractFixture implements OrderedFixtureInterface
+class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -22,10 +22,10 @@ class LoadChildFoodTypeData extends AbstractFixture implements OrderedFixtureInt
 
         foreach ($food as $i => $food) {
 
-            $foodtag = new ChildFoodTag();
-            $foodtag->setWording($food);
-            $manager->persist($foodtag);
-            $this->addReference('foodtag-'.$i, $foodtag);
+            $childfoodtag = new ChildFoodTag();
+            $childfoodtag->setWording($food);
+            $manager->persist($childfoodtag);
+            $this->addReference('childFoodTag-'.$i, $foodtag);
         }
         $manager->flush();
     }
