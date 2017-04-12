@@ -26,12 +26,12 @@ class LoadChildFoodData extends AbstractFixture implements OrderedFixtureInterfa
            )
        );
 
-       foreach ($childsFoodsData as $i => $childFoodData){
+       foreach ($childsFoodsData as $i => $cf){
            $childFood = new ChildFood();
 
-           $childFood->setChild($childFoodData['child']);
-           $childFood->setFood($childFoodData['food']);
-           $childFood->setChildFoodTag($childFoodData['childFoodTag']);
+           $childFood->setChild($cf['child']);
+           $childFood->setFood($cf['food']);
+           $childFood->setChildFoodTag($cf['childFoodTag']);
 
            $manager->persist($childFood);
 

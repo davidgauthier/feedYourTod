@@ -12,7 +12,7 @@ class LoadMenuData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager){
 
-        $menus = array(
+        $menusData = array(
             array(
                 'name'   => 'Purée de patate douce au boeuf',
                 'season' => $this->getReference('season-0'),
@@ -31,14 +31,14 @@ class LoadMenuData extends AbstractFixture implements OrderedFixtureInterface
             ),
         );
 
-        foreach ($menus as $i => $menu) {
-            $recipe = new Menu();
+        foreach ($menusData as $i => $m) {
+            $menu = new Menu();
 
-            $recipe->setName($menu['name']);
-            $recipe->setSeason($menu['season']);
+            $menu->setName($m['name']);
+            $menu->setSeason($m['season']);
 
-            $manager->persist($recipe);
-            $this->addReference('recipe-'.$i, $recipe);
+            $manager->persist($menu);
+            $this->addReference('menu-'.$i, $menu);
         }
         $manager->flush();
     }
