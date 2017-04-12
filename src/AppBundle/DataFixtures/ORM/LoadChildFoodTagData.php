@@ -22,10 +22,10 @@ class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInte
 
         foreach ($food as $i => $food) {
 
-            $foodtag = new ChildFoodTag();
-            $foodtag->setWording($food);
-            $manager->persist($foodtag);
-            $this->addReference('foodtag-'.$i, $foodtag);
+            $childfoodtag = new ChildFoodTag();
+            $childfoodtag->setWording($food);
+            $manager->persist($childfoodtag);
+            $this->addReference('childFoodTag-'.$i, $foodtag);
         }
         $manager->flush();
     }
