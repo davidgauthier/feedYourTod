@@ -25,7 +25,7 @@ class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInte
             $childfoodtag = new ChildFoodTag();
             $childfoodtag->setWording($food);
             $manager->persist($childfoodtag);
-            $this->addReference('childFoodTag-'.$i, $foodtag);
+            $this->addReference('childFoodTag-'.$i, $childfoodtag);
         }
         $manager->flush();
     }
