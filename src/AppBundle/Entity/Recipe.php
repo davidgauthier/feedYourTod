@@ -49,6 +49,14 @@ class Recipe
      */
     private $season;
 
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="content", type="text")
+     */
+    private $cantent;
+
     /**
      * Get id.
      *
@@ -153,5 +161,29 @@ class Recipe
     public function getSeason()
     {
         return $this->season;
+    }
+
+    /**
+     * Set cantent
+     *
+     * @param string $cantent
+     *
+     * @return Recipe
+     */
+    public function setCantent($cantent)
+    {
+        $this->cantent = $cantent;
+
+        return $this;
+    }
+
+    /**
+     * Get cantent
+     *
+     * @return string
+     */
+    public function getCantent()
+    {
+        return $this->cantent;
     }
 }
