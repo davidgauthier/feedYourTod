@@ -55,7 +55,7 @@ class Recipe
      *
      * @ORM\Column(name="content", type="text")
      */
-    private $cantent;
+    private $content;
 
     /**
      * Get id.
@@ -166,13 +166,13 @@ class Recipe
     /**
      * Set cantent
      *
-     * @param string $cantent
+     * @param string $content
      *
      * @return Recipe
      */
-    public function setCantent($cantent)
+    public function setContent($content)
     {
-        $this->cantent = $cantent;
+        $this->content = $content;
 
         return $this;
     }
@@ -182,8 +182,8 @@ class Recipe
      *
      * @return string
      */
-    public function getCantent()
+    public function getContent()
     {
-        return $this->cantent;
+        return $this->content;
     }
 }
