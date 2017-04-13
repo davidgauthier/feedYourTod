@@ -5,3 +5,8 @@ services:
         arguments: ['@router']
         tags:
             - { name: kernel.event_subscriber }
+
+    app.menu_manager:
+        class: AppBundle\Manager\MenuManager
+        arguments:
+            - "@=service('doctrine').getManager()"
