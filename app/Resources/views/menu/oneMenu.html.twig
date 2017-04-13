@@ -9,7 +9,12 @@
 
     <div class="panel panel-default">
         <div class="panel-body">
-            Le nom du menu : <b>{{ menu.name }}</b>
+            Le nom du menu : <b> {{ menu.name }} </b>
+            {% for recipe in menu.recipes %}
+                <p>{{ recipe.name }}</p>
+            {% else %}
+                <p>Pas (encore) de recette</p>
+            {% endfor %}
         </div>
     </div>
 
