@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\User;
+
 /**
  * ChildRepository.
  *
@@ -10,4 +12,12 @@ namespace AppBundle\Repository;
  */
 class ChildRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getChild(User $user){
+        return $this->createQueryBuilder('i')
+            ->select('i')
+            ->andWhere('i.user = :userid')
+            ->setParameter('userid', $user)
+            ->getQuery()
+            ->getResult();
+    }
 }

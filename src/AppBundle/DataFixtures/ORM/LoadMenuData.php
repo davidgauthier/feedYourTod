@@ -14,19 +14,19 @@ class LoadMenuData extends AbstractFixture implements OrderedFixtureInterface
 
         $menusData = array(
             array(
-                'name'   => 'Purée de patate douce au boeuf',
+                'name'   => 'Menu 1',
                 'season' => $this->getReference('season-0'),
             ),
             array(
-                'name'   => 'Soupe de poulet aux vermicelles et légumes',
+                'name'   => 'Menu 2',
                 'season' => $this->getReference('season-1'),
             ),
             array(
-                'name'   => 'Petit gratin à la bolognaise',
+                'name'   => 'Menu 3',
                 'season' => $this->getReference('season-2'),
             ),
             array(
-                'name'   =>  'Risotto escalope dinde aux légumes',
+                'name'   =>  'Menu 4',
                 'season' => $this->getReference('season-3'),
             ),
         );

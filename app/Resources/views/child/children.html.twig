@@ -1,0 +1,21 @@
+{%  extends "::layout.html.twig" %}
+
+{%  block title 'Recipe from feedYourTod' %}
+
+{%  block contentTitle %}
+    <h1>Your children</h1>
+{%  endblock %}
+
+{% block content %}
+
+    <ul>
+        {% for child in children %}
+            <li>
+                {{ child.firstName }}
+            </li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
+
