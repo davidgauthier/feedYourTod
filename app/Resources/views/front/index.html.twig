@@ -51,7 +51,7 @@
                     <ul class="cat">
                         {% if listMenus|length > 0 %}
                             {% for menu in listMenus %}
-                                <li><i class="fa fa-angle-right"></i><a href="#">{{ menu.name }}</a></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{ path('app_menu_id', {'id': menu.id}) }}">{{ menu.name }}</a></li>
                             {% endfor %}
                         {% endif %}
 
