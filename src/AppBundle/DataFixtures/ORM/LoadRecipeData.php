@@ -75,7 +75,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
             $recipe->setRecipeType($r['recipeType']);
             $recipe->setPhotoRecipe($r['photoRecipe']);
             $recipe->setSeason($r['season']);
-            $recipe->setCantent($r['content']);
+            $recipe->setContent($r['content']);
 
             $manager->persist($recipe);
             $this->addReference('recipe-'.$i, $recipe);
