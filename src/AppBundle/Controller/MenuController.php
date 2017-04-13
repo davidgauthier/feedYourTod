@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class MenuController extends Controller
 {
     /**
-     * @Route("/menu", name="app_menu")
+     * @Route("/menus", name="app_menu")
      */
     public function listAction()
     {
