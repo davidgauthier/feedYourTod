@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * menu
+ * menu.
  *
  * @ORM\Table(name="menu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\menuRepository")
@@ -28,16 +28,19 @@ class Menu
      */
     private $name;
 
-
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Season")
      * @ORM\JoinColumn(nullable=false)
      */
     private $season;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Recipe", cascade={"persist"})
+     */
+    private $recipes;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -47,7 +50,7 @@ class Menu
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -61,7 +64,7 @@ class Menu
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -70,5 +73,36 @@ class Menu
         return $this->name;
     }
 
-}
+    /**
+     * Set season.
+     *
+     * @param \AppBundle\Entity\Season $season
+     *
+     * @return Menu
+     */
+    public function setSeason(\AppBundle\Entity\Season $season)
+    {
+        $this->season = $season;
 
+        return $this;
+    }
+
+    /**
+     * Get season.
+     *
+     * @return \AppBundle\Entity\Season
+     */
+    public function getSeason()
+    {
+        return $this->season;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+}

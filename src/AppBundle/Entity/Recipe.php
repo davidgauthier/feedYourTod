@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Recipe.
@@ -56,6 +57,10 @@ class Recipe
      * @ORM\Column(name="content", type="text")
      */
     private $content;
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Menu", cascade={"persist"}, inversedBy="recipes")
+     */
+    private $menus;
 
     /**
      * Get id.
@@ -194,5 +199,46 @@ class Recipe
     public function __toString()
     {
         return $this->getName();
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->menus = new ArrayCollection();
+    }
+
+    /**
+     * Add menu
+     *
+     * @param \AppBundle\Entity\Menu $menu
+     *
+     * @return Recipe
+     */
+    public function addMenu(\AppBundle\Entity\Menu $menu)
+    {
+        $this->menus[] = $menu;
+
+        return $this;
+    }
+
+    /**
+     * Remove menu
+     *
+     * @param \AppBundle\Entity\Menu $menu
+     */
+    public function removeMenu(\AppBundle\Entity\Menu $menu)
+    {
+        $this->menus->removeElement($menu);
+    }
+
+    /**
+     * Get menus
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMenus()
+    {
+        return $this->menus;
     }
 }

@@ -55,7 +55,12 @@ class Recipe
      *
      * @ORM\Column(name="content", type="text")
      */
-    private $cantent;
+    private $content;
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Menu", cascade={"persist"}, inversedBy="recipes")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $menus;
 
     /**
      * Get id.
@@ -161,5 +166,38 @@ class Recipe
     public function getSeason()
     {
         return $this->season;
+    }
+
+    /**
+     * Set cantent
+     *
+     * @param string $content
+     *
+     * @return Recipe
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get cantent
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
