@@ -26,6 +26,7 @@
     {% endblock %}
 
 
+
 </head>
 <body>
 
@@ -64,6 +65,9 @@
                     </div>
                 {% endif %}
 
+                {% block contentTitle %}
+                    <h1>Bienvenue sur notre site internet!</h1>
+                {% endblock %}
 
                 {% block content %}{% endblock %}
 

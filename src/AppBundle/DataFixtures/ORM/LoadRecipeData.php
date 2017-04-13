@@ -11,6 +11,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager){
+
         $content1 = "Faire une pâte à tarte ou en acheter une toute faite (brisée ou feuilletée) et foncer un plat beurré ou huilé.
                         Couvrir le fond de la pâte d'une couche de moutarde. Émietter le thon et l'étaler sur la moutarde. Recouvrir le thon de gruyère râpé.
                         Couper les tomates en rondelles et les disposer côte à côte sur la couche de gruyère pour recouvrir celui-ci.
