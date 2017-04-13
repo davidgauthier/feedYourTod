@@ -10,4 +10,26 @@ namespace AppBundle\Repository;
  */
 class menuRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getListMenu()
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->select('m')
+            ->orderBy('m.name')
+            ->getQuery()
+            ->getResult();
+
+        return $qb;
+    }
+
+    public function getMenuById($id)
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->select('m')
+            ->andWhere('m.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+
+        return $qb;
+    }
 }

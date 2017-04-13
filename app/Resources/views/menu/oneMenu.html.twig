@@ -1,0 +1,16 @@
+{% extends "::layout.html.twig" %}
+
+{% block title 'details du menu' %}
+{% block header %}
+    <h1>Menu number {{ menu.id }}</h1>
+{% endblock %}
+
+{% block content %}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Le nom du menu : <b>{{ menu.name }}</b>
+        </div>
+    </div>
+
+{% endblock %}
