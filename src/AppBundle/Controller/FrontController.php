@@ -15,10 +15,11 @@ class FrontController extends Controller
     {
 
         // ici récupérer nos entités, formulaires, etc.
+        $mm = $this->container->get('app.menu_manager');
 
 
         return $this->render(':front:index.html.twig', [
-                //'listCategories' => $cm->getAll(),
+                 'listMenus' => $mm->getAll(),
                 //'listCategories' => array(),
             ]
         );
