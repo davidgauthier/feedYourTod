@@ -16,7 +16,7 @@ class RecipeAdmin extends AbstractAdmin
         $formMapper->add('recipeType');
         $formMapper->add('photoRecipe');
         $formMapper->add('season');
-        $formMapper->add('cantent');
+        $formMapper->add('content');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -26,7 +26,7 @@ class RecipeAdmin extends AbstractAdmin
         $datagridMapper->add('recipeType');
         $datagridMapper->add('photoRecipe');
         $datagridMapper->add('season');
-        $datagridMapper->add('cantent');
+        $datagridMapper->add('content');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -36,6 +36,6 @@ class RecipeAdmin extends AbstractAdmin
         $listMapper->add('recipeType');
         $listMapper->add('photoRecipe');
         $listMapper->add('season');
-        $listMapper->add('cantent');
+        $listMapper->add('content');
     }
 }
