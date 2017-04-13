@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class RecipeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getRecipe($id)
+    {
+        return $this->createQueryBuilder('i')
+            ->select('i')
+            ->andWhere('i.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }
