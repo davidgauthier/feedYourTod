@@ -49,4 +49,11 @@ class MenuManager
         return $this->entityManager->getRepository(Menu::class)->getMenuById($id);
     }
 
+    public function getAll(){
+
+        $menuRep = $this->entityManager->getRepository(Menu::class);
+
+        return $menuRep->findAll();
+    }
+
 }
