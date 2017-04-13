@@ -23,13 +23,14 @@ class menuRepository extends \Doctrine\ORM\EntityRepository
 
     public function getMenuById($id)
     {
-        $qb = $this->createQueryBuilder('m')
-            ->select('m')
+        $q = $this->createQueryBuilder('m')
             ->andWhere('m.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
             ->getOneOrNullResult();
-
-        return $qb;
+        return $q;
     }
+
+
+
 }

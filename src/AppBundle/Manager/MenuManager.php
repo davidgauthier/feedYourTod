@@ -46,6 +46,7 @@ class MenuManager
 
     public function getMenuById($id)
     {
+//        return $this->entityManager->getRepository(Menu::class)->findOneById($id);
         return $this->entityManager->getRepository(Menu::class)->getMenuById($id);
     }
 

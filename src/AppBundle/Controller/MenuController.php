@@ -28,17 +28,17 @@ class MenuController extends Controller
      */
     public function menuByIdAction($id)
     {
-        $menuIdManager = $this->container->get("app.menu_manager");
-        $menu = $menuIdManager->getMenuById($id);
+        $menuManager = $this->container->get("app.menu_manager");
+        $menu = $menuManager->getMenuById($id);
 
         if($menu == null)
         {
             throw new NotFoundHttpException("Le menu recherché n'existe pas");
-
-        }else{
-            return $this->render(':menu:oneMenu.html.twig',[
-                'menu' => $menu,
-            ]);
         }
+
+        return $this->render(':menu:oneMenu.html.twig',[
+            'menu' => $menu,
+        ]);
+
     }
 }
