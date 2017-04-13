@@ -125,6 +125,12 @@ class Menu
     {
         $this->recipes[] = $recipe;
 
+        // On lie la recette au menu
+        //$recipe->addMenu($this);
+        // (contrainte : on doit ajouter des recettes aux menus,
+        // mais on ne peux ajouter de menu aux recettes..)
+
+
         return $this;
     }
 
