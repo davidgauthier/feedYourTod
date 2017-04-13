@@ -12,3 +12,4 @@ services:
 
 imports:
     - { resource: '@AppBundle/Resources/config/services.yml' }
+    - { resource: '@AppBundle/Resources/config/admin_services.yml' }

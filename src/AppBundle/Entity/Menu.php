@@ -91,4 +91,13 @@ class Menu
     {
         return $this->season;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

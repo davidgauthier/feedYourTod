@@ -61,4 +61,13 @@ class RecipeType
     {
         return $this->wording;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getWording();
+    }
 }

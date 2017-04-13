@@ -186,4 +186,13 @@ class Recipe
     {
         return $this->cantent;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

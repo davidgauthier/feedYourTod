@@ -12,12 +12,12 @@ class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInte
     public function load(ObjectManager $manager)
     {
         $childFoodTagsData = [
-            'carrot',
-            'banana',
-            'shrimp',
-            'nuts',
-            'red beans',
-            'apple',
+            'adore',
+            'aime',
+            'n\'aime pas',
+            'est allergique',
+            'interdit par le médecin',
+            'n\'a jamais gouté',
         ];
 
         foreach ($childFoodTagsData as $i => $cft) {
