@@ -12,7 +12,7 @@ class RecipeController extends Controller
     /**
      * @Route("/recipe/{id}", name="app_recipe_detail")
      */
-    public function getRecipe($id)
+    public function getRecipeAction($id)
     {
         $recipe = $this->getDoctrine()->getRepository(Recipe::class)->getRecipe($id);
 
