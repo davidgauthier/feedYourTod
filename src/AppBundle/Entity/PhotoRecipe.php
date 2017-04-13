@@ -92,4 +92,13 @@ class PhotoRecipe
     {
         return $this->legend;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return "".$this->getId();
+    }
 }

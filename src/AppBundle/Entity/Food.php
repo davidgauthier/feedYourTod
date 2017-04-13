@@ -91,4 +91,13 @@ class Food
     {
         return $this->foodType;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getWording();
+    }
 }

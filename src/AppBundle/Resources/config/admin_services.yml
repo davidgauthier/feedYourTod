@@ -1,0 +1,64 @@
+# src/AppBundle/Resources/config/admin_services.yml
+services:
+
+    admin.food_type:
+        class: AppBundle\Admin\FoodTypeAdmin
+        arguments: [~, AppBundle\Entity\FoodType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: FoodType }
+
+    admin.food:
+        class: AppBundle\Admin\FoodAdmin
+        arguments: [~, AppBundle\Entity\Food, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Food }
+
+    admin.child:
+        class: AppBundle\Admin\ChildAdmin
+        arguments: [~, AppBundle\Entity\Child, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Child }
+
+
+    admin.child_food_tag:
+        class: AppBundle\Admin\ChildFoodTagAdmin
+        arguments: [~, AppBundle\Entity\ChildFoodTag, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: ChildFoodTag }
+
+    admin.season:
+        class: AppBundle\Admin\SeasonAdmin
+        arguments: [~, AppBundle\Entity\Season, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Season }
+
+
+    admin.menu:
+        class: AppBundle\Admin\MenuAdmin
+        arguments: [~, AppBundle\Entity\Menu, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Menu }
+
+
+
+    admin.recipe_type:
+        class: AppBundle\Admin\RecipeTypeAdmin
+        arguments: [~, AppBundle\Entity\RecipeType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: RecipeType }
+
+
+
+    admin.photo_recipe:
+        class: AppBundle\Admin\PhotoRecipeAdmin
+        arguments: [~, AppBundle\Entity\PhotoRecipe, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: PhotoRecipe }
+
+
+    admin.recipe:
+        class: AppBundle\Admin\RecipeAdmin
+        arguments: [~, AppBundle\Entity\Recipe, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Recipe }
+

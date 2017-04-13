@@ -186,4 +186,13 @@ class Recipe
     {
         return $this->content;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
