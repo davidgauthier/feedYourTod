@@ -15,5 +15,7 @@ parameters:
     mailer_user: admin@feedyourtod.com
     mailer_password: ~
 
+    photo_recipe_directory: '%kernel.root_dir%/../web/uploads/photoRecipes'
+
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
