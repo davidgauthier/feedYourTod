@@ -14,7 +14,6 @@ class RecipeAdmin extends AbstractAdmin
     {
         $formMapper->add('name', 'text');
         $formMapper->add('recipeType');
-        $formMapper->add('photoRecipe');
         $formMapper->add('season');
         $formMapper->add('content');
     }
@@ -24,7 +23,6 @@ class RecipeAdmin extends AbstractAdmin
         $datagridMapper->add('id');
         $datagridMapper->add('name');
         $datagridMapper->add('recipeType');
-        $datagridMapper->add('photoRecipe');
         $datagridMapper->add('season');
         $datagridMapper->add('content');
     }
@@ -34,7 +32,6 @@ class RecipeAdmin extends AbstractAdmin
         $listMapper->addIdentifier('id');
         $listMapper->add('name');
         $listMapper->add('recipeType');
-        $listMapper->add('photoRecipe');
         $listMapper->add('season');
         $listMapper->add('content');
     }
