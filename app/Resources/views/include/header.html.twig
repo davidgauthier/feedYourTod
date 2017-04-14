@@ -5,11 +5,20 @@
             <div class="row">
                 <div class="col-md-6">
                     <ul class="topleft-info">
-                        <li><i class="fa fa-phone"></i> +62 088 999 123</li>
+                        {#<li><i class="fa fa-phone"></i> +62 088 999 123</li>#}
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li>
+                                <i class="fa fa-user" aria-hidden="true"></i> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                            </li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li>
+                                    <a href="{{ path('sonata_admin_dashboard') }}"target="_blank">
+                                        <i class="fa fa-external-link" aria-hidden="true"></i> Admin Dashboard
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
                     </ul>
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <p>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</p>
-                    {% endif %}
                 </div>
                 <div class="col-md-6">
                     <div id="sb-search" class="sb-search">

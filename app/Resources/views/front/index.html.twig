@@ -15,24 +15,46 @@
     <div class="row">
 
         <div class="col-lg-8">
-            <h3>Single right sidebar page title</h3>
-            <img src="{{ asset('public/Sailor/img/dummies/dummy-1200.jpg') }}" alt="" class="img-responsive" />
 
-            <p>
-                Lorem ipsum dolor sit amet, no vix sint solet, et ius utinam deseruisse intellegam, ne pro modus vitae tation. Vis ex soluta tritani. Ne pro esse facete expetendis, laudem eirmod minimum nec in. Est quidam urbanitas gloriatur no, eu unum suscipit disputando eam, nam bonorum facilisi ut.
-                Putent efficiantur et pri, eu primis laoreet eum, ut malis everti mel.
+            <div style="border-bottom: #e9e9e9 1px solid;padding-bottom: 9px;">
+                <h3>Recette/Menu aléatoire en fonction de la saison</h3>
 
-            </p>
-            <p>
-                Ne utroque prodesset mei, mea no aliquam utroque. Has ne tation argumentum. Vis ex insolens reformidans, mea semper impetus argumentum ad. Sea erroribus sadipscing in. Mel cu dolore admodum accumsan, mea timeam perpetua disputationi ne, urbanitas prodesset ex vel.
+                <p>
+                    Affichages photos ? noms recettes ? description .. ?
+                </p>
 
-                Ei nostro molestiae moderatius cum. Adhuc persius dolores ut sed, quis vidisse vituperata duo in. Quot signiferumque eos cu, ad dissentiet theophrastus has, eum tota utroque nusquam te. Ei elit eirmod delicata pri. Solet affert theophrastus pro ei, ius enim homero deleniti te.
-            </p>
-            <p>
-                Vel quot idque philosophia ex. In possit ceteros accumsan vel, modus impedit recusabo ne eam, ne mel wisi delenit repudiandae. Ei eum oratio patrioque instructior, cibo melius tacimates vis cu. Aeque voluptatum sit ut, pri reque labitur explicari ad, docendi democritum vix no.
+                <p>
+                    Lorem ipsum dolor sit amet, no vix sint solet, et ius utinam deseruisse intellegam, ne pro modus vitae tation. Vis ex soluta tritani. Ne pro esse facete expetendis, laudem eirmod minimum nec in. Est quidam urbanitas gloriatur no, eu unum suscipit disputando eam, nam bonorum facilisi ut.
+                    Putent efficiantur et pri, eu primis laoreet eum, ut malis everti mel.
+                </p>
 
-                Quo ne adhuc semper vituperata, quo ex vide justo nusquam, pro impedit philosophia an. Ad sed veri choro utroque, aeque definiebas an sea. Populo conceptam te qui. Pri eu doming urbanitas, eu omnes qualisque splendide mei. Has admodum honestatis no, cu sonet nullam vim.
-            </p>
+                <p>
+                    Ne utroque prodesset mei, mea no aliquam utroque. Has ne tation argumentum. Vis ex insolens reformidans, mea semper impetus argumentum ad. Sea erroribus sadipscing in. Mel cu dolore admodum accumsan, mea timeam perpetua disputationi ne, urbanitas prodesset ex vel.
+                    Ei nostro molestiae moderatius cum. Adhuc persius dolores ut sed, quis vidisse vituperata duo in. Quot signiferumque eos cu, ad dissentiet theophrastus has, eum tota utroque nusquam te. Ei elit eirmod delicata pri. Solet affert theophrastus pro ei, ius enim homero deleniti te.
+                </p>
+
+
+            </div>
+
+            <div>
+                <h3>Feed Your Tod - Notre ambition :</h3>
+
+                {#<img src="{{ asset('public/Sailor/img/dummies/dummy-1200.jpg') }}" alt="" class="img-responsive" />#}
+                <img src="{{ asset('public/images/index_baby_food.jpg') }}" alt="baby and food" class="img-responsive" />
+
+                <p>
+                    Nous Faisons tout pour que ........ <strong>Lorem ipsum dolor sit amet,</strong> no vix sint solet, et ius utinam deseruisse intellegam, ne pro modus vitae tation. Vis ex soluta tritani. Ne pro esse facete expetendis, laudem eirmod minimum nec in. Est quidam urbanitas gloriatur no, eu unum suscipit disputando eam, nam bonorum facilisi ut.
+                    Putent efficiantur et pri, eu primis laoreet eum, ut malis everti mel.
+                </p>
+
+                <p>
+                    Ne utroque prodesset mei, mea no aliquam utroque. Has ne tation argumentum. Vis ex insolens reformidans, mea semper impetus argumentum ad. Sea erroribus sadipscing in. Mel cu dolore admodum accumsan, mea timeam perpetua disputationi ne, urbanitas prodesset ex vel.
+                    Ei nostro molestiae moderatius cum. Adhuc persius dolores ut sed, quis vidisse vituperata duo in. Quot signiferumque eos cu, ad dissentiet theophrastus has, eum tota utroque nusquam te. Ei elit eirmod delicata pri. Solet affert theophrastus pro ei, ius enim homero deleniti te.
+                </p>
+
+
+            </div>
+
 
         </div>
 
@@ -47,6 +69,49 @@
                     {#</form>#}
                 {#</div>#}
                 <div class="widget">
+                    <h5 class="widgetheading">Menus aléatoires</h5>
+                    <ul class="recent">
+                        {% if listMenus|length > 0 %}
+                            {% for menu in listMenus %}
+                                <li>
+                                    <a href="{{ path('app_menu_id', {'id': menu.id}) }}">
+                                        <img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb1.jpg') }}" class="pull-left" alt="" />
+                                    </a>
+                                    <h6><a href="{{ path('app_menu_id', {'id': menu.id}) }}">{{ menu.name }}</a></h6>
+                                    <p>
+                                        Mazim alienum appellantur eu cu ullum officiis pro pri
+                                    </p>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        {#<li>#}
+                            {#<a href="#"><img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb2.jpg') }}" class="pull-left" alt="" /></a>#}
+                            {#<h6><a href="#">Maiorum ponderum eum</a></h6>#}
+                            {#<p>#}
+                                {#Mazim alienum appellantur eu cu ullum officiis pro pri#}
+                            {#</p>#}
+                        {#</li>#}
+                        {#<li>#}
+                            {#<a href="#"><img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb3.jpg') }}" class="pull-left" alt="" /></a>#}
+                            {#<h6><a href="#">Et mei iusto dolorum</a></h6>#}
+                            {#<p>#}
+                                {#Mazim alienum appellantur eu cu ullum officiis pro pri#}
+                            {#</p>#}
+                        {#</li>#}
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h5 class="widgetheading">Ingrédients populaires</h5>
+                    <ul class="tags">
+                        <li><a href="#">Web design</a></li>
+                        <li><a href="#">Trends</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Internet</a></li>
+                        <li><a href="#">Tutorial</a></li>
+                        <li><a href="#">Development</a></li>
+                    </ul>
+                </div>
+                <div class="widget">
                     <h5 class="widgetheading">Des menus ..</h5>
                     <ul class="cat">
                         {% if listMenus|length > 0 %}
@@ -59,43 +124,6 @@
                         {#<li><i class="fa fa-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>#}
                         {#<li><i class="fa fa-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>#}
                         {#<li><i class="fa fa-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>#}
-                    </ul>
-                </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Dernières recettes</h5>
-                    <ul class="recent">
-                        <li>
-                            <img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb1.jpg') }}" class="pull-left" alt="" />
-                            <h6><a href="#">Lorem ipsum dolor sit</a></h6>
-                            <p>
-                                Mazim alienum appellantur eu cu ullum officiis pro pri
-                            </p>
-                        </li>
-                        <li>
-                            <a href="#"><img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb2.jpg') }}" class="pull-left" alt="" /></a>
-                            <h6><a href="#">Maiorum ponderum eum</a></h6>
-                            <p>
-                                Mazim alienum appellantur eu cu ullum officiis pro pri
-                            </p>
-                        </li>
-                        <li>
-                            <a href="#"><img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb3.jpg') }}" class="pull-left" alt="" /></a>
-                            <h6><a href="#">Et mei iusto dolorum</a></h6>
-                            <p>
-                                Mazim alienum appellantur eu cu ullum officiis pro pri
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Ingrédients populaires</h5>
-                    <ul class="tags">
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Trends</a></li>
-                        <li><a href="#">Technology</a></li>
-                        <li><a href="#">Internet</a></li>
-                        <li><a href="#">Tutorial</a></li>
-                        <li><a href="#">Development</a></li>
                     </ul>
                 </div>
 
