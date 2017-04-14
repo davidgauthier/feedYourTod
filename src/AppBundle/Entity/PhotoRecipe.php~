@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PhotoRecipe
+ * PhotoRecipe.
  *
  * @ORM\Table(name="photo_recipe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PhotoRecipeRepository")
@@ -35,9 +35,14 @@ class PhotoRecipe
      */
     private $legend;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Recipe", cascade={"persist"}, inversedBy="photoRecipes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $recipe;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -47,7 +52,7 @@ class PhotoRecipe
     }
 
     /**
-     * Set src
+     * Set src.
      *
      * @param string $src
      *
@@ -61,7 +66,7 @@ class PhotoRecipe
     }
 
     /**
-     * Get src
+     * Get src.
      *
      * @return string
      */
@@ -71,7 +76,7 @@ class PhotoRecipe
     }
 
     /**
-     * Set legend
+     * Set legend.
      *
      * @param string $legend
      *
@@ -85,7 +90,7 @@ class PhotoRecipe
     }
 
     /**
-     * Get legend
+     * Get legend.
      *
      * @return string
      */
@@ -93,5 +98,13 @@ class PhotoRecipe
     {
         return $this->legend;
     }
-}
 
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return "".$this->getId();
+    }
+}

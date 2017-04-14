@@ -37,13 +37,6 @@ class Recipe
     private $recipeType;
 
     /**
-     * @var PhotoRecipe int
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PhotoRecipe")
-     */
-    private $photoRecipe;
-
-    /**
      * @var Season int
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Season")
@@ -61,6 +54,12 @@ class Recipe
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Menu", cascade={"persist"}, inversedBy="recipes")
      */
     private $menus;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PhotoRecipe", cascade={"remove"}, mappedBy="recipe")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $photoRecipes;
 
     /**
      * Get id.
@@ -118,30 +117,6 @@ class Recipe
     public function getRecipeType()
     {
         return $this->recipeType;
-    }
-
-    /**
-     * Set photoRecipe.
-     *
-     * @param \AppBundle\Entity\PhotoRecipe $photoRecipe
-     *
-     * @return Recipe
-     */
-    public function setPhotoRecipe(\AppBundle\Entity\PhotoRecipe $photoRecipe = null)
-    {
-        $this->photoRecipe = $photoRecipe;
-
-        return $this;
-    }
-
-    /**
-     * Get photoRecipe.
-     *
-     * @return \AppBundle\Entity\PhotoRecipe
-     */
-    public function getPhotoRecipe()
-    {
-        return $this->photoRecipe;
     }
 
     /**
@@ -240,5 +215,39 @@ class Recipe
     public function getMenus()
     {
         return $this->menus;
+    }
+
+    /**
+     * Add photoRecipe
+     *
+     * @param \AppBundle\Entity\PhotoRecipe $photoRecipe
+     *
+     * @return Recipe
+     */
+    public function addPhotoRecipe(\AppBundle\Entity\PhotoRecipe $photoRecipe)
+    {
+        $this->photoRecipes[] = $photoRecipe;
+
+        return $this;
+    }
+
+    /**
+     * Remove photoRecipe
+     *
+     * @param \AppBundle\Entity\PhotoRecipe $photoRecipe
+     */
+    public function removePhotoRecipe(\AppBundle\Entity\PhotoRecipe $photoRecipe)
+    {
+        $this->photoRecipes->removeElement($photoRecipe);
+    }
+
+    /**
+     * Get photoRecipes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhotoRecipes()
+    {
+        return $this->photoRecipes;
     }
 }

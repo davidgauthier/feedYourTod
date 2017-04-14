@@ -10,3 +10,10 @@ services:
         class: AppBundle\Manager\MenuManager
         arguments:
             - "@=service('doctrine').getManager()"
+
+    app.doctrine.listener.photo_recipe:
+        class: AppBundle\Doctrine\Listener\PhotoRecipeListener
+        arguments:
+            - "%photo_recipe_directory%"
+        tags:
+            - { name: doctrine.event_listener, event: preRemove, connetion: default}

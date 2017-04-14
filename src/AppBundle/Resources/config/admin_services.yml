@@ -51,7 +51,10 @@ services:
 
     admin.photo_recipe:
         class: AppBundle\Admin\PhotoRecipeAdmin
-        arguments: [~, AppBundle\Entity\PhotoRecipe, ~]
+        arguments:
+            - ~
+            - AppBundle\Entity\PhotoRecipe
+            - ~
         tags:
             - { name: sonata.admin, manager_type: orm, label: PhotoRecipe }
 

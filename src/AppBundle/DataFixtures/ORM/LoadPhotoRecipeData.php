@@ -17,18 +17,22 @@ class LoadPhotoRecipeData extends AbstractFixture implements OrderedFixtureInter
             array(
                 'src'       => 'rien',
                 'legend'    => 'rien',
+                'recipe'    => $this->getReference('recipe-1'),
             ),
             array(
                 'src'       => 'rien',
                 'legend'    => 'rien',
+                'recipe'    => $this->getReference('recipe-1'),
             ),
             array(
                 'src'       => 'rien',
                 'legend'    => 'rien',
+                'recipe'    => $this->getReference('recipe-2'),
             ),
             array(
                 'src'       => 'rien',
                 'legend'    => 'rien',
+                'recipe'    => $this->getReference('recipe-3'),
             ),
         );
 
@@ -36,6 +40,7 @@ class LoadPhotoRecipeData extends AbstractFixture implements OrderedFixtureInter
             $photoRecipe = new PhotoRecipe();
 
             $photoRecipe->setSrc($pr['src']);
+            $photoRecipe->setRecipe($pr['recipe']);
             $photoRecipe->setLegend($pr['legend']);
 
             $manager->persist($photoRecipe);
@@ -46,7 +51,7 @@ class LoadPhotoRecipeData extends AbstractFixture implements OrderedFixtureInter
 
     public function getOrder()
     {
-        return 100;
+        return 110;
     }
 
 }

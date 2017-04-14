@@ -41,28 +41,24 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
             array(
                 'name'          => 'recette 1',
                 'recipeType'    => $this->getReference('recipeType-0'),
-                'photoRecipe'   => $this->getReference('photoRecipe-0'),
                 'season'        => $this->getReference('season-0'),
                 'content'       => $content1,
             ),
             array(
                 'name'          => 'recette 2',
                 'recipeType'    => $this->getReference('recipeType-1'),
-                'photoRecipe'   => $this->getReference('photoRecipe-1'),
                 'season'        => $this->getReference('season-1'),
                 'content'       => $content2,
             ),
             array(
                 'name'          => 'recette 3',
                 'recipeType'    => $this->getReference('recipeType-2'),
-                'photoRecipe'   => $this->getReference('photoRecipe-2'),
                 'season'        => $this->getReference('season-2'),
                 'content'       => $content3,
             ),
             array(
                 'name'          => 'recette 4',
                 'recipeType'    => $this->getReference('recipeType-0'),
-                'photoRecipe'   => $this->getReference('photoRecipe-3'),
                 'season'        => $this->getReference('season-3'),
                 'content'       => $content4,
             ),
@@ -73,7 +69,6 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
 
             $recipe->setName($r['name']);
             $recipe->setRecipeType($r['recipeType']);
-            $recipe->setPhotoRecipe($r['photoRecipe']);
             $recipe->setSeason($r['season']);
             $recipe->setContent($r['content']);
 
@@ -85,7 +80,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 110;
+        return 100;
     }
 
 }
