@@ -11,7 +11,7 @@
     <ul>
         {% for child in children %}
             <li>
-                {{ child.firstName }}
+                {{ child.firstName }} - <a href="{{ path('app_new_childfood', {id:child.id}) }}">Add tag</a><br/>
             </li>
         {% endfor %}
     </ul>

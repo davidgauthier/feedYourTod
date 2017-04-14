@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Child.
@@ -12,6 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Child
 {
+    const STATUS_OPENED = 'opened';
+    const STATUS_CLOSED = 'closed';
+
     /**
      * @var int
      *
@@ -25,6 +29,7 @@ class Child
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $firstName;
 
@@ -32,6 +37,9 @@ class Child
      * @var \DateTime
      *
      * @ORM\Column(name="birthDate", type="datetime")
+     * @Assert\NotBlank
+     * @Assert\DateTime
+     *
      */
     private $birthDate;
 
