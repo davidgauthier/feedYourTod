@@ -1,0 +1,19 @@
+{%  extends "::layout.html.twig" %}
+    {%  block title 'New child' %}
+
+    {%  block contentTitle %}
+        <h1>Add your children</h1>
+    {%  endblock %}
+
+    {% block content %}
+
+        {{ form_start(form, {'attr': {'class': 'form-horizontal' }}) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.firstName) }}
+        {{ form_row(form.birthDate) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-theme btn-add" type="submit" value="Ajouter" />
+        {{ form_end(form) }}
+
+
+    {% endblock %}
