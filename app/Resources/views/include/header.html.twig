@@ -51,14 +51,14 @@
                     <li {% if app.request.get('_route') == 'app_homepage' %}class="active"{% endif %}>
                         <a href="{{ path('app_homepage') }}">Home</a>
                     </li>
-                    <li {% if app.request.get('_route') == 'app_menu' %}class="active"{% endif %}>
-                        <a href="{{ path('app_menu') }}">Menus</a>
+                    <li {% if app.request.get('_route') == 'app_menus' %}class="active"{% endif %}>
+                        <a href="{{ path('app_menus') }}">Menus</a>
                     </li>
-                    <li>
-                        <a href="#">Recipes</a>
+                    <li {% if app.request.get('_route') == 'app_recipes' %}class="active"{% endif %}>
+                        <a href="{{ path('app_recipes') }}">Recipes</a>
                     </li>
-                    <li>
-                        <a href="#">Contact</a>
+                    <li {% if app.request.get('_route') == 'app_contact' %}class="active"{% endif %}>
+                        <a href="{{ path('app_contact') }}">Contact</a>
                     </li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>

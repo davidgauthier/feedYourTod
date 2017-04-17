@@ -10,7 +10,7 @@ namespace AppBundle\Repository;
  */
 class menuRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getListMenu()
+    public function getListMenus()
     {
         $qb = $this->createQueryBuilder('m')
             ->select('m')

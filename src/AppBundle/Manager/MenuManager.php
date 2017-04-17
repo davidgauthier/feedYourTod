@@ -1,60 +1,46 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Utilisateur
- * Date: 13/04/2017
- * Time: 10:00
- */
 
 namespace AppBundle\Manager;
 
 
 use AppBundle\Entity\Menu;
-use Doctrine\ORM\EntityManagerInterface;
 
-class MenuManager
+class MenuManager extends AbstractDoctrineManager
 {
-    private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager)
+
+
+    public function getListMenus()
     {
-        $this->entityManager = $entityManager;
+        return $this->getRepository()->getListMenus();
     }
 
+    /**
+     * @return Menu
+     */
+    public function getMenuById($id)
+    {
+//        return $this->entityManager->getRepository(Menu::class)->findOneById($id);
+        return $this->getRepository()->getMenuById($id);
+    }
+
+
+
+
+    /**
+     * @return Menu
+     */
     public function create()
     {
         return new Menu();
     }
 
-    public function save($menu)
+    /**
+     * @return \AppBundle\Repository\MenuRepository
+     */
+    protected function getRepository()
     {
-        if(null === $menu->getId())
-        {
-            $this->entityManager->persist($menu);
-        }
-
-        $this->entityManager->flush();
-    }
-
-
-    //MENU METHODS
-
-    public function getListMenu()
-    {
-        return $this->entityManager->getRepository(Menu::class)->getListMenu();
-    }
-
-    public function getMenuById($id)
-    {
-//        return $this->entityManager->getRepository(Menu::class)->findOneById($id);
-        return $this->entityManager->getRepository(Menu::class)->getMenuById($id);
-    }
-
-    public function getAll(){
-
-        $menuRep = $this->entityManager->getRepository(Menu::class);
-
-        return $menuRep->findAll();
+        return $this->entityManager->getRepository(Menu::class);
     }
 
 }

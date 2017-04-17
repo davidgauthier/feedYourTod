@@ -1,0 +1,195 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Menus
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('public/Sailor/plugins/flexslider/flexslider.css') }}" rel="stylesheet" media="screen" />
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="row">
+
+        <div class="col-lg-8">
+
+            {% for menu in menus %}
+
+                <article>
+                    <div class="post-slider">
+                        <div class="post-heading">
+                            <h3><a href="{{ path('app_menu', {'id': menu.id}) }}">{{ menu.name }}</a></h3>
+                        </div>
+                        {% if menu.recipes|length > 0 %}
+
+                            <!-- start flexslider -->
+                            <div id="post-slider" class="postslider flexslider">
+                                <ul class="slides">
+                                    {% for recipe in menu.recipes %}
+                                        {% if recipe.photoRecipes|length > 0 %}
+                                            {% for photoRecipe in recipe.photoRecipes %}
+                                                <li>
+                                                    <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
+                                                         class="img-responsive" >
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {#<li>#}
+                                    {#<img src="img/dummies/blog/img2.jpg" alt="" />#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                    {#<img src="img/dummies/blog/img3.jpg" alt="" />#}
+                                    {#</li>#}
+                                </ul>
+                            </div>
+                            <!-- end flexslider -->
+                        {% endif %}
+                    </div>
+                    <p>
+                        Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.
+                    </p>
+                    <div class="bottom-article">
+                        <ul class="meta-post">
+                            <li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>
+                            <li><i class="fa fa-user"></i><a href="#"> Admin</a></li>
+                            <li><i class="fa fa-folder-open"></i><a href="#"> Blog</a></li>
+                            <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
+                        </ul>
+                        <a href="{{ path('app_menu', {'id': menu.id}) }}" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </article>
+
+            {% else %}
+                <h3>Aucun menu</h3>
+            {% endfor %}
+
+
+
+            {#<article>#}
+                {#<div class="post-slider">#}
+                    {#<div class="post-heading">#}
+                        {#<h3><a href="#">This is an example of slider post format</a></h3>#}
+                    {#</div>#}
+                    {#<!-- start flexslider -->#}
+                    {#<div id="post-slider" class="postslider flexslider">#}
+                        {#<ul class="slides">#}
+                            {#<li>#}
+                                {#<img src="img/dummies/blog/img1.jpg" alt="" />#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<img src="img/dummies/blog/img2.jpg" alt="" />#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<img src="img/dummies/blog/img3.jpg" alt="" />#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                    {#<!-- end flexslider -->#}
+                {#</div>#}
+                {#<p>#}
+                    {#Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.#}
+                {#</p>#}
+                {#<div class="bottom-article">#}
+                    {#<ul class="meta-post">#}
+                        {#<li><i class="fa fa-calendar"></i><a href="#"> May 17, 2014</a></li>#}
+                        {#<li><i class="fa fa-user"></i><a href="#"> Admin</a></li>#}
+                        {#<li><i class="fa fa-folder-open"></i><a href="#"> Blog</a></li>#}
+                        {#<li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>#}
+                    {#</ul>#}
+                    {#<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>#}
+                {#</div>#}
+            {#</article>#}
+
+
+
+            <div id="pagination">
+                <span class="all">Page 1 of 3</span>
+                <span class="current">1</span>
+                <a href="#" class="inactive">2</a>
+                <a href="#" class="inactive">3</a>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="col-lg-4">
+            <aside class="right-sidebar">
+                <div class="widget">
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="s" placeholder="Search..">
+                        </div>
+                    </form>
+                </div>
+                <div class="widget">
+                    <h5 class="widgetheading">Categories</h5>
+                    <ul class="cat">
+                        <li><i class="fa fa-angle-right"></i><a href="#">Web design</a><span> (20)</span></li>
+                        <li><i class="fa fa-angle-right"></i><a href="#">Online business</a><span> (11)</span></li>
+                        <li><i class="fa fa-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>
+                        <li><i class="fa fa-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>
+                        <li><i class="fa fa-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h5 class="widgetheading">Latest posts</h5>
+                    <ul class="recent">
+                        <li>
+                            <img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
+                            <h6><a href="#">Lorem ipsum dolor sit</a></h6>
+                            <p>
+                                Mazim alienum appellantur eu cu ullum officiis pro pri
+                            </p>
+                        </li>
+                        <li>
+                            <a href="#"><img src="img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
+                            <h6><a href="#">Maiorum ponderum eum</a></h6>
+                            <p>
+                                Mazim alienum appellantur eu cu ullum officiis pro pri
+                            </p>
+                        </li>
+                        <li>
+                            <a href="#"><img src="img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
+                            <h6><a href="#">Et mei iusto dolorum</a></h6>
+                            <p>
+                                Mazim alienum appellantur eu cu ullum officiis pro pri
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h5 class="widgetheading">Popular tags</h5>
+                    <ul class="tags">
+                        <li><a href="#">Web design</a></li>
+                        <li><a href="#">Trends</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Internet</a></li>
+                        <li><a href="#">Tutorial</a></li>
+                        <li><a href="#">Development</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('public/Sailor/plugins/flexslider/jquery.flexslider-min.js') }}"></script>
+    <script src="{{ asset('public/Sailor/plugins/flexslider/flexslider.config.js') }}"></script>
+{% endblock %}
+
+
+
+

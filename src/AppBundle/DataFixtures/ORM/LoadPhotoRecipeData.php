@@ -16,23 +16,23 @@ class LoadPhotoRecipeData extends AbstractFixture implements OrderedFixtureInter
 
         $photoRecipes = array(
             array(
-                'src'       => '%kernel.root_dir%/../web/uploads/photoRecipesFixture/Chrysanthemum.jpg',
-                'legend'    => 'rien',
+                'src'       => '../photoRecipesFixture/Chrysanthemum.jpg',
+                'legend'    => 'Chrysanthemum',
                 'recipe'    => $this->getReference('recipe-1'),
             ),
             array(
-                'src'       => '%kernel.root_dir%/../web/uploads/photoRecipesFixture/Desert.jpg',
-                'legend'    => 'rien',
+                'src'       => '../photoRecipesFixture/Desert.jpg',
+                'legend'    => 'Desert',
                 'recipe'    => $this->getReference('recipe-1'),
             ),
             array(
-                'src'       => '%kernel.root_dir%/../web/uploads/photoRecipesFixture/Hydrangeas.jpg',
-                'legend'    => 'rien',
+                'src'       => '../photoRecipesFixture/Hydrangeas.jpg',
+                'legend'    => 'Hydrangeas',
                 'recipe'    => $this->getReference('recipe-2'),
             ),
             array(
-                'src'       => '%kernel.root_dir%/../web/uploads/photoRecipesFixture/Jellyfish.jpg',
-                'legend'    => 'rien',
+                'src'       => '../photoRecipesFixture/Jellyfish.jpg',
+                'legend'    => 'Jellyfish',
                 'recipe'    => $this->getReference('recipe-3'),
             ),
         );

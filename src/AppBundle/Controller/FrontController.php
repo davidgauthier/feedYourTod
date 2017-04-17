@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class FrontController extends Controller
 {
+
     /**
      * @Route("/", name="app_homepage", methods={"GET"})
      */
@@ -19,9 +20,98 @@ class FrontController extends Controller
 
 
         return $this->render(':front:index.html.twig', [
-                 'listMenus' => $mm->getAll(),
+                'listMenus' => $mm->getAll(),
                 //'listCategories' => array(),
             ]
         );
     }
+
+
+
+
+    /**
+     * @Route("/menus", name="app_menus")
+     */
+    public function menusAction()
+    {
+        $menuManager = $this->container->get("app.menu_manager");
+        $menus = $menuManager->getListMenus();
+
+        return $this->render(':front:menus.html.twig', [
+            'menus' => $menus,
+        ]);
+    }
+
+    /**
+     * @Route("/menu/{id}", name="app_menu")
+     */
+    public function menuAction($id)
+    {
+        $menuManager = $this->container->get("app.menu_manager");
+        $menu = $menuManager->getMenuById($id);
+
+        if($menu == null)
+        {
+            throw new NotFoundHttpException("Le menu recherché n'existe pas.");
+        }
+
+        return $this->render(':front:menu.html.twig',[
+            'menu' => $menu,
+        ]);
+
+    }
+
+
+
+
+
+    /**
+     * @Route("/recipes", name="app_recipes")
+     */
+    public function recipesAction()
+    {
+        $recipeManager = $this->container->get("app.recipe_manager");
+        $recipes = $recipeManager->getAll();
+
+        return $this->render(':front:recipes.html.twig', [
+            'recipes' => $recipes,
+        ]);
+    }
+
+    /**
+     * @Route("/recipe/{id}", name="app_recipe")
+     */
+    public function recipeAction($id)
+    {
+        $recipeManager = $this->container->get("app.recipe_manager");
+        $recipe = $recipeManager->getRecipeById($id);
+
+        if($recipe == null)
+        {
+            throw new NotFoundHttpException("La recette recherchée n'existe pas.");
+        }
+
+        return $this->render(':front:recipe.html.twig',[
+            'recipe' => $recipe,
+        ]);
+
+    }
+
+
+
+
+
+
+    /**
+     * @Route("/contact", name="app_contact", methods={"GET"})
+     */
+    public function contactAction(Request $request)
+    {
+        return $this->render(':front:contact.html.twig', [
+                //'listCategories' => array(),
+            ]
+        );
+    }
+
+
 }
