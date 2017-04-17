@@ -8,6 +8,10 @@
     {{ parent() }}
 {% endblock %}
 
+{% block breadcrumb %}
+    <li><a href="{{ path('app_homepage') }}"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+    <li class="active">Register</li>
+{% endblock %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
