@@ -29,25 +29,28 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         // Array of data for the fixture
         $usersData = array(
             array(
-                'username' => 'superman',
-                'email' => 'superman@user.sup',
-                'password' => 'sup',
+                'username'  => 'superman',
+                'email'     => 'superman@user.sup',
+                'password'  => 'sup',
+                'roles'     => array('ROLE_ADMIN'),
             ),
             array(
-                'username' => 'batman',
-                'email' => 'batman@user.bat',
-                'password' => 'bat',
+                'username'  => 'batman',
+                'email'     => 'batman@user.bat',
+                'password'  => 'bat',
+                'roles'     => array('ROLE_ADMIN'),
             ),
             array(
-                'username' => 'spiderman',
-                'email' => 'spiderman@user.spi',
-                'password' => 'spi',
+                'username'  => 'spiderman',
+                'email'     => 'spiderman@user.spi',
+                'password'  => 'spi',
+//                'roles'     => array(),
+                'roles'     => array('ROLE_USER'),
             ),
         );
 
         // Accessing the user manager service
         $userManager = $this->container->get('fos_user.user_manager');
-
 
         foreach ($usersData as $i => $userData)
         {
@@ -56,6 +59,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             $user->setEmail($userData['email']);
             $user->setPlainPassword($userData['password']);
             $user->setEnabled(true);
+            $user->setRoles($userData['roles']);
 
             $manager->persist($user);
             $this->addReference(sprintf('user-%s', $i), $user);
