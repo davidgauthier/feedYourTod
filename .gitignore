@@ -15,3 +15,5 @@
 /vendor/
 /web/bundles/
 .idea/
+web/uploads/photoRecipesFixture/
+web/uploads/photoRecipes/

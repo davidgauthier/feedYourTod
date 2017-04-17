@@ -9,18 +9,6 @@ use AppBundle\Entity\Recipe;
 
 class RecipeController extends Controller
 {
-    /**
-     * @Route("/recipe/{id}", name="app_recipe_detail")
-     */
-    public function getRecipeAction($id)
-    {
-        $recipe = $this->getDoctrine()->getRepository(Recipe::class)->getRecipe($id);
 
-        if(!$recipe instanceof Recipe){
-            throw $this->createNotFoundException(sprintf('This recipe does not exists', $id));
-        }
-
-        return $this->render(':recipe:recipe.html.twig', ['recipe' =>  $recipe,]);
-    }
 
 }

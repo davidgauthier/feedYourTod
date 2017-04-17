@@ -74,10 +74,10 @@
                         {% if listMenus|length > 0 %}
                             {% for menu in listMenus %}
                                 <li>
-                                    <a href="{{ path('app_menu_id', {'id': menu.id}) }}">
+                                    <a href="{{ path('app_menu', {'id': menu.id}) }}">
                                         <img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb1.jpg') }}" class="pull-left" alt="" />
                                     </a>
-                                    <h6><a href="{{ path('app_menu_id', {'id': menu.id}) }}">{{ menu.name }}</a></h6>
+                                    <h6><a href="{{ path('app_menu', {'id': menu.id}) }}">{{ menu.name }}</a></h6>
                                     <p>
                                         Mazim alienum appellantur eu cu ullum officiis pro pri
                                     </p>
@@ -116,7 +116,7 @@
                     <ul class="cat">
                         {% if listMenus|length > 0 %}
                             {% for menu in listMenus %}
-                                <li><i class="fa fa-angle-right"></i><a href="{{ path('app_menu_id', {'id': menu.id}) }}">{{ menu.name }}</a></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{ path('app_menu', {'id': menu.id}) }}">{{ menu.name }}</a></li>
                             {% endfor %}
                         {% endif %}
 

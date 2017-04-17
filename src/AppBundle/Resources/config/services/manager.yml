@@ -1,0 +1,25 @@
+services:
+
+    app.menu_manager:
+        class: AppBundle\Manager\MenuManager
+        arguments:
+            - "@=service('doctrine').getManager()"
+
+    app.recipe_manager:
+        class: AppBundle\Manager\RecipeManager
+        arguments:
+            - "@=service('doctrine').getManager()"
+
+    app.child.manager:
+        class: AppBundle\Manager\ChildManager
+        arguments:
+            - "@=service('doctrine').getManager()"
+
+    app.childfood.manager:
+        class: AppBundle\Manager\ChildFoodManager
+        arguments:
+            - "@=service('doctrine').getManager()"
+
+
+
+

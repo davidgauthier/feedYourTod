@@ -12,10 +12,10 @@ header .top {
 
 /*Amincissement de la barre avec le breadcrumb*/
 #inner-headline .row, #inner-headline .row-fluid {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 #inner-headline ul.breadcrumb {
-    margin: 10px 0 0;
+    margin: 20px 0 0;
 }
 
 /*Amincissment du footer*/

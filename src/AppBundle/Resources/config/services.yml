@@ -1,15 +1,16 @@
 # src/AppBundle/Resources/config/services.yml
+imports:
+    - { resource: 'services/admin.yml'}
+    - { resource: 'services/manager.yml'}
+
+
 services:
+
     app.user_registation:
         class: AppBundle\EventListener\UserRegistrationListener
         arguments: ['@router']
         tags:
             - { name: kernel.event_subscriber }
-
-    app.menu_manager:
-        class: AppBundle\Manager\MenuManager
-        arguments:
-            - "@=service('doctrine').getManager()"
 
     app.doctrine.listener.photo_recipe:
         class: AppBundle\Doctrine\Listener\PhotoRecipeListener
