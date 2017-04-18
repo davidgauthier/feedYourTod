@@ -29,7 +29,7 @@ class FrontController extends Controller
         return $this->render(':front:index.html.twig', [
 //                'listMenus' => $mm->getAll(),
                 'listRandomMenus' => $listRandomMenus,
-                'seasons' => $season,
+                'season' => $season,
                 //'listCategories' => array(),
             ]
         );

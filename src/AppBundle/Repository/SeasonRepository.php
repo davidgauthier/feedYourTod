@@ -18,7 +18,7 @@ class SeasonRepository extends \Doctrine\ORM\EntityRepository
             ->where(':dateT BETWEEN s.dateBegin AND s.dateEnd')
             ->setParameter('dateT', $dateT)
             ->getQuery()
-            ->getResult();
+            ->getOneOrNullResult();
 
     }
 }
