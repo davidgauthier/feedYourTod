@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Food
+ * Food.
  *
  * @ORM\Table(name="food")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FoodRepository")
@@ -34,9 +34,13 @@ class Food
      */
     private $foodType;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Recipe", cascade={"persist"}, mappedBy="ingredients")
+     */
+    private $recipes;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -46,7 +50,7 @@ class Food
     }
 
     /**
-     * Set wording
+     * Set wording.
      *
      * @param string $wording
      *
@@ -60,7 +64,7 @@ class Food
     }
 
     /**
-     * Get wording
+     * Get wording.
      *
      * @return string
      */
@@ -68,5 +72,46 @@ class Food
     {
         return $this->wording;
     }
-}
 
+    /**
+     * Set foodType.
+     *
+     * @param \AppBundle\Entity\FoodType $foodType
+     *
+     * @return Food
+     */
+    public function setFoodType(\AppBundle\Entity\FoodType $foodType)
+    {
+        $this->foodType = $foodType;
+
+        return $this;
+    }
+
+    /**
+     * Get foodType.
+     *
+     * @return \AppBundle\Entity\FoodType
+     */
+    public function getFoodType()
+    {
+        return $this->foodType;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getWording();
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    
+}

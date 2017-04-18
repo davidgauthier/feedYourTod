@@ -43,24 +43,60 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'recipeType'    => $this->getReference('recipeType-0'),
                 'season'        => $this->getReference('season-0'),
                 'content'       => $content1,
+                'preptime'      => '1 hour',
+                'cooktime'      => '1 hour',
+                'age'           => 5,
+                'ingredients'   => [
+                                    $this->getReference('food-2'),
+                                    $this->getReference('food-1'),
+                                ],
+                'filling'       => 'rice, french fries',
+                'observation'   => 'Ce menu très apadté aux enfants en bas âge leur permet de découvrir de nouvelles saveurs tout en respaectant leur goûts et régime alimentaire'
             ),
             array(
                 'name'          => 'recette 2',
                 'recipeType'    => $this->getReference('recipeType-1'),
                 'season'        => $this->getReference('season-1'),
                 'content'       => $content2,
+                'preptime'      => '2 hours',
+                'cooktime'      => '10 min',
+                'age'           => 6,
+                'ingredients'   => [
+                                    $this->getReference('food-2'),
+                                    $this->getReference('food-0'),
+                                ],
+                'filling'       => 'rice, french fries',
+                'observation'   => 'Ce menu très apadté aux enfants en bas âge leur permet de découvrir de nouvelles saveurs tout en respaectant leur goûts et régime alimentaire'
             ),
             array(
                 'name'          => 'recette 3',
                 'recipeType'    => $this->getReference('recipeType-2'),
                 'season'        => $this->getReference('season-2'),
                 'content'       => $content3,
+                'preptime'      => '1 hour',
+                'cooktime'      => '45 min',
+                'age'           => 4,
+                'ingredients'   => [
+                                     $this->getReference('food-2'),
+                                     $this->getReference('food-0'),
+                                   ],
+                'filling'       => 'rice, french fries',
+                'observation'   => 'Ce menu peu plaire un peu moins à b=vos bamnbins. Néanmoins il leur est essentiel à la consommation car il promet un système immunitaire renforcé'
             ),
             array(
                 'name'          => 'recette 4',
                 'recipeType'    => $this->getReference('recipeType-0'),
                 'season'        => $this->getReference('season-3'),
                 'content'       => $content4,
+                'preptime'      => '3 hours',
+                'cooktime'      => '20 min',
+                'age'           => 3,
+                'ingredients'   => [
+                                    $this->getReference('food-1'),
+                                    $this->getReference('food-3'),
+                                ],
+                'filling'       => 'rice, french fries',
+                'observation'   => 'Ce menu peu plaire un peu moins à b=vos bamnbins. Néanmoins il leur est essentiel à la consommation car il promet un système immunitaire renforcé'
             ),
         );
 
@@ -71,6 +107,15 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
             $recipe->setRecipeType($r['recipeType']);
             $recipe->setSeason($r['season']);
             $recipe->setContent($r['content']);
+            $recipe->setPreptime($r['preptime']);
+            $recipe->setCooktime($r['cooktime']);
+            $recipe->setAge($r['age']);
+            foreach ($r['ingredients'] as $j => $f){
+                $recipe->addIngredient($f);
+                $f->addRecipe($recipe);
+            }
+            $recipe->setFilling($r['filling']);
+            $recipe->setObservation($r['observation']);
 
             $manager->persist($recipe);
             $this->addReference('recipe-'.$i, $recipe);

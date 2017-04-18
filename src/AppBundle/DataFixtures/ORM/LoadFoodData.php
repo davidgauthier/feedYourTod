@@ -13,19 +13,19 @@ class LoadFoodData extends AbstractFixture implements OrderedFixtureInterface
 
         $foodData = array(
             array(
-                'wording'  => 'egg',
+                'wording'  => 'broccoli',
                 'foodType' => $this->getReference('foodType-0'),
             ),
             array(
-                'wording'  => 'tomato',
+                'wording'  => 'beef',
                 'foodType' => $this->getReference('foodType-1'),
             ),
             array(
-                'wording'  => 'beef',
+                'wording'  => 'orange juice',
                 'foodType' => $this->getReference('foodType-2'),
             ),
             array(
-                'wording'  => 'Rice',
+                'wording'  => 'oreo',
                 'foodType' => $this->getReference('foodType-3'),
             ),
         );

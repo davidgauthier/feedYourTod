@@ -21,17 +21,17 @@ class LoadSeasonData extends AbstractFixture implements OrderedFixtureInterface
             array(
                 'name'      => 'Spring',
                 'begindate' => new \DateTime('2017-03-20'),
-                'enddate'   => new \DateTime('2017-06-18'),
+                'enddate'   => new \DateTime('2017-06-20'),
             ),
             array(
                 'name'      => 'Summer',
-                'begindate' => new \DateTime('2017-06-19'),
-                'enddate'   => new \DateTime('2017-08-20'),
+                'begindate' => new \DateTime('2017-06-21'),
+                'enddate'   => new \DateTime('2017-09-22'),
             ),
             array(
                 'name'      => 'Autumn',
-                'begindate' => new \DateTime('2017-08-21'),
-                'enddate'   => new \DateTime('2017-03-18'),
+                'begindate' => new \DateTime('2017-09-23'),
+                'enddate'   => new \DateTime('2017-12-20'),
             ),
         );
 
