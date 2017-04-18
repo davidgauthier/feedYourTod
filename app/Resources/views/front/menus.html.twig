@@ -10,12 +10,19 @@
 {% endblock %}
 
 
+{% block breadcrumb %}
+    <li><a href="{{ path('app_homepage') }}"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+    <li class="active">Menus</li>
+{% endblock %}
+
 {% block content %}
 
 
     <div class="row">
 
         <div class="col-lg-8">
+
+            <h2 class="text-center">Les menus ({{ menus|length }})</h2>
 
             {% for menu in menus %}
 

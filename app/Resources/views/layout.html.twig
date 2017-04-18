@@ -39,12 +39,40 @@
 
     <div id="wrapper">
 
-        {{ include("::include/header.html.twig") }}
+        {{ include("::include/_header.html.twig") }}
 
 
 
 
-        {{ include("::include/headline_breadcrumb.html.twig") }}
+        {#{{ include("::include/headline_breadcrumb.html.twig") }}#}
+        <section id="inner-headline">
+            <div class="container">
+                <div class="row">
+                    {#<div class="col-lg-12">#}
+                    <div class="col-sm-6">
+                        <ul class="breadcrumb">
+                            {% block breadcrumb %}{% endblock %}
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <a href="#">Mes enfants</a>
+                                </li>
+                                <li>
+                                    <a href="#">Mes enfants</a>
+                                </li>
+                            </ul>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
 
 
         <section id="content">
@@ -77,7 +105,7 @@
         </section>
 
 
-        {{ include("::include/footer.html.twig") }}
+        {{ include("::include/_footer.html.twig") }}
 
 
     </div>

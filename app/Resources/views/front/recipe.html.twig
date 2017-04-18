@@ -10,11 +10,19 @@
 {% endblock %}
 
 
+{% block breadcrumb %}
+    <li><a href="{{ path('app_homepage') }}"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+    <li><a href="{{ path('app_recipes') }}">Recettes</a><i class="icon-angle-right"></i></li>
+    <li class="active">{{ recipe.name }}</li>
+{% endblock %}
+
 {% block content %}
 
 
     <div class="row">
         <div class="col-lg-8">
+
+            <h2 class="text-center">{{ recipe.name }}</h2>
 
             <article>
                 <div class="post-slider">

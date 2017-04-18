@@ -9,15 +9,6 @@ header .top {
     padding: 10px 0;
 }
 
-
-/*Amincissement de la barre avec le breadcrumb*/
-#inner-headline .row, #inner-headline .row-fluid {
-    margin-bottom: 0px;
-}
-#inner-headline ul.breadcrumb {
-    margin: 20px 0 0;
-}
-
 /*Amincissment du footer*/
 footer {
     padding: 20px 0 0 0;
@@ -25,3 +16,18 @@ footer {
 #sub-footer {
     margin: 0 0 0 0;
 }
+
+/*Amincissement de la barre avec le breadcrumb*/
+#inner-headline .row, #inner-headline .row-fluid {
+    margin-bottom: 10px;
+}
+#inner-headline ul.breadcrumb {
+    margin: 10px 0 0;
+}
+
+#inner-headline ul.list-inline {
+    margin: 15px 0 0;
+}
+
+
+
