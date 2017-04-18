@@ -25,9 +25,9 @@ class MenuManager extends AbstractDoctrineManager
 
     }
 
-    public function getRandomMenus($limit = 10)
+    public function getRandomMenus($limit = 10, $idSeason)
     {
-        return $this->getRepository()->getRandomMenus($limit);
+        return $this->getRepository()->getRandomMenus($limit, $idSeason);
     }
 
 
