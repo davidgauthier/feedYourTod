@@ -1,0 +1,35 @@
+{%  extends "::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - My children
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <li><a href="{{ path('app_homepage') }}"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+    <li><a href="{{ path('app_children') }}">My children</a><i class="icon-angle-right"></i></li>
+    <li class="active">{{ child.firstName }}</li>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <h2 class="text-center">{{ child.firstName }}</h2>
+
+            <p><a href="{{ path('app_child_edit', { 'id': child.id }) }}">editer</a></p>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+

@@ -5,17 +5,22 @@ namespace AppBundle\Manager;
 
 use AppBundle\Entity\Child;
 use AppBundle\Entity\User;
-use Doctrine\ORM\EntityManagerInterface;
 
-class ChildManager
+class ChildManager extends AbstractDoctrineManager
 {
-    private $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    /**
+     * @return Child
+     */
+    public function getChildById($id)
     {
-        $this->entityManager = $entityManager;
+        return $this->getRepository()->findOneById($id);
     }
 
+
+    /**
+     * @param User $user
+     * @return Child
+     */
     public function create(User $user)
     {
         $child = new Child();
@@ -24,12 +29,13 @@ class ChildManager
         return $child;
     }
 
-    public function saveChild($child){
 
-        $em = $this->entityManager;
-        $em->persist($child);
-        $em->flush();
-
+    /**
+     * @return \AppBundle\Repository\RecipeRepository
+     */
+    protected function getRepository()
+    {
+        return $this->entityManager->getRepository(Child::class);
     }
 
 }

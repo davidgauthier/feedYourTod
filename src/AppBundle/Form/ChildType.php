@@ -5,12 +5,10 @@ namespace AppBundle\Form;
 use AppBundle\Entity\Child;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ChildType extends AbstractType
 {
@@ -23,6 +21,12 @@ class ChildType extends AbstractType
             ->add('birthDate', BirthdayType::class, [
                 'label' => 'Date de naissance',
             ])
+            ->add('childFoods', CollectionType::class, array(
+                'entry_type'   => ChildFoodType::class,
+                'allow_add'    => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+            ))
         ;
     }
 

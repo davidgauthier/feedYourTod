@@ -12,9 +12,15 @@ class ChildFoodType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('childFoodTag', EntityType::class, [
+                'class'         => 'AppBundle\Entity\ChildFoodTag',
+                'choice_label'  => 'wording',
+            ])
+            ->add('food', EntityType::class, [
+                'class'         => 'AppBundle\Entity\Food',
+                'choice_label'  => 'wording',
+            ])
 
-            ->add('food', EntityType::class,['class' => 'AppBundle\Entity\Food','choice_label' => 'wording'])
-            ->add('childFoodTag', EntityType::class,['class' => 'AppBundle\Entity\ChildFoodTag','choice_label' => 'wording']);
         ;
     }
 
@@ -23,7 +29,7 @@ class ChildFoodType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\ChildFood',
-            ''
+
         ));
     }
 }

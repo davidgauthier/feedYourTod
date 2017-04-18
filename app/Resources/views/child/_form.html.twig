@@ -1,0 +1,18 @@
+{{ form_start(form, {'attr': {'class': 'form-horizontal' }}) }}
+    {{ form_errors(form) }}
+
+    {% if form.firstName is defined %}
+        {{ form_row(form.firstName) }}
+    {% endif %}
+    {% if form.birthDate is defined %}
+        {{ form_row(form.birthDate) }}
+    {% endif %}
+    {% if form.childFoods is defined %}
+        {{ form_row(form.childFoods) }}
+    {% endif %}
+
+<a href="#" id="add_childfood" class="btn btn-default">Ajouter un childFood</a>
+
+{{ form_rest(form) }}
+<input class="btn btn-theme btn-add" type="submit" value="Submit" />
+{{ form_end(form) }}
