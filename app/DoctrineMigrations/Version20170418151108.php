@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20170414090107 extends AbstractMigration
+class Version20170418151108 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -25,7 +25,8 @@ class Version20170414090107 extends AbstractMigration
         $this->addSql('CREATE TABLE food_type (id INT AUTO_INCREMENT NOT NULL, wording VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE menu (id INT AUTO_INCREMENT NOT NULL, season_id INT NOT NULL, name VARCHAR(255) NOT NULL, INDEX IDX_7D053A934EC001D1 (season_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE photo_recipe (id INT AUTO_INCREMENT NOT NULL, recipe_id INT NOT NULL, src VARCHAR(255) NOT NULL, legend VARCHAR(255) NOT NULL, INDEX IDX_8F37C61F59D8A214 (recipe_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE recipe (id INT AUTO_INCREMENT NOT NULL, recipe_type_id INT DEFAULT NULL, season_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, content LONGTEXT NOT NULL, INDEX IDX_DA88B13789A882D3 (recipe_type_id), INDEX IDX_DA88B1374EC001D1 (season_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE recipe (id INT AUTO_INCREMENT NOT NULL, recipe_type_id INT DEFAULT NULL, season_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, preptime VARCHAR(255) NOT NULL, cooktime VARCHAR(255) NOT NULL, age INT NOT NULL, content LONGTEXT NOT NULL, filling VARCHAR(255) NOT NULL, observation LONGTEXT NOT NULL, INDEX IDX_DA88B13789A882D3 (recipe_type_id), INDEX IDX_DA88B1374EC001D1 (season_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE recipe_food (recipe_id INT NOT NULL, food_id INT NOT NULL, INDEX IDX_AB23732859D8A214 (recipe_id), INDEX IDX_AB237328BA8E87C4 (food_id), PRIMARY KEY(recipe_id, food_id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE recipe_menu (recipe_id INT NOT NULL, menu_id INT NOT NULL, INDEX IDX_21E604C59D8A214 (recipe_id), INDEX IDX_21E604CCCD7E912 (menu_id), PRIMARY KEY(recipe_id, menu_id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE recipe_type (id INT AUTO_INCREMENT NOT NULL, wording VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE season (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, dateBegin DATETIME NOT NULL, dateEnd DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
@@ -39,6 +40,8 @@ class Version20170414090107 extends AbstractMigration
         $this->addSql('ALTER TABLE photo_recipe ADD CONSTRAINT FK_8F37C61F59D8A214 FOREIGN KEY (recipe_id) REFERENCES recipe (id)');
         $this->addSql('ALTER TABLE recipe ADD CONSTRAINT FK_DA88B13789A882D3 FOREIGN KEY (recipe_type_id) REFERENCES recipe_type (id)');
         $this->addSql('ALTER TABLE recipe ADD CONSTRAINT FK_DA88B1374EC001D1 FOREIGN KEY (season_id) REFERENCES season (id)');
+        $this->addSql('ALTER TABLE recipe_food ADD CONSTRAINT FK_AB23732859D8A214 FOREIGN KEY (recipe_id) REFERENCES recipe (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE recipe_food ADD CONSTRAINT FK_AB237328BA8E87C4 FOREIGN KEY (food_id) REFERENCES food (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE recipe_menu ADD CONSTRAINT FK_21E604C59D8A214 FOREIGN KEY (recipe_id) REFERENCES recipe (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE recipe_menu ADD CONSTRAINT FK_21E604CCCD7E912 FOREIGN KEY (menu_id) REFERENCES menu (id) ON DELETE CASCADE');
     }
@@ -54,9 +57,11 @@ class Version20170414090107 extends AbstractMigration
         $this->addSql('ALTER TABLE child_food DROP FOREIGN KEY FK_61098A05DD62C21B');
         $this->addSql('ALTER TABLE child_food DROP FOREIGN KEY FK_61098A0520786E9C');
         $this->addSql('ALTER TABLE child_food DROP FOREIGN KEY FK_61098A05BA8E87C4');
+        $this->addSql('ALTER TABLE recipe_food DROP FOREIGN KEY FK_AB237328BA8E87C4');
         $this->addSql('ALTER TABLE food DROP FOREIGN KEY FK_D43829F78AD350AB');
         $this->addSql('ALTER TABLE recipe_menu DROP FOREIGN KEY FK_21E604CCCD7E912');
         $this->addSql('ALTER TABLE photo_recipe DROP FOREIGN KEY FK_8F37C61F59D8A214');
+        $this->addSql('ALTER TABLE recipe_food DROP FOREIGN KEY FK_AB23732859D8A214');
         $this->addSql('ALTER TABLE recipe_menu DROP FOREIGN KEY FK_21E604C59D8A214');
         $this->addSql('ALTER TABLE recipe DROP FOREIGN KEY FK_DA88B13789A882D3');
         $this->addSql('ALTER TABLE menu DROP FOREIGN KEY FK_7D053A934EC001D1');
@@ -70,6 +75,7 @@ class Version20170414090107 extends AbstractMigration
         $this->addSql('DROP TABLE menu');
         $this->addSql('DROP TABLE photo_recipe');
         $this->addSql('DROP TABLE recipe');
+        $this->addSql('DROP TABLE recipe_food');
         $this->addSql('DROP TABLE recipe_menu');
         $this->addSql('DROP TABLE recipe_type');
         $this->addSql('DROP TABLE season');
