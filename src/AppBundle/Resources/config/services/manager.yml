@@ -20,6 +20,10 @@ services:
         arguments:
             - "@=service('doctrine').getManager()"
 
+    app.season_manager:
+        class: AppBundle\Manager\SeasonManager
+        arguments:
+            - "@=service('doctrine').getManager()"
 
 
 

@@ -9,7 +9,7 @@ use \Doctrine\Common\Collections\ArrayCollection;
  * menu.
  *
  * @ORM\Table(name="menu")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\menuRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\MenuRepository")
  */
 class Menu
 {

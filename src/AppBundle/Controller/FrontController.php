@@ -14,16 +14,22 @@ class FrontController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $dateTime = new \DateTime();
 
         // ici récupérer nos entités, formulaires, etc.
         $mm = $this->container->get('app.menu_manager');
 
-        $listRandomMenus = $mm->getRandomMenus(3);
-        /*dump($listRandomMenus);exit();*/
+        $seasonManager = $this->container->get("app.season_manager");
+        $season = $seasonManager->getCurrentSeason($dateTime);
+
+        $listRandomMenus = $mm->getRandomMenus(3, $season);
+
+
 
         return $this->render(':front:index.html.twig', [
 //                'listMenus' => $mm->getAll(),
                 'listRandomMenus' => $listRandomMenus,
+                'season' => $season,
                 //'listCategories' => array(),
             ]
         );
