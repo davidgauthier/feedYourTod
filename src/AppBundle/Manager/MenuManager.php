@@ -22,8 +22,13 @@ class MenuManager extends AbstractDoctrineManager
     {
 //        return $this->entityManager->getRepository(Menu::class)->findOneById($id);
         return $this->getRepository()->getMenuById($id);
+
     }
 
+    public function getRandomMenus($limit = 10)
+    {
+        return $this->getRepository()->getRandomMenus($limit);
+    }
 
 
 

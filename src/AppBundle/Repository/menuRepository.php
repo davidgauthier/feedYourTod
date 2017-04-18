@@ -1,7 +1,6 @@
 <?php
 
 namespace AppBundle\Repository;
-
 /**
  * menuRepository.
  *
@@ -29,6 +28,16 @@ class menuRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getOneOrNullResult();
         return $q;
+    }
+
+    public function getRandomMenus($limit = 5){
+
+        return $this->createQueryBuilder('m')
+            ->addSelect('RAND() as HIDDEN rand')
+            ->addOrderBy('rand')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
     }
 
 
