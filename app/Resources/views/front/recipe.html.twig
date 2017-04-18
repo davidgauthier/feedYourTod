@@ -22,13 +22,11 @@
     <div class="row">
         <div class="col-lg-8">
 
-            <h2 class="text-center">{{ recipe.name }}</h2>
+            <h1 class="text-center">{{ recipe.name }}</h1>
 
             <article>
                 <div class="post-slider">
-                    <div class="post-heading">
-                        <h2>{{ recipe.name }}</h2>
-                    </div>
+
                     {% if recipe.photoRecipes|length > 0 %}
                         <!-- start flexslider -->
                         <div id="post-slider" class="postslider flexslider">
@@ -51,9 +49,36 @@
                     {% endif %}
 
                 </div>
+
+                <b>Age:</b>
+                <p>
+                    {{ recipe.age }}
+                </p><br />
+
+                <b>Ingrédients:</b>
+                <p>
+                    <ul>
+                        {% for ingredient in recipe.ingredients %}
+                            <li>{{ ingredient.wording }}</li>
+                        {% endfor %}
+                    </ul>
+                </p><br />
+
+                <b>Préparation:</b>
                 <p>
                     {{ recipe.content }}
+                </p><br />
+
+                <b>Garniture:</b>
+                <p>
+                    {{ recipe.filling }}
+                </p><br />
+
+                <b>Observation:</b>
+                <p>
+                    {{ recipe.observation }}
                 </p>
+
                 <div class="bottom-article">
                     <ul class="meta-post">
                         <li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>
