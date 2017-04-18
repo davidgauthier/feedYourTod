@@ -18,9 +18,12 @@ class FrontController extends Controller
         // ici récupérer nos entités, formulaires, etc.
         $mm = $this->container->get('app.menu_manager');
 
+        $listRandomMenus = $mm->getRandomMenus(3);
+        /*dump($listRandomMenus);exit();*/
 
         return $this->render(':front:index.html.twig', [
-                'listMenus' => $mm->getAll(),
+//                'listMenus' => $mm->getAll(),
+                'listRandomMenus' => $listRandomMenus,
                 //'listCategories' => array(),
             ]
         );
@@ -49,6 +52,7 @@ class FrontController extends Controller
     {
         $menuManager = $this->container->get("app.menu_manager");
         $menu = $menuManager->getMenuById($id);
+
 
         if($menu == null)
         {

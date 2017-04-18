@@ -76,8 +76,8 @@
                 <div class="widget">
                     <h5 class="widgetheading">Menus aléatoires</h5>
                     <ul class="recent">
-                        {% if listMenus|length > 0 %}
-                            {% for menu in listMenus %}
+                        {% if listRandomMenus|length > 0 %}
+                            {% for menu in listRandomMenus %}
                                 <li>
                                     <a href="{{ path('app_menu', {'id': menu.id}) }}">
                                         <img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb1.jpg') }}" class="pull-left" alt="" />
@@ -103,6 +103,7 @@
                                 {#Mazim alienum appellantur eu cu ullum officiis pro pri#}
                             {#</p>#}
                         {#</li>#}
+
                     </ul>
                 </div>
                 <div class="widget">
@@ -119,8 +120,8 @@
                 <div class="widget">
                     <h5 class="widgetheading">Des menus ..</h5>
                     <ul class="cat">
-                        {% if listMenus|length > 0 %}
-                            {% for menu in listMenus %}
+                        {% if listRandomMenus|length > 0 %}
+                            {% for menu in listRandomMenus %}
                                 <li><i class="fa fa-angle-right"></i><a href="{{ path('app_menu', {'id': menu.id}) }}">{{ menu.name }}</a></li>
                             {% endfor %}
                         {% endif %}
