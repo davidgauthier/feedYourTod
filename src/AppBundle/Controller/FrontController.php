@@ -29,9 +29,6 @@ class FrontController extends Controller
         );
     }
 
-
-
-
     /**
      * @Route("/menus", name="app_menus")
      */
@@ -65,10 +62,6 @@ class FrontController extends Controller
 
     }
 
-
-
-
-
     /**
      * @Route("/recipes", name="app_recipes")
      */
@@ -100,11 +93,6 @@ class FrontController extends Controller
         ]);
 
     }
-
-
-
-
-
 
     /**
      * @Route("/contact", name="app_contact", methods={"GET"})
