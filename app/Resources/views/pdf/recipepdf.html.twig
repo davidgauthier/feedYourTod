@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Feed Your Tod">
+    <meta name="author" content="Dave, Toufik, et David">
+
+    <link rel="icon" href="{{ asset('public/images/ico.png') }}">
+    <title>{% block title %}FeedYourTod{% endblock %}</title>
+
+    {% block stylesheets %}
+        <!-- css -->
+        <link href="{{ asset('public/Sailor/css/bootstrap.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('public/Sailor/css/cubeportfolio.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('public/Sailor/css/style.css') }}" rel="stylesheet" />
+
+        {#Custom css#}
+        <link href="{{ asset('public/css/style.css') }}" rel="stylesheet" />
+    {% endblock %}
+
+</head>
+<body>
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+
+        <div class="col-lg-6">
+            <h1 class="text-center">{{ recipe.name }}</h1>
+
+
+                <b>Age:</b>
+                <p>
+                    {{ recipe.age }}
+                </p><br />
+
+                <b>Ingrédients:</b>
+                <p>
+                <ul>
+                    {% for ingredient in recipe.ingredients %}
+                        <li>{{ ingredient.wording }}</li>
+                    {% endfor %}
+                </ul>
+                </p><br />
+
+                <b>Préparation:</b>
+                <p>
+                    {{ recipe.content }}
+                </p><br />
+
+                <b>Garniture:</b>
+                <p>
+                    {{ recipe.filling }}
+                </p><br />
+
+                <b>Observation:</b>
+                <p>
+                    {{ recipe.observation }}
+                </p><br /><br />
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+

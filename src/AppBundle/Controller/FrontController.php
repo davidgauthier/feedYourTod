@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class FrontController extends Controller
 {
@@ -105,5 +106,36 @@ class FrontController extends Controller
         );
     }
 
+    //Génerer des PDFs
+    /**
+     * @Route("/pdf/{id}", name="app_generate_pdf")
+     */
+    public function returnPDFAction($id)
+    {
+        $recipeManager = $this->container->get("app.recipe_manager");
+        $recipe = $recipeManager->getRecipeById($id);
+
+        if($recipe == null)
+        {
+            throw new NotFoundHttpException("La recette recherchée n'existe pas.");
+
+        }else {
+
+            $html = $this->renderView(':pdf:recipepdf.html.twig', array(
+                'recipe' => $recipe
+            ));
+
+            return new Response(
+                $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+                200,
+                array(
+                    'Content-Type' => 'application/pdf',
+                    'Content-Disposition' => 'attachment; filename="file.pdf"'
+                )
+            );
+
+            return $this->redirectToRoute('app_recipe');
+        }
+    }
 
 }
