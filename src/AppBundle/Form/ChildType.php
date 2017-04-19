@@ -2,10 +2,10 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Child;
+
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,10 +18,12 @@ class ChildType extends AbstractType
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom',
             ])
-            ->add('birthDate', BirthdayType::class, [
-                'label' => 'Date de naissance',
+            ->add('birthDate', DateType::class, [
+                'widget'    => 'single_text',
+                'label'     => 'Date de naissance',
             ])
-            ->add('childFoods', CollectionType::class, array(
+
+        ->add('childFoods', CollectionType::class, array(
                 'entry_type'   => ChildFoodType::class,
                 'allow_add'    => true,
                 'allow_delete' => true,
