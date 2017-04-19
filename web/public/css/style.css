@@ -29,5 +29,12 @@ footer {
     margin: 15px 0 0;
 }
 
+#content img {
+    margin-bottom: 0px;
+}
+
+.postslider.flexslider {
+    margin: 0 0 20px;
+}
 
 
