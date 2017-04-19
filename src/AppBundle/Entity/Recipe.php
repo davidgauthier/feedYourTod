@@ -60,7 +60,7 @@ class Recipe
     /**
      * @var Season int
      *
-     * @ORM\Column(name="age", type="integer", length=255)
+     * @ORM\Column(name="age", type="string", length=255)
      */
     private $age;
 
@@ -101,6 +101,21 @@ class Recipe
      * @ORM\Column(name="observation", type="text")
      */
     private $observation;
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->menus = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -209,20 +224,7 @@ class Recipe
     }
 
 
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getName();
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->menus = new ArrayCollection();
-    }
+
 
     /**
      * Add menu
@@ -343,7 +345,7 @@ class Recipe
     /**
      * Set age
      *
-     * @param integer $age
+     * @param string $age
      *
      * @return Recipe
      */
@@ -357,7 +359,7 @@ class Recipe
     /**
      * Get age
      *
-     * @return integer
+     * @return string
      */
     public function getAge()
     {
