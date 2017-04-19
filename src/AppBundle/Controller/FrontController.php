@@ -16,6 +16,8 @@ class FrontController extends Controller
     {
         $dateTime = new \DateTime();
 
+
+
         // ici récupérer nos entités, formulaires, etc.
         $mm = $this->container->get('app.menu_manager');
 
@@ -27,7 +29,7 @@ class FrontController extends Controller
 
 
         return $this->render(':front:index.html.twig', [
-//                'listMenus' => $mm->getAll(),
+//              'listMenus' => $mm->getAll(),
                 'listRandomMenus' => $listRandomMenus,
                 'season' => $season,
                 //'listCategories' => array(),
