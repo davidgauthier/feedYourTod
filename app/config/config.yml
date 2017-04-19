@@ -68,6 +68,10 @@ doctrine:
             numeric_functions:
                 RAND: AppBundle\DQL\RandomFunction
 
+            datetime_functions:
+                DATE_FORMAT: DoctrineExtensions\Query\Mysql\DateFormat
+
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'

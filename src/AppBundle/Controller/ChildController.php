@@ -11,24 +11,32 @@ use AppBundle\Entity\Child;
 
 class ChildController extends Controller
 {
+
+
     /**
-     * @Route("/children", name="app_children_detail")
+     * @Route("/children", name="app_children")
      */
-    public function getChildAction(){
+    public function childrenAction(){
 
         $user = $this->getUser();
 
         $children = $this->getDoctrine()->getRepository(Child::class)->getChild($user);
 
-        return $this->render(':child:children.html.twig', ['children' =>  $children,]);
+        return $this->render(':child:children.html.twig', [
+            'children' => $children,
+        ]);
     }
 
-    /**
-     * @Route("/newChild", name="app_new_child")
-     */
-    public function createChildAction(Request $request){
 
-        $child = $this->container->get('app.child.manager')->create($this->getUser());
+
+
+    /**
+     * @Route("/child/new", name="app_child_new")
+     */
+    public function newAction(Request $request)
+    {
+
+        $child = $this->container->get('app.child_manager')->create($this->getUser());
 
         //Créer et enregistrer un nouvel enfant
         $form = $this->createForm(ChildType::class, $child);
@@ -37,43 +45,80 @@ class ChildController extends Controller
         if($form->isSubmitted() && $form->isValid()){
 
             $child = $form->getData();
+//            dump($child);exit();
 
-            $this->container->get('app.child.manager')->saveChild($child);
+            $this->container->get('app.child_manager')->save($child);
 
-            return $this->redirectToRoute('app_children_detail');
+            return $this->redirectToRoute('app_children');
             // render et passer le child
         }
 
-        return $this->render(':child:newChild.html.twig', ['form' => $form->createView()]);
+        return $this->render(':child:new.html.twig', ['form' => $form->createView()]);
     }
 
+
+
     /**
-     * @Route("/newChildFood/{id}", name="app_new_childfood")
+     * @Route("/child/edit/{id}", name="app_child_edit")
      */
-    public function createChildFoodAction(Request $request, $id){
+    public function editAction(Request $request, $id)
+    {
 
-        $child = $this->getDoctrine()->getRepository(Child::class)->find($id);
+        $child = $this->container->get('app.child_manager')->getChildById($id);
 
-        if ($child === null){
-            throw $this->createNotFoundException('This child does not exists');
+        if($child == null)
+        {
+            throw new NotFoundHttpException("L'enfant recherché n'existe pas.");
         }
 
-        $childFood = $this->container->get('app.childfood.manager')->create();
-
-        $form = $this->createForm(ChildFoodType::class, $childFood);
+        $form = $this->createForm(ChildType::class, $child);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            $child = $form->getData();
 
-            $childFood = $form->getData();
-            $childFood->setChild($child);
+            $this->container->get('app.child_manager')->save($child);
 
-            $this->container->get('app.childfood.manager')->saveChild($childFood);
-
-            return $this->redirectToRoute('app_children_detail');
+            return $this->redirectToRoute('app_children');
         }
 
-        return $this->render(':child:newChildFood.html.twig', ['form' => $form->createView()]);
+        return $this->render(':child:edit.html.twig', [
+            'form' => $form->createView(),
+            'child' => $child,
+        ]);
     }
+
+
+
+    /**
+     * @Route("/child/{id}", name="app_child")
+     */
+    public function childAction($id)
+    {
+
+        $user = $this->getUser();
+
+        $childManager = $this->container->get("app.child_manager");
+        $child = $childManager->getChildById($id);
+
+        if($child == null)
+        {
+            throw $this->createNotFoundException("Le child recherché n'existe pas.");
+        }
+
+        if($child->getUser() !== $user){
+            throw $this->createAccessDeniedException('Le child recherché n\'est pas le votre.');
+        }
+
+        return $this->render(':child:child.html.twig',[
+            'child' => $child,
+        ]);
+    }
+
+
+
+
+
+
 
 }

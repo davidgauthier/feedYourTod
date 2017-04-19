@@ -10,16 +10,20 @@ services:
         arguments:
             - "@=service('doctrine').getManager()"
 
-    app.child.manager:
+    app.child_manager:
         class: AppBundle\Manager\ChildManager
         arguments:
             - "@=service('doctrine').getManager()"
 
-    app.childfood.manager:
+    app.childfood_manager:
         class: AppBundle\Manager\ChildFoodManager
         arguments:
             - "@=service('doctrine').getManager()"
 
+    app.season_manager:
+        class: AppBundle\Manager\SeasonManager
+        arguments:
+            - "@=service('doctrine').getManager()"
 
 
 

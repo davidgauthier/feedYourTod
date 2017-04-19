@@ -47,6 +47,31 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 //                'roles'     => array(),
                 'roles'     => array('ROLE_USER'),
             ),
+            array(
+                'username'  => 'Martine',
+                'email'     => 'martine@user.fr',
+                'password'  => 'mar',
+                'roles'     => array(),
+            ),
+            array(
+                'username'  => 'Jean',
+                'email'     => 'jean@user.fr',
+                'password'  => 'jea',
+                'roles'     => array(),
+            ),
+            array(
+                'username'  => 'Marc',
+                'email'     => 'marc@user.fr',
+                'password'  => 'mar',
+                'roles'     => array(),
+            ),
+            array(
+                'username'  => 'David',
+                'email'     => 'david@user.fr',
+                'password'  => 'dav',
+                'roles'     => array(),
+            ),
+
         );
 
         // Accessing the user manager service

@@ -49,6 +49,12 @@ class Child
      */
     private $user;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ChildFood", mappedBy="child", orphanRemoval=true, cascade={"persist"})
+     */
+    private $childFoods;
+
     /**
      * Get id.
      *
@@ -138,5 +144,48 @@ class Child
     public function __toString()
     {
         return $this->getFirstName();
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->childFoods = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add childFood
+     *
+     * @param \AppBundle\Entity\ChildFood $childFood
+     *
+     * @return Child
+     */
+    public function addChildFood(\AppBundle\Entity\ChildFood $childFood)
+    {
+        $this->childFoods[] = $childFood;
+
+        $childFood->setChild($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove childFood
+     *
+     * @param \AppBundle\Entity\ChildFood $childFood
+     */
+    public function removeChildFood(\AppBundle\Entity\ChildFood $childFood)
+    {
+        $this->childFoods->removeElement($childFood);
+    }
+
+    /**
+     * Get childFoods
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildFoods()
+    {
+        return $this->childFoods;
     }
 }

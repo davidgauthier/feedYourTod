@@ -22,7 +22,7 @@ class ChildFood
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Child")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Child", inversedBy="childFoods")
      * @ORM\JoinColumn(nullable=false)
      */
     private $child;
@@ -120,4 +120,7 @@ class ChildFood
     {
         return $this->childFoodTag;
     }
+
+
+//    public func
 }
