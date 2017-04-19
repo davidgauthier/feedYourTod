@@ -22,72 +22,79 @@
     <div class="row">
         <div class="col-lg-8">
 
-            <h1 class="text-center">{{ recipe.name }}</h1>
+            <div class="pdf">
+                <h1 class="text-center">{{ recipe.name }}</h1>
 
-            <article>
-                <div class="post-slider">
+                <article>
+                    <div class="post-slider">
 
-                    {% if recipe.photoRecipes|length > 0 %}
-                        <!-- start flexslider -->
-                        <div id="post-slider" class="postslider flexslider">
-                            <ul class="slides">
-                                {% for photoRecipe in recipe.photoRecipes %}
-                                    <li>
-                                        <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
-                                             class="img-responsive" >
-                                    </li>
-                                {% endfor %}
-                                {#<li>#}
-                                    {#<img src="img/dummies/blog/img2.jpg" alt="" />#}
-                                {#</li>#}
-                                {#<li>#}
-                                    {#<img src="img/dummies/blog/img3.jpg" alt="" />#}
-                                {#</li>#}
-                            </ul>
-                        </div>
-                        <!-- end flexslider -->
-                    {% endif %}
+                        {% if recipe.photoRecipes|length > 0 %}
+                            <!-- start flexslider -->
+                            <div id="post-slider" class="postslider flexslider">
+                                <ul class="slides">
+                                    {% for photoRecipe in recipe.photoRecipes %}
+                                        <li>
+                                            <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
+                                                 class="img-responsive" >
+                                        </li>
+                                    {% endfor %}
+                                    {#<li>#}
+                                        {#<img src="img/dummies/blog/img2.jpg" alt="" />#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<img src="img/dummies/blog/img3.jpg" alt="" />#}
+                                    {#</li>#}
+                                </ul>
+                            </div>
+                            <!-- end flexslider -->
+                        {% endif %}
 
-                </div>
+                    </div>
 
-                <b>Age:</b>
-                <p>
-                    {{ recipe.age }}
-                </p><br />
+                    <b>Age:</b>
+                    <p>
+                        {{ recipe.age }}
+                    </p><br />
 
-                <b>Ingrédients:</b>
-                <p>
-                    <ul>
-                        {% for ingredient in recipe.ingredients %}
-                            <li>{{ ingredient.wording }}</li>
-                        {% endfor %}
-                    </ul>
-                </p><br />
+                    <b>Ingrédients:</b>
+                    <p>
+                        <ul>
+                            {% for ingredient in recipe.ingredients %}
+                                <li>{{ ingredient.wording }}</li>
+                            {% endfor %}
+                        </ul>
+                    </p><br />
 
-                <b>Préparation:</b>
-                <p>
-                    {{ recipe.content }}
-                </p><br />
+                    <b>Préparation:</b>
+                    <p>
+                        {{ recipe.content }}
+                    </p><br />
 
-                <b>Garniture:</b>
-                <p>
-                    {{ recipe.filling }}
-                </p><br />
+                    <b>Garniture:</b>
+                    <p>
+                        {{ recipe.filling }}
+                    </p><br />
 
-                <b>Observation:</b>
-                <p>
-                    {{ recipe.observation }}
-                </p>
+                    <b>Observation:</b>
+                    <p>
+                        {{ recipe.observation }}
+                    </p><br /><br />
 
-                <div class="bottom-article">
-                    <ul class="meta-post">
-                        <li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>
-                        <li><i class="fa fa-user"></i><a href="#"> Admin</a></li>
-                        <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
-                        <li><i class="fa fa-tags"></i><a href="#">Design</a>, <a href="#">Blog</a></li>
-                    </ul>
-                </div>
-            </article>
+                    <p>
+                        <a href="{{ path('app_generate_pdf', {id:recipe.id}) }}">Télécharger en tant que PDF</a>
+                    </p>
+
+
+                    <div class="bottom-article">
+                        <ul class="meta-post">
+                            <li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>
+                            <li><i class="fa fa-user"></i><a href="#"> Admin</a></li>
+                            <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
+                            <li><i class="fa fa-tags"></i><a href="#">Design</a>, <a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
 
             <div class="comment-area">
 

@@ -115,6 +115,13 @@ sonata_admin:
     title_logo: public/images/ico.png
 
 
-
-
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "%kernel.root_dir%\\..\\vendor\\bin\\wkhtmltopdf-amd64"
+        options:    []
+    image:
+        enabled:    true
+        binary:     "%kernel.root_dir%\\..\\vendor\\bin\\wkhtmltoimage-i386"
+        options:    []
 
