@@ -1,0 +1,13 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+<ul>
+    {% for recipe in searchRecipes  %}
+    <li>{{ recipe.name }}</li>
+    {% endfor %}
+    <hr>
+    {% for menu in searchMenus %}
+        <li>{{ menu.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

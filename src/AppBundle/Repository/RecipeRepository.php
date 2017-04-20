@@ -12,11 +12,20 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
 {
     public function getRecipe($id)
     {
-        return $this->createQueryBuilder('i')
-            ->select('i')
-            ->andWhere('i.id = :id')
+        return $this->createQueryBuilder('r')
+            ->select('r')
+            ->andWhere('r.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
             ->getOneOrNullResult();
+    }
+
+    public function getSearchRecipe($search){
+        return $this->createQueryBuilder('r')
+            ->select('r.name')
+            ->where("r.name LIKE :searchWord")
+            ->setParameter(':searchWord', '%'.$search->getKeyword().'%')
+            ->getQuery()
+            ->getResult();
     }
 }

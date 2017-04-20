@@ -30,6 +30,10 @@ class MenuManager extends AbstractDoctrineManager
         return $this->getRepository()->getRandomMenus($limit, $idSeason);
     }
 
+    public function getMenuBySearch($search){
+        return $this->getRepository()->getSearchMenu($search);
+    }
+
 
 
     /**

@@ -43,6 +43,17 @@ class MenuRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
 
+    public function getSearchMenu($search)
+    {
+        return $this->createQueryBuilder('m')
+            ->select('m.name')
+            ->where('m.name LIKE :searchWord')
+            ->setParameter(':searchWord', '%'.$search->getKeyword().'%')
+            ->getQuery()
+            ->getResult();
+
+    }
+
 
 
 }
