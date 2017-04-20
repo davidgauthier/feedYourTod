@@ -14,7 +14,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
 
         $recipes = array(
             array(
-                'name'          => 'Purée de courge au parmesan',
+                'name'          => 'Purée de potimarron au persil',
                 'recipeType'    => $this->getReference('recipeType-1'),
                 'season'        => $this->getReference('season-0'),
                 'content'       => "Pour 2 portions de 85g.
@@ -25,10 +25,11 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '15 min',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                                    $this->getReference('food-2'),
+                                    $this->getReference('food-0'),
                                     $this->getReference('food-1'),
+                                    $this->getReference('food-2'),
                                 ],
-                'filling'       => '',
+                'filling'       => 'rice, french fries',
                 'observation'   => 'N\'hésitez pas à varier les légumes : potimarron, potiron...'
             ),
             array(
@@ -43,8 +44,10 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '10 min',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                                    $this->getReference('food-2'),
-                                    $this->getReference('food-0'),
+                                    $this->getReference('food-3'),
+                                    $this->getReference('food-4'),
+                                    $this->getReference('food-5'),
+                                    $this->getReference('food-1'),
                                 ],
                 'filling'       => '',
                 'observation'   => 'Pour varier les plaisirs, vous pouvez remplacer la fleur d’oranger par quelques gouttes de sirop d’orgeat.'
@@ -62,8 +65,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '3 min',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-7'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-8'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez décliner cette recette avec d’autres fruits selon la saison : pommes, poires, prunes...'
@@ -82,8 +86,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-9'),
+                    $this->getReference('food-10'),
+                    $this->getReference('food-4'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Pour varier les saveurs, vous pouvez essayer d’incorporer de la cannelle ou du gingembre en poudre dans le porridge.'
@@ -102,8 +107,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-12'),
+                    $this->getReference('food-11'),
+                    $this->getReference('food-4'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez incorporer une pointe de curcuma pour habituer votre enfant aux saveurs des épices.'
@@ -122,8 +128,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '6 min',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-13'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-14'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez agrémenter votre porridge à l\'anglaise avec un peu de cannelle en poudre.'
@@ -143,8 +150,13 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '35 min',
                 'age'           => '1 an',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-7'),
+                    $this->getReference('food-20'),
+                    $this->getReference('food-21'),
+                    $this->getReference('food-22'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-24'),
+                    $this->getReference('food-25')
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez remplacer la banane par d\'autres fruits comme la poire et les fruits.'
@@ -163,8 +175,10 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '4 min',
                 'age'           => '1 an',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-4'),
+                    $this->getReference('food-26'),
+                    $this->getReference('food-27'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez introduire progressivement d\'autres épices, comme la cannelle, dont la saveur est très douce.'
@@ -182,8 +196,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '480 min',
                 'age'           => '10 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-28'),
+                    $this->getReference('food-23'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez parfumer vos yaourts pour bébé, avec de la vanille, du cacao en poudre ou même de la purée de fruits.'
@@ -204,8 +219,11 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '20 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-3'),
+                    $this->getReference('food-7'),
+                    $this->getReference('food-20'),
+                    $this->getReference('food-29'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez changer les fruits en fonction de la saison : mangue, pêche, framboises... '
@@ -223,8 +241,11 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '10 min',
                 'age'           => '10 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-3'),
+                    $this->getReference('food-33'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-35'),
+                    $this->getReference('food-34'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Osez incorporer un peu d\'épices douces dans la soupe : cumin, paprika et même vanille !'
@@ -247,8 +268,10 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '15 min',
                 'age'           => '1 an',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-33'),
+                    $this->getReference('food-36'),
+                    $this->getReference('food-37'),
+                    $this->getReference('food-29'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Si vous n\'avez pas utilisé toute la purée, conservez-la au congélateur pour un autre repas'
@@ -267,8 +290,10 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '10 min',
                 'age'           => '9 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-9'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-38'),
+                    $this->getReference('food-26'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez utiliser des pommes râpées ou de la banane écrasée à la place des dés de poires.'
@@ -287,8 +312,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-7'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-38'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez accompagner cette purée banane cacao pour bébé, avec un petit biscuit emietté.'
@@ -307,8 +333,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '10 min',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-40'),
+                    $this->getReference('food-39'),
+                    $this->getReference('food-1'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez réaliser cette soupe pour bébé avec d\'autres légumes de saison pour obtenir d\'autres couleurs : orange (carotte-potiron), rouge (chou-betterave), ou verte (petits pois-courgette)'
@@ -327,8 +354,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '10 min',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
                     $this->getReference('food-0'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-42'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Si vous souhaitez une consistance plus fluide, vous pouvez ajouter un peu plus d\'eau.'
@@ -347,8 +375,11 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '24 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-14'),
+                    $this->getReference('food-24'),
+                    $this->getReference('food-20'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-29')
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez remplacer le sucre par du sucre vanillé.'
@@ -366,8 +397,8 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '4 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-32'),
+                    $this->getReference('food-29'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez parfumer avec d\'autres épices : cannelle, gingembre... et également servir ce milkshake tiède avec quelques dés de mangue.'
@@ -384,7 +415,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'age'           => '12 mois',
                 'ingredients'   => [
                     $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-38'),
+                    $this->getReference('food-23'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Astuce : vous pouvez ajouter un peu de cannelle dans les poires avant de les mixer.'
@@ -401,8 +434,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '10 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-38'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez servir avec un petit biscuit.'
@@ -418,8 +452,10 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '10 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-9'),
+                    $this->getReference('food-21'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-43'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez réaliser ce velouté avec d\'autres fruits de saison : pommes, bananes... ou associez plusieurs d\'entres eux.'
@@ -437,8 +473,8 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '15 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
                     $this->getReference('food-0'),
+                    $this->getReference('food-29'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Variez les épices avec du curry, du cumin ou même un peu de gingembre.'
@@ -457,8 +493,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '2 min',
                 'age'           => '8 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-7'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-43'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Vous pouvez également ajouter une pincée de cannelle en poudre.'
@@ -476,8 +513,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '2 min',
                 'age'           => '8 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-14'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-41'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Cette recette s\'adapte aussi très bien avec des framboises.'
@@ -494,8 +532,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '',
                 'age'           => '8 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-44'),
+                    $this->getReference('food-34'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Pour éveiller les papilles de votre enfant, remplacez la ciboulette par d\'autres herbes : aneth, persil, coriandre...'
@@ -516,8 +555,10 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '15 min',
                 'age'           => '6 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-36'),
+                    $this->getReference('food-45'),
+                    $this->getReference('food-1'),
+                    $this->getReference('food-29'),
                 ],
                 'filling'       => '',
                 'observation'   => 'N\'hésitez pas à variez les légumes en utilisant des fonds d\'artichauts, des petits pois ou même de la courgette.'
@@ -537,8 +578,11 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '5 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-35'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-20'),
+                    $this->getReference('food-46'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Les petites crèmes au caramel sont des desserts gourmands à proposer occasionnellement à bébé.'
@@ -557,8 +601,12 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '30 min',
                 'age'           => '10 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
+                    $this->getReference('food-29'),
                     $this->getReference('food-0'),
+                    $this->getReference('food-48'),
+                    $this->getReference('food-49'),
+                    $this->getReference('food-50'),
+
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -575,21 +623,18 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Mélangez jusqu’à l’obtention d’une pâte homogène.
                                     Ajoutez la purée de poireau et les cubes de saumon. Salez et poivrez légèrement.
                                     Répartissez la préparation dans des petits moules ou ramequins, puis enfournez environ 30 minutes.
-                                    Laissez tiédir avant de servir à bébé.Coupez le saumon en petits cubes.
-                                    Lavez le poireau, et coupez-le en rondelles.
-                                    Faites bouillir une casserole d’eau et plongez les rondelles de poireau et laissez-les cuire jusqu’à ce qu’elles soient bien tendres, égouttez-les en laissant un fond d’eau et mixez le tout pour obtenir une purée lisse.
-                                    Préchauffez votre four à 175°C.
-                                    Dans un bol, fouettez l’œuf, puis ajoutez la crème, le Lactel Eveil Nature et la farine.
-                                    Mélangez jusqu’à l’obtention d’une pâte homogène.
-                                    Ajoutez la purée de poireau et les cubes de saumon. Salez et poivrez légèrement.
-                                    Répartissez la préparation dans des petits moules ou ramequins, puis enfournez environ 30 minutes.
                                     Laissez tiédir avant de servir à bébé.",
                 'preptime'      => '20 min',
                 'cooktime'      => '40 min',
                 'age'           => '10 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-51'),
+                    $this->getReference('food-52'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-24'),
+                    $this->getReference('food-49'),
+                    $this->getReference('food-50'),
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -608,8 +653,12 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '20 min',
                 'age'           => '10 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-36'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-12'),
+                    $this->getReference('food-53'),
+                    $this->getReference('food-34'),
+                    $this->getReference('food-49'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Variez les herbes et optez pour du basilic ou du persil.'
@@ -629,8 +678,14 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '3 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-25'),
+                    $this->getReference('food-24'),
+                    $this->getReference('food-54'),
+                    $this->getReference('food-55'),
+                    $this->getReference('food-12'),
+
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -653,8 +708,18 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '45 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-12'),
+                    $this->getReference('food-56'),
+                    $this->getReference('food-57'),
+                    $this->getReference('food-58'),
+                    $this->getReference('food-59'),
+                    $this->getReference('food-60'),
+                    $this->getReference('food-49'),
+                    $this->getReference('food-50'),
+                    $this->getReference('food-61'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-24'),
+                    $this->getReference('food-29'),
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -675,8 +740,11 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '30 min',
                 'age'           => '10 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-37'),
+                    $this->getReference('food-21'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-62'),
+                    $this->getReference('food-30'),
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -697,8 +765,10 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '25 min',
                 'age'           => '10 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-63'),
+                    $this->getReference('food-21'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-49'),
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -715,8 +785,13 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '30 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-14'),
+                    $this->getReference('food-4'),
+                    $this->getReference('food-24'),
+                    $this->getReference('food-20'),
+                    $this->getReference('food-49'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-1'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Si vous n\'avez pas de gousse de vanille, troquez 20 g de sucre par du sucre vanillé. Le petit + : variez les fruits : prunes, poires ou cerises...'
@@ -733,8 +808,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '30 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-36'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-64'),
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -752,8 +828,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '30 min',
                 'age'           => '1 an',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-12'),
+                    $this->getReference('food-65'),
+                    $this->getReference('food-66'),
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -769,8 +846,12 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '0 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-67'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-24'),
+                    $this->getReference('food-21'),
+
                 ],
                 'filling'       => '',
                 'observation'   => ''
@@ -789,8 +870,14 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '30 min',
                 'age'           => '10 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-57'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-29'),
+                    $this->getReference('food-24'),
+                    $this->getReference('food-35'),
+                    $this->getReference('food-49'),
+                    $this->getReference('food-68'),
+                    $this->getReference('food-69'),
                 ],
                 'filling'       => '',
                 'observation'   => 'Pensez à adapter la texture de ce plat selon votre bébé.
@@ -807,8 +894,9 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                 'cooktime'      => '0 min',
                 'age'           => '12 mois',
                 'ingredients'   => [
-                    $this->getReference('food-2'),
-                    $this->getReference('food-0'),
+                    $this->getReference('food-36'),
+                    $this->getReference('food-30'),
+                    $this->getReference('food-29'),
                 ],
                 'filling'       => '',
                 'observation'   => ''

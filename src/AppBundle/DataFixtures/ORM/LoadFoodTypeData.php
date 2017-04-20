@@ -21,17 +21,46 @@ class LoadFoodTypeData extends AbstractFixture implements OrderedFixtureInterfac
     {
         $foodTypesData = array(
             array(
-                'wording' => 'vegetables',
+                'wording' => 'vegetables',   //-----------0
             ),
             array(
-                'wording' => 'meat',
+                'wording' => 'meat',         //-----------1
             ),
             array(
-                'wording' => 'drink',
+                'wording' => 'drink',        //-----------2
             ),
             array(
-                'wording' => 'biscuits',
-            )
+                'wording' => 'fruits',       //-----------3
+            ),
+            array(
+                'wording' => 'powder',       //-----------4
+            ),
+            array(
+                'wording' => 'liquid',       //-----------5
+            ),
+            array(
+                'wording' => 'cereal',       //-----------6
+            ),
+            array(
+                'wording' => 'melting',      //-----------7
+            ),
+            array(
+                'wording' => 'starchy',      //-----------8
+            ),
+            array(
+                'wording' => 'milky',        //-----------9
+            ),
+            array(
+                'wording' => 'egg',          //-----------10
+            ),
+            array(
+                'wording' => 'cake',         //-----------11
+            ),
+            array(
+                'wording' => 'fish',         //-----------12
+            ),
+
+
         );
 
         foreach ($foodTypesData as $i => $ft){
