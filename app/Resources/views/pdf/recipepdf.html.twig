@@ -13,9 +13,9 @@
 
     {% block stylesheets %}
         <!-- css -->
-        <link href="{{ asset('public/Sailor/css/bootstrap.min.css') }}" rel="stylesheet" />
-        <link href="{{ asset('public/Sailor/css/cubeportfolio.min.css') }}" rel="stylesheet" />
-        <link href="{{ asset('public/Sailor/css/style.css') }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('public/Sailor/css/bootstrap.min.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('public/Sailor/css/cubeportfolio.min.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('public/Sailor/css/style.css')) }}" rel="stylesheet" />
 
         {#Custom css#}
         <link href="{{ asset('public/css/style.css') }}" rel="stylesheet" />
@@ -31,6 +31,13 @@
         <div class="col-lg-6">
             <h1 class="text-center">{{ recipe.name }}</h1>
 
+            {% if recipe.photoRecipes|length > 0 %}
+                {% for photoRecipe in recipe.photoRecipes %}
+
+                        <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}" class="img-responsive" >
+
+                {% endfor %}
+            {% endif %}
 
                 <b>Age:</b>
                 <p>

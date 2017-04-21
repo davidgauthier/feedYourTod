@@ -135,10 +135,6 @@ class FrontController extends Controller
         ]);
     }
 
-
-
-
-
     //Génerer des PDFs
     /**
      * @Route("/pdf/{id}", name="app_generate_pdf")
@@ -163,14 +159,12 @@ class FrontController extends Controller
                 200,
                 array(
                     'Content-Type' => 'application/pdf',
-                    'Content-Disposition' => 'attachment; filename="file.pdf"'
+                    'Content-Disposition' => 'attachment; filename="Recette'.$id.'.pdf"'
                 )
             );
 
             return $this->redirectToRoute('app_recipe');
         }
     }
-
-
 
 }
