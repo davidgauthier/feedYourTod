@@ -52,6 +52,9 @@
                     <li {% if app.request.get('_route') == 'app_contact' %}class="active"{% endif %}>
                         <a href="{{ path('app_contact') }}">Contact</a>
                     </li>
+                    <li {% if app.request.get('_route') == 'app_search_results' %}class="active"{% endif %}>
+                        <a href="{{ path('app_search_results') }}">Search</a>
+                    </li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
                     {% else %}
