@@ -14,6 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class PhotoRecipe
 {
+    const SERVER_PATH_TO_IMAGE_FOLDER = 'uploads/photoRecipes';
+
     /**
      * @var int
      *
@@ -158,4 +160,30 @@ class PhotoRecipe
         return $this->recipe;
     }
 
+//    public function getWebPath(){
+//        return $this->getSrc();
+//    }
+    public function getAbsolutePath()
+    {
+        return null === $this->src ? null : $this->getUploadRootDir().'/'.$this->src;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->src ? null : $this->getUploadDir().'/'.$this->src;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // On retourne le chemin relatif vers l'image pour notre code PHP
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    // On retourne le chemin relatif vers l'image pour un navigateur (relatif au répertoire /web donc)
+    protected function getUploadDir()
+    {
+        // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
+        // le document/image dans la vue.
+        return PhotoRecipe::SERVER_PATH_TO_IMAGE_FOLDER;
+    }
 }

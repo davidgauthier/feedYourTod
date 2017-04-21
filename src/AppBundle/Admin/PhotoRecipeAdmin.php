@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\Image;
 
 class PhotoRecipeAdmin extends AbstractAdmin
 {
@@ -37,12 +38,18 @@ class PhotoRecipeAdmin extends AbstractAdmin
 
         // The field will added when current action is related acme.demo.admin.code Admin's edit form
         if ($this->isCurrentRoute('edit')) {
+            // get the current Image instance
+            $pr = $this->getSubject();
+            $fileFieldOptions = ['required'     => false,
+                                'data_class'    => null,
+                                'label'         => 'La photo'];
+            if ($pr) {
+                // add a 'help' option containing the preview's img tag
+                $fileFieldOptions['help'] = '<img src="'.'../../../../../'.$pr->getWebPath().'" class="admin-preview" style="max-height: 300px;" />';
+            }
+
             $formMapper
-                ->add('src', FileType::class, array(
-                    'label' => 'La photo',
-                    'data_class' => null,
-                    'required' => false,
-                ));
+                ->add('src', FileType::class, $fileFieldOptions);
             $formMapper->add('legend');
             $formMapper->add('recipe');
         }
@@ -105,5 +112,6 @@ class PhotoRecipeAdmin extends AbstractAdmin
         $listMapper->add('src', 'text');
         $listMapper->add('legend');
         $listMapper->add('recipe');
+        $listMapper->add('preview', null, array('template' => 'AppBundle:SonataAdmin:list_image_photo_recipe.html.twig'));
     }
 }

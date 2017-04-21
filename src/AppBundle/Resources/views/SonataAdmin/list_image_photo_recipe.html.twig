@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field%}
+    <div>
+        <img src="{{ asset('uploads/photoRecipes/'~object.src) }}" style="height: 150px;"/>
+        {# or whatever to create src of image #}
+    </div>
+{% endblock %}
