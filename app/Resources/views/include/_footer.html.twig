@@ -43,12 +43,7 @@
                 <div class="widget">
                     <h4>Newsletter</h4>
                     <p>Fill your email and sign up for monthly newsletter to keep updated</p>
-                    <div class="form-group multiple-form-group input-group">
-                        <input type="email" name="email" class="form-control">
-                        <span class="input-group-btn">
-                                <button type="button" class="btn btn-theme btn-add">Subscribe</button>
-                            </span>
-                    </div>
+                    {{ render(controller('AppBundle:NewsletterSubscriber:createNewsletterForm')) }}
                 </div>
             </div>
         </div>
