@@ -81,10 +81,18 @@
                         {% if listRandomMenus|length > 0 %}
                             {% for menu in listRandomMenus %}
                                 <li>
-                                    <a href="{{ path('app_menu', {'id': menu.id}) }}">
-                                        <img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb1.jpg') }}" class="pull-left" alt="" />
-                                    </a>
+                                    {% set picture = menu|photoMenu %}
+                                    {% if picture is not empty %}
+                                        <a href="{{ path('app_menu', {'id': menu.id}) }}">
+                                            {#<img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb1.jpg') }}" class="pull-left" alt="" />#}
+
+                                                <img class="pull-left" src="{{ asset('uploads/photoRecipes/' ~ picture.src) }}" alt="{{ picture.legend }}" height="65" width="65">
+
+                                        </a>
+                                    {% endif %}
+
                                     <h6><a href="{{ path('app_menu', {'id': menu.id}) }}">{{ menu.name }}</a></h6>
+
                                     <p>
                                         Mazim alienum appellantur eu cu ullum officiis pro pri
                                     </p>
