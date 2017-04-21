@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\MessageContactType;
+use AppBundle\Form\NewsletterSubscriberType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +42,7 @@ class FrontController extends Controller
     }
 
     /**
-     * @Route("/menus", name="app_menus")
+     * @Route("/menus", name="app_menus", methods={"GET"})
      */
     public function menusAction()
     {
@@ -53,7 +55,7 @@ class FrontController extends Controller
     }
 
     /**
-     * @Route("/menu/{id}", name="app_menu")
+     * @Route("/menu/{id}", name="app_menu", methods={"GET"})
      */
     public function menuAction($id)
     {
@@ -73,7 +75,7 @@ class FrontController extends Controller
     }
 
     /**
-     * @Route("/recipes", name="app_recipes")
+     * @Route("/recipes", name="app_recipes", methods={"GET"})
      */
     public function recipesAction()
     {
@@ -86,7 +88,7 @@ class FrontController extends Controller
     }
 
     /**
-     * @Route("/recipe/{id}", name="app_recipe")
+     * @Route("/recipe/{id}", name="app_recipe", methods={"GET"})
      */
     public function recipeAction($id)
     {
@@ -105,15 +107,37 @@ class FrontController extends Controller
     }
 
     /**
-     * @Route("/contact", name="app_contact", methods={"GET"})
+     * @Route("/contact", name="app_contact")
      */
     public function contactAction(Request $request)
     {
+        $messageContact = $this->container->get('app.message_contact_manager')->create();
+
+        $form = $this->createForm(MessageContactType::class, $messageContact);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $messageContact = $form->getData();
+
+            if(null !== $this->getUser()){
+                $messageContact->setUser($this->getUser());
+            }
+
+            $this->container->get('app.message_contact_manager')->save($messageContact);
+
+            $this->get('session')->getFlashBag()->add('info', 'Votre message a bien été enregistré !');
+            return $this->redirectToRoute('app_homepage');
+        }
+
         return $this->render(':front:contact.html.twig', [
-                //'listCategories' => array(),
-            ]
-        );
+            'form' => $form->createView(),
+        ]);
     }
+
+
+
+
 
     //Génerer des PDFs
     /**

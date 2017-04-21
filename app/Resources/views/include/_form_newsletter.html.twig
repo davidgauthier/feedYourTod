@@ -1,0 +1,36 @@
+{{ form_start(form) }}
+{{ form_errors(form) }}
+
+<div class="form-group multiple-form-group input-group">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control',
+                                            'placeholder': 'Your Name',
+                                            'data-rule': 'minlen:4',
+                                            'data-msg': 'Please enter at least 4 chars',
+                                            'readonly': '',
+                                            'value': app.user.email  }}) }}
+    {% else %}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control',
+                                            'placeholder': 'Your Name',
+                                            'data-rule': 'minlen:4',
+                                            'data-msg': 'Please enter at least 4 chars' }}) }}
+    {% endif %}
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-theme btn-add">Subscribe</button>
+    </span>
+</div>
+
+{{ form_rest(form) }}
+{{ form_end(form) }}
+
+
+{#<form>#}
+    {#<div class="form-group multiple-form-group input-group">#}
+        {#<input type="email" name="email" class="form-control">#}
+        {#<span class="input-group-btn">#}
+            {#<button type="button" class="btn btn-theme btn-add">Subscribe</button>#}
+        {#</span>#}
+    {#</div>#}
+{#</form>#}
+
+

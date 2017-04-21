@@ -25,5 +25,15 @@ services:
         arguments:
             - "@=service('doctrine').getManager()"
 
+    app.message_contact_manager:
+        class: AppBundle\Manager\MessageContactManager
+        arguments:
+            - "@=service('doctrine').getManager()"
+
+    app.newsletter_subscriber_manager:
+        class: AppBundle\Manager\NewsletterSubscriberManager
+        arguments:
+            - "@=service('doctrine').getManager()"
+
 
 
