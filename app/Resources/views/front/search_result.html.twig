@@ -10,7 +10,7 @@
 
 {% block breadcrumb %}
     <li><a href="{{ path('app_homepage') }}"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-    <li class="active">Search : {% if app.request.query.get('search')['keyword'] %}{{ app.request.query.get('search')['keyword'] }}{% endif %}</li>
+    <li class="active">Search : {% if app.request.query.get('search')['keyword'] is defined %}{{ app.request.query.get('search')['keyword'] }}{% endif %}</li>
 {% endblock %}
 
 {% block content %}
@@ -18,16 +18,25 @@
     <div class="row">
         <div class="col-lg-12">
 
-            <h3>Search : {% if app.request.query.get('search')['keyword'] %}{{ app.request.query.get('search')['keyword'] }}{% endif %}</h3>
+            <h3>Search : {% if app.request.query.get('search')['keyword'] is defined %}{{ app.request.query.get('search')['keyword'] }}{% endif %}</h3>
 
             <ul>
-                {% for recipe in searchRecipes  %}
-                    <li>{{ recipe.name }}</li>
-                {% endfor %}
+                {% if searchRecipes is defined %}
+                    {% for recipe in searchRecipes  %}
+                        <li>{{ recipe.name }}</li>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucun résultat pour les recettes</p>
+                {% endif %}
                 <hr>
-                {% for menu in searchMenus %}
-                    <li>{{ menu.name }}</li>
-                {% endfor %}
+                {% if searchRecipes is defined %}
+                    {% for menu in searchMenus %}
+                        <li>{{ menu.name }}</li>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucun résultat pour les menus</p>
+                {% endif %}
+
             </ul>
 
         </div>

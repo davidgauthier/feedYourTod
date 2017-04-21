@@ -63,7 +63,8 @@
 
                     <b>Age:</b>
                     <p>
-                        {{ recipe.age }}
+                        {% import ":Macros:macro_recipe_min_age.html.twig" as macroAge  %}
+                        {{ macroAge.displayAge(recipe.age) }}
                     </p><br />
 
                     <b>Ingrédients:</b>

@@ -58,8 +58,9 @@ class SearchController extends Controller
         }
 
 
-        return $this->render(':include:_search_form.html.twig', array(
-            'form' => $form->createView(),
+        return $this->render(':front:search_result.html.twig', array(
+//            'searchMenus'   => $searchMenus,
+//            'searchRecipes' => $searchRecipes,
         ));
 
 

@@ -23,7 +23,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez chaud à votre enfant.",
                 'preptime'      => '10 min',
                 'cooktime'      => '15 min',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                                     $this->getReference('food-0'),
                                     $this->getReference('food-1'),
@@ -42,7 +42,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Laissez refroidir avant de servir à votre enfant.",
                 'preptime'      => '10 min',
                 'cooktime'      => '10 min',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                                     $this->getReference('food-3'),
                                     $this->getReference('food-4'),
@@ -63,7 +63,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Faites déguster à bébé, tiède ou froid.",
                 'preptime'      => '5 min',
                 'cooktime'      => '3 min',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                     $this->getReference('food-7'),
                     $this->getReference('food-1'),
@@ -84,7 +84,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez de suite à votre enfant.",
                 'preptime'      => '5 min',
                 'cooktime'      => '',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                     $this->getReference('food-9'),
                     $this->getReference('food-10'),
@@ -105,7 +105,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez alors chaud ou attendez pour servir froid.",
                 'preptime'      => '5 min',
                 'cooktime'      => '',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                     $this->getReference('food-12'),
                     $this->getReference('food-11'),
@@ -126,7 +126,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez tiède à bébé ce porridge anglais aux framboises.",
                 'preptime'      => '3 min',
                 'cooktime'      => '6 min',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                     $this->getReference('food-13'),
                     $this->getReference('food-1'),
@@ -148,7 +148,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Laissez-les refroidir avant de les faire déguster à bébé !",
                 'preptime'      => '25 min',
                 'cooktime'      => '35 min',
-                'age'           => '1 an',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-7'),
                     $this->getReference('food-20'),
@@ -173,7 +173,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Faites déguster à votre enfant ces onctueuses semoule au lait vanille fraise.",
                 'preptime'      => '5 min',
                 'cooktime'      => '4 min',
-                'age'           => '1 an',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-1'),
                     $this->getReference('food-4'),
@@ -194,7 +194,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Vous n’avez plus qu’à faire déguster à bébé !",
                 'preptime'      => '5 min',
                 'cooktime'      => '480 min',
-                'age'           => '10 mois',
+                'age'           => 10,
                 'ingredients'   => [
                     $this->getReference('food-29'),
                     $this->getReference('food-28'),
@@ -217,7 +217,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Vous n’avez plus qu’à faire déguster à bébé !",
                 'preptime'      => '10 min',
                 'cooktime'      => '20 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-30'),
                     $this->getReference('food-3'),
@@ -239,7 +239,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez de suite à votre enfant ce délicieux velouté de carotte et pomme. ",
                 'preptime'      => '5 min',
                 'cooktime'      => '10 min',
-                'age'           => '10 mois',
+                'age'           => 10,
                 'ingredients'   => [
                     $this->getReference('food-3'),
                     $this->getReference('food-33'),
@@ -266,7 +266,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez de suite à votre enfant ce papillon aux trois purées.",
                 'preptime'      => '20 min',
                 'cooktime'      => '15 min',
-                'age'           => '1 an',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-33'),
                     $this->getReference('food-36'),
@@ -288,7 +288,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Faites déguster à bébé !",
                 'preptime'      => '5 min',
                 'cooktime'      => '10 min',
-                'age'           => '9 mois',
+                'age'           => 9,
                 'ingredients'   => [
                     $this->getReference('food-9'),
                     $this->getReference('food-1'),
@@ -310,7 +310,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez de suite à bébé !",
                 'preptime'      => '5 min',
                 'cooktime'      => '',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                     $this->getReference('food-7'),
                     $this->getReference('food-1'),
@@ -331,7 +331,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez chaud cette soupe d'hiver pour bébé !",
                 'preptime'      => '10 min',
                 'cooktime'      => '10 min',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                     $this->getReference('food-40'),
                     $this->getReference('food-39'),
@@ -352,7 +352,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez chaud.",
                 'preptime'      => '5 min',
                 'cooktime'      => '10 min',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                     $this->getReference('food-0'),
                     $this->getReference('food-1'),
@@ -373,7 +373,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez à bébé ces petites crêpes à la framboise dans la journée car elles en se conservent pas.",
                 'preptime'      => '10 min',
                 'cooktime'      => '24 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-14'),
                     $this->getReference('food-24'),
@@ -395,7 +395,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Dégustez de suite vos milkshakes tièdes à la mangue fraîche. ",
                 'preptime'      => '5 min',
                 'cooktime'      => '4 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-32'),
                     $this->getReference('food-29'),
@@ -412,7 +412,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Juste avant de servir, remplissez une verrine de la purée de poires. Versez dessus la sauce chocolat tiède.",
                 'preptime'      => '10 min',
                 'cooktime'      => '10 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-2'),
                     $this->getReference('food-1'),
@@ -432,7 +432,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Répartissez dans 2 petits moules. Laissez refroidir jusqu'à ce que les flans soient pris.",
                 'preptime'      => '10 min',
                 'cooktime'      => '10 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-1'),
                     $this->getReference('food-30'),
@@ -450,7 +450,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Faites déguster à bébé chaud, tiède ou froid.",
                 'preptime'      => '10 min',
                 'cooktime'      => '10 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-9'),
                     $this->getReference('food-21'),
@@ -471,7 +471,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Dégustez bien chaud.",
                 'preptime'      => '10 min',
                 'cooktime'      => '15 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-0'),
                     $this->getReference('food-29'),
@@ -491,7 +491,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez tiède ou froid.",
                 'preptime'      => '3 min',
                 'cooktime'      => '2 min',
-                'age'           => '8 mois',
+                'age'           => 8,
                 'ingredients'   => [
                     $this->getReference('food-7'),
                     $this->getReference('food-1'),
@@ -511,7 +511,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez tiède ou froid.",
                 'preptime'      => '3 min',
                 'cooktime'      => '2 min',
-                'age'           => '8 mois',
+                'age'           => 8,
                 'ingredients'   => [
                     $this->getReference('food-14'),
                     $this->getReference('food-1'),
@@ -530,7 +530,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez à température ambiante. ",
                 'preptime'      => '3 min',
                 'cooktime'      => '',
-                'age'           => '8 mois',
+                'age'           => 8,
                 'ingredients'   => [
                     $this->getReference('food-1'),
                     $this->getReference('food-44'),
@@ -553,7 +553,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez bien chaud.",
                 'preptime'      => '5 min',
                 'cooktime'      => '15 min',
-                'age'           => '6 mois',
+                'age'           => 6,
                 'ingredients'   => [
                     $this->getReference('food-36'),
                     $this->getReference('food-45'),
@@ -576,7 +576,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Répartissez cette préparation dans des ramequins et laissez prendre au réfrigérateur environ 2 heures.",
                 'preptime'      => '10 min',
                 'cooktime'      => '5 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-35'),
                     $this->getReference('food-29'),
@@ -599,7 +599,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Répartissez cette préparation dans des moules ou des ramequins et laissez prendre au réfrigérateur environ 4 heures.",
                 'preptime'      => '20 min',
                 'cooktime'      => '30 min',
-                'age'           => '10 mois',
+                'age'           => 10,
                 'ingredients'   => [
                     $this->getReference('food-29'),
                     $this->getReference('food-0'),
@@ -626,7 +626,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Laissez tiédir avant de servir à bébé.",
                 'preptime'      => '20 min',
                 'cooktime'      => '40 min',
-                'age'           => '10 mois',
+                'age'           => 10,
                 'ingredients'   => [
                     $this->getReference('food-51'),
                     $this->getReference('food-52'),
@@ -651,7 +651,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Passez au four pendant 10 minutes à 180°C.",
                 'preptime'      => '5 min',
                 'cooktime'      => '20 min',
-                'age'           => '10 mois',
+                'age'           => 10,
                 'ingredients'   => [
                     $this->getReference('food-36'),
                     $this->getReference('food-29'),
@@ -676,7 +676,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Laissez tiédir, vérifiez la température avant de servir à bébé.",
                 'preptime'      => '15 min',
                 'cooktime'      => '3 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-30'),
                     $this->getReference('food-29'),
@@ -706,7 +706,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Enfournez 25 minutes, puis laissez tiédir et vérifiez la température avant de servir à bébé.",
                 'preptime'      => '15 min',
                 'cooktime'      => '45 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-12'),
                     $this->getReference('food-56'),
@@ -738,7 +738,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Démoulez et laissez tiédir.",
                 'preptime'      => '10 min',
                 'cooktime'      => '30 min',
-                'age'           => '10 mois',
+                'age'           => 10,
                 'ingredients'   => [
                     $this->getReference('food-37'),
                     $this->getReference('food-21'),
@@ -763,7 +763,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Laissez tiédir quelques minutes avant de servir.",
                 'preptime'      => '15 min',
                 'cooktime'      => '25 min',
-                'age'           => '10 mois',
+                'age'           => 10,
                 'ingredients'   => [
                     $this->getReference('food-63'),
                     $this->getReference('food-21'),
@@ -783,7 +783,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Enfournez pour 30 minutes. Servez tiède ou froid.",
                 'preptime'      => '10 min',
                 'cooktime'      => '30 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-14'),
                     $this->getReference('food-4'),
@@ -806,7 +806,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Dans un plat à gratin, déposez une fine couche de purée, versez la viande, recouvrir du reste de purée. Parsemez de fromage râpé. Faites cuire 30 minutes.",
                 'preptime'      => '25 min',
                 'cooktime'      => '30 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-36'),
                     $this->getReference('food-29'),
@@ -826,7 +826,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Déposez les tomates dans un plat anti-adhésif et laissez cuire 30 mn à 220 C°.",
                 'preptime'      => '50 min',
                 'cooktime'      => '30 min',
-                'age'           => '1 an',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-12'),
                     $this->getReference('food-65'),
@@ -844,7 +844,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Poêlez dans du beurre chaud.",
                 'preptime'      => '5 min',
                 'cooktime'      => '0 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-67'),
                     $this->getReference('food-30'),
@@ -868,7 +868,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez chaud en contrôlant la température.",
                 'preptime'      => '10 min',
                 'cooktime'      => '30 min',
-                'age'           => '10 mois',
+                'age'           => 10,
                 'ingredients'   => [
                     $this->getReference('food-57'),
                     $this->getReference('food-30'),
@@ -892,7 +892,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Versez la préparation dans une poêle moyenne huilée (la crêpe doit être bien étalée) et laissez cuire 5 minutes de chaque côté sur feu assez vif.",
                 'preptime'      => '5 min',
                 'cooktime'      => '0 min',
-                'age'           => '12 mois',
+                'age'           => 12,
                 'ingredients'   => [
                     $this->getReference('food-36'),
                     $this->getReference('food-30'),
