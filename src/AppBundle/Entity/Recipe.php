@@ -60,7 +60,7 @@ class Recipe
     /**
      * @var Season int
      *
-     * @ORM\Column(name="age", type="string", length=255)
+     * @ORM\Column(name="age", type="integer")
      */
     private $age;
 

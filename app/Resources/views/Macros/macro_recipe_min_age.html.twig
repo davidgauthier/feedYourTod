@@ -1,0 +1,9 @@
+{% macro displayAge(age) %}
+    {% if age < 36 %}
+        {{ age ~ ' mois' }}
+    {% else %}
+        {% set modulo = age % 12 %}
+        {% set annees = (age - modulo)/12 %}
+        {{ annees ~ ' ans' }}
+    {% endif %}
+{% endmacro %}
