@@ -105,8 +105,6 @@ sonata_block:
             contexts: [admin]
         # ...
 
-
-
 #
 sonata_admin:
     templates:
@@ -118,10 +116,10 @@ sonata_admin:
 knp_snappy:
     pdf:
         enabled:    true
-        binary:     "%kernel.root_dir%\\..\\vendor\\bin\\wkhtmltopdf-amd64"
+        binary:     'C:\wkhtmltopdf.exe'
         options:    []
     image:
         enabled:    true
-        binary:     "%kernel.root_dir%\\..\\vendor\\bin\\wkhtmltoimage-i386"
+        binary:     'C:\wkhtmltoimage.exe'
         options:    []
 
