@@ -18,3 +18,9 @@ services:
             - "%photo_recipe_directory%"
         tags:
             - { name: doctrine.event_listener, event: preRemove, connetion: default}
+
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        public: false
+        tags:
+            - { name: twig.extension }
