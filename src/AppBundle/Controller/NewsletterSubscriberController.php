@@ -40,14 +40,20 @@ class NewsletterSubscriberController extends Controller
 
         if($form->isValid() && $form->isSubmitted()){
             $newsletterSubscriber = $form->getData();
+            $nsm = $this->container->get('app.newsletter_subscriber_manager');
+
+            if(null !== $nsm->getNewsletterSubscriberByEmail($newsletterSubscriber->getEmail())){
+                $this->get('session')->getFlashBag()->add('warning', 'L\'email est déjà dans la liste pour les newsletters!');
+                return $this->redirectToRoute('app_homepage');
+            }
 
             if(null !== $this->getUser()){
                 $newsletterSubscriber->setUser($this->getUser());
             }
 
-            $this->container->get('app.newsletter_subscriber_manager')->save($newsletterSubscriber);
+            $nsm->save($newsletterSubscriber);
 
-            $this->get('session')->getFlashBag()->add('info', 'L\'email a bien été ajouté à la liste pour les newsletter!');
+            $this->get('session')->getFlashBag()->add('info', 'L\'email a bien été ajouté à la liste pour les newsletters!');
             return $this->redirectToRoute('app_homepage');
         }
 

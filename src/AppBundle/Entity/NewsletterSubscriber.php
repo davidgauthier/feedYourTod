@@ -4,11 +4,17 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 /**
  * NewsletterSubscriber
  *
  * @ORM\Table(name="newsletter_subscriber")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\NewsletterSubscriberRepository")
+ *
+ * ///@///UniqueEntity("email")
  */
 class NewsletterSubscriber
 {
@@ -25,6 +31,7 @@ class NewsletterSubscriber
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\Email()
      */
     private $email;
 

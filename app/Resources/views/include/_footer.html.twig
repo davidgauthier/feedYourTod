@@ -2,7 +2,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="widget">
                     <h4>Get in touch with us</h4>
                     <address>
@@ -15,31 +15,31 @@
                     </p>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <div class="widget">
-                    <h4>Information</h4>
-                    <ul class="link-list">
-                        <li><a href="#">Press release</a></li>
-                        <li><a href="#">Terms and conditions</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                        <li><a href="#">Career center</a></li>
-                        <li><a href="#">Contact us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3">
+            {#<div class="col-lg-3">#}
+                {#<div class="widget">#}
+                    {#<h4>Information</h4>#}
+                    {#<ul class="link-list">#}
+                        {#<li><a href="#">Press release</a></li>#}
+                        {#<li><a href="#">Terms and conditions</a></li>#}
+                        {#<li><a href="#">Privacy policy</a></li>#}
+                        {#<li><a href="#">Career center</a></li>#}
+                        {#<li><a href="#">Contact us</a></li>#}
+                    {#</ul>#}
+                {#</div>#}
+            {#</div>#}
+            <div class="col-lg-4">
                 <div class="widget">
                     <h4>Pages</h4>
                     <ul class="link-list">
-                        <li><a href="#">Press release</a></li>
-                        <li><a href="#">Terms and conditions</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                        <li><a href="#">Career center</a></li>
-                        <li><a href="#">Contact us</a></li>
+                        <li><a href="{{ path('app_homepage') }}">Home</a></li>
+                        <li><a href="{{ path('app_menus') }}">Menus</a></li>
+                        <li><a href="{{ path('app_recipes') }}">Recettes</a></li>
+                        <li><a href="{{ path('app_contact') }}">Contact</a></li>
+                        <li><a href="{{ path('app_search_results') }}">Recherche</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="widget">
                     <h4>Newsletter</h4>
                     <p>Fill your email and sign up for monthly newsletter to keep updated</p>
