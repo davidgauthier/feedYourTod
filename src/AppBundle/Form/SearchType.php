@@ -15,11 +15,12 @@ class SearchType extends AbstractType
     {
         $builder
             ->add('keyword', TextType::class, [
-                'label' => 'search',
+                'label'     => 'search',
+                'required'  => false,
             ])
             ->add('age', IntegerType::class, [
                 'label'     => 'age (en mois)',
-                'required'  => false
+                'required'  => false,
             ])
         ;
     }

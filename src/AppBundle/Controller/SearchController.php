@@ -11,16 +11,20 @@ use Symfony\Component\HttpFoundation\Request;
 class SearchController extends Controller
 {
 
-
-    public function createSearchFormAction(Request $request)
-    {
-        $form = $this->createForm(SearchNavType::class, null, [
+    private function createNavSearchForm(){
+        return $this->createForm(SearchNavType::class, null, [
             'action' => $this->generateUrl('app_search_results'),
             'method' => 'GET'
         ]);
+    }
 
-        return $this->render(':include:_search_form.html.twig', array(
-            'form' => $form->createView(),
+
+    public function createNavSearchFormAction(Request $request)
+    {
+        $navForm = $this->createNavSearchForm();
+
+        return $this->render(':include:_search_form_header.html.twig', array(
+            'form' => $navForm->createView(),
         ));
     }
 
@@ -31,10 +35,15 @@ class SearchController extends Controller
      */
     public function searchResultsAction(Request $request)
     {
+        $menuManager   = $this->container->get('app.menu_manager');
+        $recipeManager = $this->container->get('app.recipe_manager');
+
         $form = $this->createForm(SearchType::class, null, [
             'action' => $this->generateUrl('app_search_results'),
             'method' => 'GET'
         ]);
+
+        $navForm = $this->createNavSearchForm();
 
         if ($request->query->has($form->getName())) {
             $form->submit($request->query->get($form->getName()));
@@ -42,11 +51,28 @@ class SearchController extends Controller
             if($form->isSubmitted() && $form->isValid()){
                 $search = $form->getData();
 
-                $menuManager   = $this->container->get('app.menu_manager');
-                $recipeManager = $this->container->get('app.recipe_manager');
+                $searchMenus    = $menuManager->getMenuBySearch($search);
+                $searchRecipes  = $recipeManager->getRecipeBySearch($search);
+
+                return $this->render(':front:search_result.html.twig', array(
+                    'form'          => $form->createView(),
+                    'searchMenus'   => $searchMenus,
+                    'searchRecipes' => $searchRecipes,
+                ));
+            }
+        }
+
+
+        if ($request->query->has($navForm->getName())) {
+            $navForm->submit($request->query->get($navForm->getName()));
+
+            if($navForm->isSubmitted() && $navForm->isValid()){
+                $search = $navForm->getData();
+
+                $form->setData($search);
 
                 $searchMenus    = $menuManager->getMenuBySearch($search);
-                $searchRecipes = $recipeManager->getRecipeBySearch($search);
+                $searchRecipes  = $recipeManager->getRecipeBySearch($search);
 
                 return $this->render(':front:search_result.html.twig', array(
                     'form'          => $form->createView(),

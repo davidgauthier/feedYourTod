@@ -10,12 +10,30 @@
 
 {% block breadcrumb %}
     <li><a href="{{ path('app_homepage') }}"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-    <li class="active">Search : {% if app.request.query.get('search')['keyword'] is defined %}{{ app.request.query.get('search')['keyword'] }}{% endif %}</li>
+    <li class="active">
+        Search : {% if app.request.query.get('search')['keyword'] is defined %}
+                    {{ app.request.query.get('search')['keyword'] }}
+                {% elseif app.request.query.get('search_nav')['keyword'] is defined %}
+                    {{ app.request.query.get('search_nav')['keyword'] }}
+                {% endif %}
+    </li>
 {% endblock %}
 
 {% block content %}
 
     <div class="row">
+
+        <div class="col-lg-4">
+            <aside class="left-sidebar">
+
+                <div class="widget">
+                    {% include ':include:_search_form.html.twig' %}
+                </div>
+
+            </aside>
+        </div>
+
+
         <div class="col-lg-8">
 
             <h3>Search : {% if app.request.query.get('search')['keyword'] is defined %}{{ app.request.query.get('search')['keyword'] }}{% endif %}</h3>
@@ -41,29 +59,7 @@
 
         </div>
 
-        <div class="col-lg-4">
-            <aside class="right-sidebar">
 
-                <div class="widget">
-                    {{ form_start(form, {'attr': {'role': 'form'} }) }}
-                    {{ form_errors(form) }}
-
-                    {{ form_widget(form.keyword, {'attr': {'placeholder': 'Search..'} }) }}
-
-                    {{ form_widget(form.age, {'attr': {'placeholder': 'age (en mois)'} }) }}
-
-                    {{ form_rest(form) }}
-                    {{ form_end(form) }}
-
-                    {#<form role="form">#}
-                        {#<div class="form-group">#}
-                            {#<input type="text" class="form-control" id="s" placeholder="Search..">#}
-                        {#</div>#}
-                    {#</form>#}
-                </div>
-
-            </aside>
-        </div>
 
     </div>
 
