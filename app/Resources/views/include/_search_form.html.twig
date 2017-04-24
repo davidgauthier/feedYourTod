@@ -1,17 +1,16 @@
-<div id="sb-search" class="sb-search">
-    {{ form_start(form) }}
-    {{ form_errors(form) }}
+{{ form_start(form, {'attr': {'role': 'form'} }) }}
+{{ form_errors(form) }}
 
-    {{ form_widget(form.keyword, {'attr': {'class': 'sb-search-input', 'placeholder':'Enter your search term', 'id': 'search', 'value': ''} }) }}
+{{ form_widget(form.keyword, {'attr': {'placeholder': 'Search..'} }) }}
 
-    <span class="sb-icon-search" title="Click to start searching"></span>
+{{ form_widget(form.age, {'attr': {'placeholder': 'age (en mois)'} }) }}
 
-    {{ form_rest(form) }}
-    {{ form_end(form) }}
+{{ form_rest(form) }}
+<input class="btn btn-theme" type="submit" value="Search" />
+{{ form_end(form) }}
 
-    {#<form action="{{ path('app_search') }}">#}
-        {#<input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search">#}
-        {#<input class="sb-search-submit" type="submit" value="">#}
-        {#<span class="sb-icon-search" title="Click to start searching"></span>#}
-    {#</form>#}
-</div>
+{#<form role="form">#}
+{#<div class="form-group">#}
+{#<input type="text" class="form-control" id="s" placeholder="Search..">#}
+{#</div>#}
+{#</form>#}
