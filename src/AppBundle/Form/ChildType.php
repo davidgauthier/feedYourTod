@@ -24,10 +24,11 @@ class ChildType extends AbstractType
             ])
 
         ->add('childFoods', CollectionType::class, array(
-                'entry_type'   => ChildFoodType::class,
-                'allow_add'    => true,
-                'allow_delete' => true,
-                'by_reference' => false,
+                'entry_type'    => ChildFoodType::class,
+                'allow_add'     => true,
+                'allow_delete'  => true,
+                'by_reference'  => false,
+                'attr'          => array('class' => 'row'),
             ))
         ;
     }
