@@ -7,6 +7,13 @@ use AppBundle\Entity\NewsletterSubscriber;
 
 class NewsletterSubscriberManager extends AbstractDoctrineManager
 {
+    /**
+     * @return NewsletterSubscriber
+     */
+    public function getNewsletterSubscriberByEmail($email)
+    {
+        return $this->getRepository()->findOneByEmail($email);
+    }
 
     /**
      * @return NewsletterSubscriber

@@ -21,6 +21,36 @@ class Search
     private $keyword;
 
     /**
+     * @var
+     *
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 120,
+     *      minMessage = "L'age doit être au minimum de {{ limit }} mois",
+     *      maxMessage = "L'age doit être au maximum de {{ limit }} mois"
+     * )
+     */
+    private $age;
+
+
+    /**
+     * @return mixed
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param mixed $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getKeyword()
