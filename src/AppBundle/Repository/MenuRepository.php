@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Repository;
+use Doctrine\ORM\QueryBuilder;
+
 /**
  * menuRepository.
  *
@@ -45,15 +47,22 @@ class MenuRepository extends \Doctrine\ORM\EntityRepository
 
     public function getSearchMenu($search)
     {
-        return $this->createQueryBuilder('m')
-            ->select('m.name')
+        $qb =  $this->createQueryBuilder('m')
+            ->select('m')
             ->where('m.name LIKE :searchWord')
-            ->setParameter(':searchWord', '%'.$search->getKeyword().'%')
+            ->setParameter(':searchWord', '%'.$search->getKeyword().'%');
+
+        if(null !== $search->getAge()){
+            $qb
+                ->innerJoin('m.recipes', 'r', 'WITH', 'r.age <= :age')
+                ->addSelect('r')
+                ->setParameter(':age', $search->getAge());
+        }
+
+        return $qb
             ->getQuery()
             ->getResult();
 
     }
-
-
 
 }

@@ -9,9 +9,5 @@ use AppBundle\Entity\Recipe;
 
 class RecipeController extends Controller
 {
-    public function getAgeMonthToYear()
-    {
-
-    }
 
 }

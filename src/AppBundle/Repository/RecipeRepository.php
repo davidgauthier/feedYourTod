@@ -2,6 +2,9 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\QueryBuilder;
+
+
 /**
  * RecipeRepository.
  *
@@ -21,11 +24,25 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
     }
 
     public function getSearchRecipe($search){
-        return $this->createQueryBuilder('r')
-            ->select('r.name')
+        $qb = $this->createQueryBuilder('r')
+            ->select('r')
             ->where("r.name LIKE :searchWord")
-            ->setParameter(':searchWord', '%'.$search->getKeyword().'%')
+            ->setParameter(':searchWord', '%'.$search->getKeyword().'%');
+
+        if(null != $search->getAge()){
+            $this->whereAgeIsDefined($qb, $search->getAge());
+        }
+
+           return $qb
             ->getQuery()
             ->getResult();
+    }
+
+    public function whereAgeIsDefined(QueryBuilder $qb, $age)
+    {
+        $qb
+            ->andWhere('r.age <= :age')
+            ->setParameter(':age', $age);
+
     }
 }
