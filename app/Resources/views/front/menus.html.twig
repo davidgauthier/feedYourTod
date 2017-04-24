@@ -41,8 +41,10 @@
                                                 {% if recipe.photoRecipes|length > 0 %}
                                                     {% for photoRecipe in recipe.photoRecipes %}
                                                         <li>
-                                                            <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
-                                                                 class="img-responsive" >
+                                                            <a href="{{ path('app_menu', {'id': menu.id}) }}">
+                                                                <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
+                                                                     class="img-responsive" >
+                                                            </a>
                                                         </li>
                                                     {% endfor %}
                                                 {% endif %}
@@ -61,9 +63,9 @@
                             </div>
                         {% endif %}
                     </div>
-                    <p>
-                        Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.
-                    </p>
+                    {#<p>#}
+                        {#Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.#}
+                    {#</p>#}
                     <div class="bottom-article">
                         <ul class="meta-post">
                             <li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>
@@ -71,7 +73,7 @@
                             <li><i class="fa fa-folder-open"></i><a href="#"> Blog</a></li>
                             <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
                         </ul>
-                        <a href="{{ path('app_menu', {'id': menu.id}) }}" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>
+                        <a href="{{ path('app_menu', {'id': menu.id}) }}" class="readmore pull-right">Voir le menu <i class="fa fa-angle-right"></i></a>
                     </div>
                 </article>
 
@@ -131,6 +133,7 @@
 
         <div class="col-lg-4">
             <aside class="right-sidebar">
+
                 <div class="widget">
                     <form role="form">
                         <div class="form-group">
@@ -138,16 +141,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Categories</h5>
-                    <ul class="cat">
-                        <li><i class="fa fa-angle-right"></i><a href="#">Web design</a><span> (20)</span></li>
-                        <li><i class="fa fa-angle-right"></i><a href="#">Online business</a><span> (11)</span></li>
-                        <li><i class="fa fa-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>
-                        <li><i class="fa fa-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>
-                        <li><i class="fa fa-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>
-                    </ul>
-                </div>
+
                 <div class="widget">
                     <h5 class="widgetheading">Latest posts</h5>
                     <ul class="recent">
@@ -174,17 +168,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Popular tags</h5>
-                    <ul class="tags">
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Trends</a></li>
-                        <li><a href="#">Technology</a></li>
-                        <li><a href="#">Internet</a></li>
-                        <li><a href="#">Tutorial</a></li>
-                        <li><a href="#">Development</a></li>
-                    </ul>
-                </div>
+
             </aside>
         </div>
 

@@ -1,7 +1,7 @@
 {% extends '::layout.html.twig' %}
 
 {% block title %}
-    {{ parent() }} - Recipe
+    {{ parent() }} - Recette : {{ recipe.name }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -32,7 +32,7 @@
                                     post-image
                                 {% endif %}">
                         <div class="post-heading">
-                            <h2>{{ recipe.name }}</h2>
+                            <h2>{{ recipe.recipeType.wording }} : {{ recipe.name }} ({{ recipe.season.name }})</h2>
                         </div>
                         {% if recipe.photoRecipes|length > 0 %}
                             <div class="row">
@@ -61,50 +61,69 @@
 
                     </div>
 
-                    <b>Age:</b>
+                    {% if recipe.preptime is not empty %}
+                        <p>
+                            <b><i class="fa fa-clock-o" aria-hidden="true"></i> Temps de préparation :</b><br>
+                            {{ recipe.preptime }}
+                        </p>
+                    {% endif %}
+                    {% if recipe.cooktime is not empty %}
+                        <p>
+                            <b><i class="fa fa-clock-o" aria-hidden="true"></i> Temps de cuisson :</b><br>
+                            {{ recipe.cooktime }}
+                        </p>
+                    {% endif %}
+
                     <p>
+                        <b><i class="fa fa-calendar" aria-hidden="true"></i> A partir de :</b><br>
                         {% import ":Macros:macro_recipe_min_age.html.twig" as macroAge  %}
                         {{ macroAge.displayAge(recipe.age) }}
-                    </p><br />
+                    </p>
 
-                    <b>Ingrédients:</b>
                     <p>
+                        <b><i class="fa fa-list" aria-hidden="true"></i> Ingrédients:</b><br>
                         <ul>
                             {% for ingredient in recipe.ingredients %}
                                 <li>{{ ingredient.wording }}</li>
                             {% endfor %}
                         </ul>
-                    </p><br />
+                    </p>
 
-                    <b>Préparation:</b>
-                    <p>
-                        {{ recipe.content }}
-                    </p><br />
+                    {% if recipe.content is not empty %}
+                        <p>
+                            <b><i class="fa fa-book" aria-hidden="true"></i> Préparation:</b><br>
+                            {{ recipe.content }}
+                        </p>
+                    {% endif %}
 
-                    <b>Garniture:</b>
-                    <p>
-                        {{ recipe.filling }}
-                    </p><br />
+                    {% if recipe.filling is not empty %}
+                        <p>
+                            <b><i class="fa fa-plus-square-o" aria-hidden="true"></i> Garniture:</b><br>
+                            {{ recipe.filling }}
+                        </p>
+                    {% endif %}
 
-                    <b>Observation:</b>
-                    <p>
-                        {{ recipe.observation }}
-                    </p><br /><br />
+                    {% if recipe.observation is not empty %}
+                        <p>
+                            <b><i class="fa fa-stack-exchange" aria-hidden="true"></i> Observation:</b><br>
+                            {{ recipe.observation }}
+                        </p>
+                    {% endif %}
 
-                    <p>
+                    <p class="pull-right">
                         <a href="{{ path('app_generate_pdf', {id:recipe.id}) }}">Télécharger en tant que PDF</a>
 
                     </p>
 
 
-                    <div class="bottom-article">
-                        <ul class="meta-post">
-                            <li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>
-                            <li><i class="fa fa-user"></i><a href="#"> Admin</a></li>
-                            <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
-                            <li><i class="fa fa-tags"></i><a href="#">Design</a>, <a href="#">Blog</a></li>
-                        </ul>
-                    </div>
+                    {#<div class="bottom-article">#}
+                        {#<ul class="meta-post">#}
+                            {#<li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>#}
+                            {#<li><i class="fa fa-user"></i><a href="#"> Admin</a></li>#}
+                            {#<li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>#}
+                            {#<li><i class="fa fa-tags"></i><a href="#">Design</a>, <a href="#">Blog</a></li>#}
+                        {#</ul>#}
+                    {#</div>#}
                 </article>
             </div>
 
@@ -112,7 +131,7 @@
 
                 <h4>4 Comments</h4>
                 <div class="media">
-                    <a href="#" class="pull-left"><img src="img/avatar.png" alt="" class="img-circle" /></a>
+                    <a href="#" class="pull-left"><img src="{{ asset('public/Sailor/img/avatar.png') }}" alt="" class="img-circle" /></a>
                     <div class="media-body">
                         <div class="media-content">
                             <h6><span>March 12, 2013</span> Michael Simpson</h6>
@@ -125,7 +144,7 @@
                     </div>
                 </div>
                 <div class="media">
-                    <a href="#" class="pull-left"><img src="img/avatar.png" alt="" class="img-circle" /></a>
+                    <a href="#" class="pull-left"><img src="{{ asset('public/Sailor/img/avatar.png') }}" alt="" class="img-circle" /></a>
                     <div class="media-body">
                         <div class="media-content">
                             <h6><span>March 12, 2013</span> Smith karlsen</h6>
@@ -136,7 +155,7 @@
                             <a href="#" class="align-right reply">Reply</a>
                         </div>
                         <div class="media">
-                            <a href="#" class="pull-left"><img src="img/avatar.png" alt="" class="img-circle" /></a>
+                            <a href="#" class="pull-left"><img src="{{ asset('public/Sailor/img/avatar.png') }}" alt="" class="img-circle" /></a>
                             <div class="media-body">
                                 <div class="media-content">
                                     <h6><span>June 22, 2013</span> Jay Moeller</h6>
@@ -151,7 +170,7 @@
                     </div>
                 </div>
                 <div class="media">
-                    <a href="#" class="pull-left"><img src="img/avatar.png" alt="" class="img-circle" /></a>
+                    <a href="#" class="pull-left"><img src="{{ asset('public/Sailor/img/avatar.png') }}" alt="" class="img-circle" /></a>
                     <div class="media-body">
                         <div class="media-content">
                             <h6><span>June 24, 2013</span> Dean Zaloza</h6>
@@ -187,13 +206,8 @@
         </div>
         <div class="col-lg-4">
             <aside class="right-sidebar">
-                <div class="widget">
-                    <form role="form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="s" placeholder="Search..">
-                        </div>
-                    </form>
-                </div>
+
+
                 <div class="widget">
                     <h5 class="widgetheading">Categories</h5>
                     <ul class="cat">
@@ -204,43 +218,7 @@
                         <li><i class="fa fa-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>
                     </ul>
                 </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Latest posts</h5>
-                    <ul class="recent">
-                        <li>
-                            <img src="img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-                            <h6><a href="#">Lorem ipsum dolor sit</a></h6>
-                            <p>
-                                Mazim alienum appellantur eu cu ullum officiis pro pri
-                            </p>
-                        </li>
-                        <li>
-                            <a href="#"><img src="img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
-                            <h6><a href="#">Maiorum ponderum eum</a></h6>
-                            <p>
-                                Mazim alienum appellantur eu cu ullum officiis pro pri
-                            </p>
-                        </li>
-                        <li>
-                            <a href="#"><img src="img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
-                            <h6><a href="#">Et mei iusto dolorum</a></h6>
-                            <p>
-                                Mazim alienum appellantur eu cu ullum officiis pro pri
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Popular tags</h5>
-                    <ul class="tags">
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Trends</a></li>
-                        <li><a href="#">Technology</a></li>
-                        <li><a href="#">Internet</a></li>
-                        <li><a href="#">Tutorial</a></li>
-                        <li><a href="#">Development</a></li>
-                    </ul>
-                </div>
+
             </aside>
         </div>
     </div>
