@@ -20,6 +20,15 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
             ->getOneOrNullResult();
     }
 
+    public function getRandomRecipe($count = 1){
+        return $this->createQueryBuilder('r')
+            ->addSelect('RAND() as HIDDEN rand')
+            ->addOrderBy('rand')
+            ->setMaxResults($count)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     public function getSearchRecipe($search){
         return $this->createQueryBuilder('r')
             ->select('r.name')
