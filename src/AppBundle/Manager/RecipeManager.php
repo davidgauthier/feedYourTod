@@ -16,13 +16,21 @@ class RecipeManager extends AbstractDoctrineManager
         return $this->getRepository()->findOneById($id);
     }
 
+    /**
+     * @return Recipe
+     */
     public function getRecipeBySearch($search)
     {
         return $this->getRepository()->getSearchRecipe($search);
     }
 
-
-
+    /**
+     * @return Recipe
+     */
+    public function getRandomRecipe()
+    {
+        return $this->getRepository()->getRandomRecipe();
+    }
 
     /**
      * @return Recipe

@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\MessageContactType;
-use AppBundle\Form\NewsletterSubscriberType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,9 +19,7 @@ class FrontController extends Controller
     {
         $dateTime = new \DateTime();
 
-
-
-        // ici récupérer nos entités, formulaires, etc.
+        // Ici récupérer nos entités, formulaires, etc.
         $mm = $this->container->get('app.menu_manager');
 
         $seasonManager = $this->container->get("app.season_manager");
