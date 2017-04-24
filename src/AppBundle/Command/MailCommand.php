@@ -20,22 +20,30 @@ class MailCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $recipeManager = $this->getContainer()->get("app.recipe_manager");
-        $recipe = $recipeManager->getRandomRecipe();
+        $userManager = $this->getContainer()->get("app.user_manager");
+        $users = $userManager->getAllUsers();
 
-        $message = \Swift_Message::newInstance()
-            ->setSubject('Today\'s recipe')
-            ->setFrom('feedYourTod@gmail.com')
-            ->setTo('dtirnan@hotmail.com')
-            ->setBody(
-                $this->getContainer()->get('templating')->render(
-                    ':mail:randomRecipe.html.twig',
-                    ['recipe' => $recipe]
-                ),
-                'text/html'
-            );
+        foreach ($users as $user) {
 
-        $this->getContainer()->get('mailer')->send($message);
+            $usermail = $user->getEmail();
+
+            $recipeManager = $this->getContainer()->get("app.recipe_manager");
+            $recipe = $recipeManager->getRandomRecipe();
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Today\'s recipe')
+                ->setFrom('feedYourTod@gmail.com')
+                ->setTo($usermail)
+                ->setBody(
+                    $this->getContainer()->get('templating')->render(
+                        ':mail:randomRecipe.html.twig',
+                        ['recipe' => $recipe]
+                    ),
+                    'text/html'
+                );
+
+            $this->getContainer()->get('mailer')->send($message);
+        }
 
         $text = 'Mail sent';
 

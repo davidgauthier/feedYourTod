@@ -35,5 +35,9 @@ services:
         arguments:
             - "@=service('doctrine').getManager()"
 
+    app.user_manager:
+            class: AppBundle\Manager\UserManager
+            arguments:
+                - "@=service('doctrine').getManager()"
 
 
