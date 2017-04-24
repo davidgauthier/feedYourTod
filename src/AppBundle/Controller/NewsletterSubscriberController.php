@@ -30,22 +30,22 @@ class NewsletterSubscriberController extends Controller
 
 
     /**
-     * @Route("/subscribe-newsletter", name="app_newsletter_subscriber_subscribe")
+     * @Route("/subscribe-newsletter", name="app_newsletter_subscriber_subscribe", methods={"POST"})
      */
     public function subscribeNewsletterAction(Request $request)
     {
         $form = $this->createNewsletterForm();
 
-        $form->submit($request->request->get($form->getName()));
+        $form->handleRequest($request);
+        $nsm = $this->container->get('app.newsletter_subscriber_manager');
+
+        if(null !== $nsm->getNewsletterSubscriberByEmail($request->request->get($form->getName())['email'])){
+            $this->get('session')->getFlashBag()->add('warning', 'L\'email est déjà dans la liste pour les newsletters!');
+            return $this->redirectToRoute('app_homepage');
+        }
 
         if($form->isValid() && $form->isSubmitted()){
             $newsletterSubscriber = $form->getData();
-            $nsm = $this->container->get('app.newsletter_subscriber_manager');
-
-            if(null !== $nsm->getNewsletterSubscriberByEmail($newsletterSubscriber->getEmail())){
-                $this->get('session')->getFlashBag()->add('warning', 'L\'email est déjà dans la liste pour les newsletters!');
-                return $this->redirectToRoute('app_homepage');
-            }
 
             if(null !== $this->getUser()){
                 $newsletterSubscriber->setUser($this->getUser());

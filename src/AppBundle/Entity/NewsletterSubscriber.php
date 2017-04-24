@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="newsletter_subscriber")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\NewsletterSubscriberRepository")
  *
- * ///@///UniqueEntity("email")
+ * @UniqueEntity("email")
  */
 class NewsletterSubscriber
 {
