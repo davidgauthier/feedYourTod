@@ -41,7 +41,7 @@
             <ul>
                 {% if searchRecipes is defined %}
                     {% for recipe in searchRecipes  %}
-                        <li>{{ recipe.name }}</li>
+                        <li>{{ recipe.name }} (age: {{ recipe.age }})</li>
                     {% endfor %}
                 {% else %}
                     <p>Aucun résultat pour les recettes</p>
