@@ -1,4 +1,4 @@
-{{ form_start(form, {'attr': {'class': 'form-horizontal' }}) }}
+{{ form_start(form, {'attr': {'class': '' }}) }}
     {{ form_errors(form) }}
 
     {% if form.firstName is defined %}
@@ -11,7 +11,9 @@
         {{ form_row(form.childFoods) }}
     {% endif %}
 
-<a href="#" id="add_childfood" class="btn btn-default">Ajouter un childFood</a>
+<p>
+    <a href="#" id="add_childfood" class="btn btn-default">Ajouter un childFood</a>
+</p>
 
 {{ form_rest(form) }}
 <input class="btn btn-theme btn-add" type="submit" value="Submit" />
