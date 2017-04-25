@@ -24,7 +24,10 @@ class RecipeAdmin extends AbstractAdmin
                 'required' => FALSE,
             ])
             ->add('observation')
-            ->add('menus');
+            ->add('menus', null, [
+                'by_reference' => false,
+            ])
+        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
