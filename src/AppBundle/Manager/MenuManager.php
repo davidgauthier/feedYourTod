@@ -7,8 +7,12 @@ use AppBundle\Entity\Menu;
 
 class MenuManager extends AbstractDoctrineManager
 {
-
-
+    /**
+     * @return array
+     */
+    public function getAll(){
+        return $this->getRepository()->findAll();
+    }
 
     public function getListMenus()
     {
