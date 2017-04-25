@@ -24,6 +24,12 @@ class RecipeManager extends AbstractDoctrineManager
         return $this->getRepository()->getSearchRecipe($search);
     }
 
+
+    public function getRandomRecipes($limit = 5, $season = null)
+    {
+        return $this->getRepository()->getRandomRecipes($limit, $season);
+    }
+
     /**
      * @return Recipe
      */

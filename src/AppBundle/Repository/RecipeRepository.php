@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Season;
 use Doctrine\ORM\QueryBuilder;
 
 
@@ -23,6 +24,25 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
             ->getOneOrNullResult();
     }
 
+
+    public function getRandomRecipes($limit = 5, Season $season = null){
+
+        $qb = $this->createQueryBuilder('r')
+            ->addSelect('RAND() as HIDDEN rand')
+            ->addOrderBy('rand');
+
+        if(null !== $season){
+            $qb->leftJoin('r.season','s')
+                ->where('s.id = :idSeason')
+                ->setParameter(':idSeason', $season->getId());
+        }
+
+        $qb->setMaxResults($limit);
+
+        return $qb->getQuery()->getResult();
+    }
+
+
     public function getRandomRecipe($count = 1){
         return $this->createQueryBuilder('r')
             ->addSelect('RAND() as HIDDEN rand')
@@ -31,6 +51,7 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
 
     public function getSearchRecipe($search){
         $qb = $this->createQueryBuilder('r')
