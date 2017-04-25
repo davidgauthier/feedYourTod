@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\Season;
 use Doctrine\ORM\QueryBuilder;
 
 /**
@@ -32,18 +33,24 @@ class MenuRepository extends \Doctrine\ORM\EntityRepository
         return $q;
     }
 
-    public function getRandomMenus($limit = 5, $idSeason){
+    public function getRandomMenus($limit = 5, Season $season = null){
 
-        return $this->createQueryBuilder('m')
+        $qb = $this->createQueryBuilder('m')
             ->addSelect('RAND() as HIDDEN rand')
-            ->addOrderBy('rand')
-            ->leftJoin('m.season','s')
-            ->where('s.id = :idSeason')
-            ->setParameter(':idSeason', $idSeason)
-            ->setMaxResults($limit)
-            ->getQuery()
-            ->getResult();
+            ->addOrderBy('rand');
+
+        if(null !== $season){
+            $qb->leftJoin('m.season','s')
+                ->where('s.id = :idSeason')
+                ->setParameter(':idSeason', $season->getId());
+        }
+
+        $qb->setMaxResults($limit);
+
+        return $qb->getQuery()->getResult();
     }
+
+
 
     public function getSearchMenu($search)
     {

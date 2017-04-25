@@ -13,6 +13,7 @@ class AppExtension extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFilter('photoMenu', array($this, 'photoMenuFilter')),
+            new \Twig_SimpleFilter('photoRecipe', array($this, 'photoRecipeFilter')),
         );
     }
 
@@ -39,6 +40,31 @@ class AppExtension extends \Twig_Extension
         }
 
         return $photosMenu[array_rand($photosMenu)];
+    }
+
+
+
+    /**
+     * @param Recipe $recipe
+     * @return
+     */
+    public function photoRecipeFilter(Recipe $recipe)
+    {
+        $photosRecipe = [];
+
+        /** @var Recipe $recipe */
+        if($recipe->getPhotoRecipes()){
+            foreach ($recipe->getPhotoRecipes() as $photoRecipe) {
+                array_push($photosRecipe, $photoRecipe);
+            }
+        }
+
+
+        if (!count($photosRecipe)) {
+            return;
+        }
+
+        return $photosRecipe[array_rand($photosRecipe)];
     }
 
 
