@@ -43,7 +43,7 @@ class Menu
     /**
      * @var
      *
-     * @ORM\Column(name="age", type="integer")
+     * @ORM\Column(name="age", type="integer", nullable=true)
      */
     private $age;
 
@@ -170,6 +170,7 @@ class Menu
     public function addRecipe(\AppBundle\Entity\Recipe $recipe)
     {
         $this->getRecipes()->add($recipe);
+        $recipe->addMenu($this);
         $this->computeRecipeMaxAge();
 
         return $this;
@@ -193,10 +194,18 @@ class Menu
      * Remove recipe
      *
      * @param \AppBundle\Entity\Recipe $recipe
+     *
+     * @return Menu
      */
     public function removeRecipe(\AppBundle\Entity\Recipe $recipe)
     {
         $this->recipes->removeElement($recipe);
+
+        if($recipe->getAge() === $this->getAge()){
+            $this->computeRecipeMaxAge();
+        }
+
+        return $this;
     }
 
     /**
