@@ -12,40 +12,46 @@ class RecipeAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', 'text');
-        $formMapper->add('age');
-        $formMapper->add('recipeType');
-        $formMapper->add('season');
-        $formMapper->add('content');
-        $formMapper->add('preptime');
-        $formMapper->add('cooktime');
-        $formMapper->add('filling', 'text', [
-            'required' => FALSE,
-        ]);
-        $formMapper->add('observation');
+        $formMapper
+            ->add('name', 'text')
+            ->add('age')
+            ->add('recipeType')
+            ->add('season')
+            ->add('content')
+            ->add('preptime')
+            ->add('cooktime')
+            ->add('filling', 'text', [
+                'required' => FALSE,
+            ])
+            ->add('observation')
+            ->add('menus');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('name');
-        $datagridMapper->add('age');
-        $datagridMapper->add('recipeType');
-        $datagridMapper->add('season');
-        $datagridMapper->add('content');
-        $datagridMapper->add('preptime');
-        $datagridMapper->add('cooktime');
+        $datagridMapper
+            ->add('id')
+            ->add('name')
+            ->add('age')
+            ->add('recipeType')
+            ->add('season')
+            ->add('content')
+            ->add('preptime')
+            ->add('cooktime');
+
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('name');
-        $listMapper->add('age');
-        $listMapper->add('recipeType');
-        $listMapper->add('season');
-        $listMapper->add('content');
-        $listMapper->add('preptime');
-        $listMapper->add('cooktime');
+        $listMapper
+            ->addIdentifier('id')
+            ->add('name')
+            ->add('age')
+            ->add('recipeType')
+            ->add('season')
+            ->add('content')
+            ->add('preptime')
+            ->add('cooktime');
+
     }
 }

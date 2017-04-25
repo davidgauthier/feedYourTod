@@ -103,7 +103,7 @@ class Food
      */
     public function __toString()
     {
-        return $this->getWording();
+        return (string) $this->getWording();
     }
     /**
      * Constructor

@@ -129,6 +129,6 @@ class Season
      */
     public function __toString()
     {
-        return $this->getName();
+        return (string) $this->getName();
     }
 }

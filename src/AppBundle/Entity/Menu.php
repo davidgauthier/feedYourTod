@@ -41,6 +41,52 @@ class Menu
     private $recipes;
 
     /**
+     * @var
+     *
+     * @ORM\Column(name="age", type="integer")
+     */
+    private $age;
+
+    /**
+     * @var
+     *
+     * @ORM\Column(name="subtitle", type="string", length=255)
+     */
+    private $subtitle;
+
+    /**
+     * @return mixed
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param mixed $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * @param mixed $subtitle
+     */
+    public function setSubtitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+    }
+
+    /**
      * Get id.
      *
      * @return int
@@ -104,7 +150,7 @@ class Menu
      */
     public function __toString()
     {
-        return $this->getName();
+        return (string) $this->getName();
     }
     /**
      * Constructor
@@ -123,15 +169,24 @@ class Menu
      */
     public function addRecipe(\AppBundle\Entity\Recipe $recipe)
     {
-        $this->recipes[] = $recipe;
-
-        // On lie la recette au menu
-        //$recipe->addMenu($this);
-        // (contrainte : on doit ajouter des recettes aux menus,
-        // mais on ne peux ajouter de menu aux recettes..)
-
+        $this->getRecipes()->add($recipe);
+        $this->computeRecipeMaxAge();
 
         return $this;
+    }
+
+    private function computeRecipeMaxAge()
+    {
+        $maxAge = 0;
+
+        foreach ($this->getRecipes() as $recipe) {
+            /** @var Recipe $recipe */
+            if ($recipe->getAge() >= $maxAge) {
+                $maxAge = $recipe->getAge();
+            }
+        }
+
+        $this->setAge($maxAge);
     }
 
     /**
