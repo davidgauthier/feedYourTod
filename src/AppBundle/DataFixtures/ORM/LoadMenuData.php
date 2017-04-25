@@ -63,7 +63,6 @@ class LoadMenuData extends AbstractFixture implements OrderedFixtureInterface
 
             foreach ($m['recipes'] as $j => $r){
                 $menu->addRecipe($r);
-                $r->addMenu($menu);
             }
 
             $manager->persist($menu);
