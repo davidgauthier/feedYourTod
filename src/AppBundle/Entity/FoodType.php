@@ -69,6 +69,6 @@ class FoodType
      */
     public function __toString()
     {
-        return $this->getWording();
+        return (string) $this->getWording();
     }
 }

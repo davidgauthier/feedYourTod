@@ -143,7 +143,7 @@ class Child
      */
     public function __toString()
     {
-        return $this->getFirstName();
+        return (string) $this->getFirstName();
     }
     /**
      * Constructor

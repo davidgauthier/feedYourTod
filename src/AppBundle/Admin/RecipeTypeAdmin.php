@@ -12,18 +12,21 @@ class RecipeTypeAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('wording', 'text');
+        $formMapper
+            ->add('wording', 'text');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('wording');
+        $datagridMapper
+            ->add('id')
+            ->add('wording');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('wording');
+        $listMapper
+            ->addIdentifier('id')
+            ->add('wording');
     }
 }

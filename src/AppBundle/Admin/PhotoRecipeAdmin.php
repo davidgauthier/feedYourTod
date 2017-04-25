@@ -99,19 +99,21 @@ class PhotoRecipeAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
+        $datagridMapper
+            ->add('id')
 //        $datagridMapper->add('src', 'text', array());
-        $datagridMapper->add('legend');
-        $datagridMapper->add('recipe');
+            ->add('legend')
+            ->add('recipe');
     }
 
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('src', 'text');
-        $listMapper->add('legend');
-        $listMapper->add('recipe');
-        $listMapper->add('preview', null, array('template' => 'AppBundle:SonataAdmin:list_image_photo_recipe.html.twig'));
+        $listMapper
+            ->addIdentifier('id')
+            ->add('src', 'text')
+            ->add('legend')
+            ->add('recipe')
+            ->add('preview', null, array('template' => 'AppBundle:SonataAdmin:list_image_photo_recipe.html.twig'));
     }
 }

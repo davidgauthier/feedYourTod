@@ -12,24 +12,27 @@ class ChildAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('firstName', 'text');
-        $formMapper->add('birthDate');
-        $formMapper->add('user');
+        $formMapper
+            ->add('firstName', 'text')
+            ->add('birthDate')
+            ->add('user');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('firstName');
-        $datagridMapper->add('birthDate');
-        $datagridMapper->add('user');
+        $datagridMapper
+            ->add('id')
+            ->add('firstName')
+            ->add('birthDate')
+            ->add('user');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('firstName');
-        $listMapper->add('birthDate');
-        $listMapper->add('user');
+        $listMapper
+            ->addIdentifier('id')
+            ->add('firstName')
+            ->add('birthDate')
+            ->add('user');
     }
 }

@@ -23,7 +23,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
                                     Servez chaud à votre enfant.",
                 'preptime'      => '10 min',
                 'cooktime'      => '15 min',
-                'age'           => 6,
+                'age'           => 12,
                 'ingredients'   => [
                                     $this->getReference('food-0'),
                                     $this->getReference('food-1'),

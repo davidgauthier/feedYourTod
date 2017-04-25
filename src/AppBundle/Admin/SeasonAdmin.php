@@ -12,24 +12,27 @@ class SeasonAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', 'text');
-        $formMapper->add('dateBegin');
-        $formMapper->add('dateEnd');
+        $formMapper
+            ->add('name', 'text')
+            ->add('dateBegin')
+            ->add('dateEnd');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('name');
-        $datagridMapper->add('dateBegin');
-        $datagridMapper->add('dateEnd');
+        $datagridMapper
+            ->add('id')
+            ->add('name')
+            ->add('dateBegin')
+            ->add('dateEnd');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('name');
-        $listMapper->add('dateBegin');
-        $listMapper->add('dateEnd');
+        $listMapper
+            ->addIdentifier('id')
+            ->add('name')
+            ->add('dateBegin')
+            ->add('dateEnd');
     }
 }

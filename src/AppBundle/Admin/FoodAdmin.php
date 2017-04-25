@@ -12,21 +12,23 @@ class FoodAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('wording', 'text');
-        $formMapper->add('foodType');
+        $formMapper
+            ->add('wording', 'text')
+            ->add('foodType');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('wording');
-        $datagridMapper->add('foodType');
+        $datagridMapper
+            ->add('id')
+            ->add('wording')
+            ->add('foodType');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('wording');
-        $listMapper->add('foodType');
+        $listMapper->addIdentifier('id')
+            ->add('wording')
+            ->add('foodType');
     }
 }

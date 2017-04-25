@@ -12,21 +12,34 @@ class MenuAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', 'text');
-        $formMapper->add('season');
+        $formMapper
+            ->add('name', 'text')
+            ->add('season')
+            ->add('subtitle', null, [
+                'required' => false,
+            ])
+            ->add('recipes', null, [
+                'by_reference' => false,
+            ])
+        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('name');
-        $datagridMapper->add('season');
+        $datagridMapper
+            ->add('id')
+            ->add('name')
+            ->add('season')
+            ->add('subtitle');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('name');
-        $listMapper->add('season');
+        $listMapper
+            ->addIdentifier('id')
+            ->add('name')
+            ->add('season')
+            ->add('subtitle')
+            ->add('age');
     }
 }
