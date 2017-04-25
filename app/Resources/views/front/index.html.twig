@@ -21,11 +21,10 @@
 
         <div class="col-lg-8">
 
-
             <article>
                 <div class="post-slider">
                     <div class="post-heading">
-                        <h2>{{ randomMenu.name }} ({{ randomMenu.season.name }})</h2>
+                        <h3>Menu de saison {{ season }} : <a href="{{ path('app_menu', {'id': randomMenu.id}) }}">{{ randomMenu.name }}</a></h3>
                     </div>
                     {% if randomMenu.recipes|length > 0 %}
                         <div class="row">
@@ -37,8 +36,10 @@
                                             {% if recipe.photoRecipes|length > 0 %}
                                                 {% for photoRecipe in recipe.photoRecipes %}
                                                     <li>
-                                                        <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
-                                                             class="img-responsive" >
+                                                        <a href="{{ path('app_menu', {'id': randomMenu.id}) }}">
+                                                            <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
+                                                                 class="img-responsive" >
+                                                        </a>
                                                     </li>
                                                 {% endfor %}
                                             {% endif %}
@@ -77,20 +78,25 @@
                 {#</p>#}
                 <div class="bottom-article">
                     <ul class="meta-post">
-                        <li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>
-                        <li><i class="fa fa-user"></i><a href="#"> Admin</a></li>
-                        <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
-                        <li><i class="fa fa-tags"></i><a href="#">Design</a>, <a href="#">Blog</a></li>
+                        <li>
+                            <i class="fa fa-sun-o" aria-hidden="true"></i> Saison: <b>{{ randomMenu.season.name}}</b>
+                        </li>
+                        <li>
+                            {% import ":Macros:macro_recipe_min_age.html.twig" as macroAge  %}
+                            <i class="fa fa-calendar" aria-hidden="true"></i> A partir de: <b>{{ macroAge.displayAge(randomMenu.age) }}</b>
+                        </li>
+                        {#<li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>#}
+                        {#<li><i class="fa fa-user"></i><a href="#"> Admin</a></li>#}
+                        {#<li><i class="fa fa-folder-open"></i><a href="#"> Blog</a></li>#}
+                        <li><i class="fa fa-comments"></i><b>4</b> Comments</li>
                     </ul>
+                    <a href="{{ path('app_menu', {'id': randomMenu.id}) }}" class="readmore pull-right">Voir le menu <i class="fa fa-angle-right"></i></a>
                 </div>
             </article>
 
 
-
-
-
             <div>
-                <h3>Feed Your Tod - Notre ambition :</h3>
+                <h3>Notre ambition : Feed Your Tod</h3>
 
                 {#<img src="{{ asset('public/Sailor/img/dummies/dummy-1200.jpg') }}" alt="" class="img-responsive" />#}
                 <img src="{{ asset('public/images/index_baby_food.jpg') }}" alt="baby and food" class="img-responsive" />
@@ -100,14 +106,7 @@
                     Putent efficiantur et pri, eu primis laoreet eum, ut malis everti mel.
                 </p>
 
-                <p>
-                    Ne utroque prodesset mei, mea no aliquam utroque. Has ne tation argumentum. Vis ex insolens reformidans, mea semper impetus argumentum ad. Sea erroribus sadipscing in. Mel cu dolore admodum accumsan, mea timeam perpetua disputationi ne, urbanitas prodesset ex vel.
-                    Ei nostro molestiae moderatius cum. Adhuc persius dolores ut sed, quis vidisse vituperata duo in. Quot signiferumque eos cu, ad dissentiet theophrastus has, eum tota utroque nusquam te. Ei elit eirmod delicata pri. Solet affert theophrastus pro ei, ius enim homero deleniti te.
-                </p>
-
-
             </div>
-
 
         </div>
 
