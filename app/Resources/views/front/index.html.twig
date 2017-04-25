@@ -6,6 +6,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link href="{{ asset('public/Sailor/plugins/flexslider/flexslider.css') }}" rel="stylesheet" media="screen" />
 {% endblock %}
 
 
@@ -20,27 +21,73 @@
 
         <div class="col-lg-8">
 
-            <div style="border-bottom: #e9e9e9 1px solid;padding-bottom: 9px;">
-                <h3>Recette/Menu aléatoire en fonction de la saison :
-                    {{ season.name | upper}}
-                </h3>
 
-                <p>
-                    Affichages photos ? noms recettes ? description .. ?
-                </p>
+            <article>
+                <div class="post-slider">
+                    <div class="post-heading">
+                        <h2>{{ randomMenu.name }} ({{ randomMenu.season.name }})</h2>
+                    </div>
+                    {% if randomMenu.recipes|length > 0 %}
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                                <!-- start flexslider -->
+                                <div id="post-slider" class="postslider flexslider">
+                                    <ul class="slides">
+                                        {% for recipe in randomMenu.recipes %}
+                                            {% if recipe.photoRecipes|length > 0 %}
+                                                {% for photoRecipe in recipe.photoRecipes %}
+                                                    <li>
+                                                        <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
+                                                             class="img-responsive" >
+                                                    </li>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
 
-                <p>
-                    Lorem ipsum dolor sit amet, no vix sint solet, et ius utinam deseruisse intellegam, ne pro modus vitae tation. Vis ex soluta tritani. Ne pro esse facete expetendis, laudem eirmod minimum nec in. Est quidam urbanitas gloriatur no, eu unum suscipit disputando eam, nam bonorum facilisi ut.
-                    Putent efficiantur et pri, eu primis laoreet eum, ut malis everti mel.
-                </p>
+                                        {#<li>#}
+                                        {#<img src="img/dummies/blog/img2.jpg" alt="" />#}
+                                        {#</li>#}
+                                        {#<li>#}
+                                        {#<img src="img/dummies/blog/img3.jpg" alt="" />#}
+                                        {#</li>#}
+                                    </ul>
+                                </div>
+                                <!-- end flexslider -->
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
 
-                <p>
-                    Ne utroque prodesset mei, mea no aliquam utroque. Has ne tation argumentum. Vis ex insolens reformidans, mea semper impetus argumentum ad. Sea erroribus sadipscing in. Mel cu dolore admodum accumsan, mea timeam perpetua disputationi ne, urbanitas prodesset ex vel.
-                    Ei nostro molestiae moderatius cum. Adhuc persius dolores ut sed, quis vidisse vituperata duo in. Quot signiferumque eos cu, ad dissentiet theophrastus has, eum tota utroque nusquam te. Ei elit eirmod delicata pri. Solet affert theophrastus pro ei, ius enim homero deleniti te.
-                </p>
+                {#{% for recipe in listRandomMenus.recipes %}#}
+                    {#<h4><a href="{{ path('app_recipe', {'id': recipe.id}) }}">{{ recipe.name }}</a></h4>#}
+                    {#<p>#}
+                        {#{% if recipe.content|length > 150 %}#}
+                            {#{{ recipe.content|slice(0, 150)~'.....' }}#}
+                        {#{% else %}#}
+                            {#{{ recipe.content }}#}
+                        {#{% endif %}#}
+                    {#</p>#}
+                {#{% else %}#}
+                    {#<p>Pas (encore) de recette</p>#}
+                {#{% endfor %}#}
 
 
-            </div>
+                {#<p>#}
+                {#Lorem ipsum dolor sit amet, id integre rationibus mei, nec eu erat dicunt sapientem. Sit cu augue referrentur, pri omnes complectitur comprehensam te. Doctus alienum ad sed, at doming cetero referrentur mei. Qui quas oportere inciderint et, et persius antiopam has, sed ex verterem quaestio. Id alii eligendi mei, an cum feugiat persequeris. Eam id sententiae intellegebat, accusata tractatos urbanitas ei mea, pro causae doctus quaestio at.#}
+                {#</p>#}
+                <div class="bottom-article">
+                    <ul class="meta-post">
+                        <li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>
+                        <li><i class="fa fa-user"></i><a href="#"> Admin</a></li>
+                        <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
+                        <li><i class="fa fa-tags"></i><a href="#">Design</a>, <a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </article>
+
+
+
+
 
             <div>
                 <h3>Feed Your Tod - Notre ambition :</h3>
@@ -74,73 +121,12 @@
                         {#</div>#}
                     {#</form>#}
                 {#</div>#}
-                <div class="widget">
-                    <h5 class="widgetheading">Menus aléatoires</h5>
-                    <ul class="recent">
-                        {% if listRandomMenus|length > 0 %}
-                            {% for menu in listRandomMenus %}
-                                <li>
-                                    {% set picture = menu|photoMenu %}
-                                    {% if picture is not empty %}
-                                        <a href="{{ path('app_menu', {'id': menu.id}) }}">
-                                            {#<img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb1.jpg') }}" class="pull-left" alt="" />#}
 
-                                                <img class="pull-left" src="{{ asset('uploads/photoRecipes/' ~ picture.src) }}" alt="{{ picture.legend }}" height="65" width="65">
 
-                                        </a>
-                                    {% endif %}
+                {{ render(controller('AppBundle:Recipe:displayRandomRecipes')) }}
 
-                                    <h6><a href="{{ path('app_menu', {'id': menu.id}) }}">{{ menu.name }}</a></h6>
+                {{ render(controller('AppBundle:Menu:displayRandomMenus')) }}
 
-                                    <p>
-                                        Mazim alienum appellantur eu cu ullum officiis pro pri
-                                    </p>
-                                </li>
-                            {% endfor %}
-                        {% endif %}
-                        {#<li>#}
-                            {#<a href="#"><img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb2.jpg') }}" class="pull-left" alt="" /></a>#}
-                            {#<h6><a href="#">Maiorum ponderum eum</a></h6>#}
-                            {#<p>#}
-                                {#Mazim alienum appellantur eu cu ullum officiis pro pri#}
-                            {#</p>#}
-                        {#</li>#}
-                        {#<li>#}
-                            {#<a href="#"><img src="{{ asset('public/Sailor/img/dummies/blog/65x65/thumb3.jpg') }}" class="pull-left" alt="" /></a>#}
-                            {#<h6><a href="#">Et mei iusto dolorum</a></h6>#}
-                            {#<p>#}
-                                {#Mazim alienum appellantur eu cu ullum officiis pro pri#}
-                            {#</p>#}
-                        {#</li>#}
-
-                    </ul>
-                </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Ingrédients populaires</h5>
-                    <ul class="tags">
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Trends</a></li>
-                        <li><a href="#">Technology</a></li>
-                        <li><a href="#">Internet</a></li>
-                        <li><a href="#">Tutorial</a></li>
-                        <li><a href="#">Development</a></li>
-                    </ul>
-                </div>
-                <div class="widget">
-                    <h5 class="widgetheading">Des menus ..</h5>
-                    <ul class="cat">
-                        {% if listRandomMenus|length > 0 %}
-                            {% for menu in listRandomMenus %}
-                                <li><i class="fa fa-angle-right"></i><a href="{{ path('app_menu', {'id': menu.id}) }}">{{ menu.name }}</a></li>
-                            {% endfor %}
-                        {% endif %}
-
-                        {#<li><i class="fa fa-angle-right"></i><a href="#">Online business</a><span> (11)</span></li>#}
-                        {#<li><i class="fa fa-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>#}
-                        {#<li><i class="fa fa-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>#}
-                        {#<li><i class="fa fa-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>#}
-                    </ul>
-                </div>
 
             </aside>
         </div>
@@ -153,6 +139,8 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('public/Sailor/plugins/flexslider/jquery.flexslider-min.js') }}"></script>
+    <script src="{{ asset('public/Sailor/plugins/flexslider/flexslider.config.js') }}"></script>
 {% endblock %}
 
 

@@ -23,11 +23,11 @@ class FrontController extends Controller
 
         $mm = $this->container->get('app.menu_manager');
 
-        $listRandomMenus = $mm->getRandomMenus(3, $season);
+        $randomMenu = $mm->getRandomMenus(1, $season);
 
         return $this->render(':front:index.html.twig', [
 //              'listMenus' => $mm->getAll(),
-                'listRandomMenus' => $listRandomMenus,
+                'randomMenu' => $randomMenu[0],
                 'season' => $season,
                 //'listCategories' => array(),
             ]
