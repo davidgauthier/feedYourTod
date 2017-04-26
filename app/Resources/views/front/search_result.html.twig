@@ -29,9 +29,9 @@
             <aside class="left-sidebar">
 
                 <div class="widget">
-                    <pre>
-                        [[ searchModel ]]
-                    </pre>
+                    {#<pre>#}
+                        {#[[ searchModel ]]#}
+                    {#</pre>#}
 
                     {% include ':include:_search_form.html.twig' %}
                 </div>
@@ -45,17 +45,17 @@
             <h3>Search : {% if app.request.query.get('search')['keyword'] is defined %}{{ app.request.query.get('search')['keyword'] }}{% endif %}</h3>
 
 
-            <ul ng-repeat="(key, value) in results">
-                <li>
-                    <ul>
-                        <li>ID: [[ value.id ]]</li>
-                        <li>NAME: [[ value.title ]]</li>
-                        <li>
-                            <pre>[[value]]</pre>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            {#<ul ng-repeat="(key, value) in results">#}
+                {#<li>#}
+                    {#<ul>#}
+                        {#<li>ID: [[ value.id ]]</li>#}
+                        {#<li>NAME: [[ value.title ]]</li>#}
+                        {#<li>#}
+                            {#<pre>[[value]]</pre>#}
+                        {#</li>#}
+                    {#</ul>#}
+                {#</li>#}
+            {#</ul>#}
 
             <ul>
 
