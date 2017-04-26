@@ -37,13 +37,20 @@ class FrontController extends Controller
     /**
      * @Route("/menus", name="app_menus", methods={"GET"})
      */
-    public function menusAction()
+    public function menusAction(Request $request)
     {
         $menuManager = $this->container->get("app.menu_manager");
         $menus = $menuManager->getListMenus();
 
+        $paginator  = $this->get('knp_paginator');
+        $menus_p = $paginator->paginate(
+            $menus, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            4/*limit per page*/
+        );
+
         return $this->render(':front:menus.html.twig', [
-            'menus' => $menus,
+            'menus' => $menus_p,
         ]);
     }
 
@@ -70,13 +77,20 @@ class FrontController extends Controller
     /**
      * @Route("/recipes", name="app_recipes", methods={"GET"})
      */
-    public function recipesAction()
+    public function recipesAction(Request $request)
     {
         $recipeManager = $this->container->get("app.recipe_manager");
         $recipes = $recipeManager->getAll();
 
+        $paginator  = $this->get('knp_paginator');
+        $recipes_p = $paginator->paginate(
+            $recipes, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            4/*limit per page*/
+        );
+
         return $this->render(':front:recipes.html.twig', [
-            'recipes' => $recipes,
+            'recipes' => $recipes_p,
         ]);
     }
 

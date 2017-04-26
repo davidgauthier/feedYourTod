@@ -58,17 +58,20 @@
             </ul>
 
             <ul>
+
                 {% if searchRecipes is defined %}
                     {% for recipe in searchRecipes  %}
-                        <li>{{ recipe.name }} (age: {{ recipe.age }})</li>
+                        <li><a href="{{ path('app_recipe', {'id': recipe.id}) }}">{{ recipe.name }}</a> (age: {{ recipe.age }})</li>
                     {% endfor %}
                 {% else %}
                     <p>Aucun résultat pour les recettes</p>
                 {% endif %}
+
                 <hr>
-                {% if searchRecipes is defined %}
+
+                {% if searchMenus is defined %}
                     {% for menu in searchMenus %}
-                        <li>{{ menu.name }}</li>
+                        <li><a href="{{ path('app_menu', {'id': menu.id}) }}">{{ menu.name }}</a> (age: {{ menu.age }})</li>
                     {% endfor %}
                 {% else %}
                     <p>Aucun résultat pour les menus</p>

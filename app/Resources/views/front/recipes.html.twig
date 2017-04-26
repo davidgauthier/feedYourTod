@@ -22,7 +22,7 @@
 
         <div class="col-lg-8">
 
-            <h2 class="text-center">Recettes ({{ recipes|length }})</h2>
+            <h2 class="text-center">Recettes ({#{ recipes|length }#}{{ recipes.getTotalItemCount }})</h2>
 
             {% for recipe in recipes %}
 
@@ -72,24 +72,27 @@
                     {#</p>#}
                     <div class="bottom-article">
                         <ul class="meta-post">
+                            <li>
+                                <i class="fa fa-sun-o" aria-hidden="true"></i> Saison: <b>{{ recipe.season.name}}</b>
+                            </li>
                             {% if recipe.preptime is not empty %}
                                 <li>
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i> Préparation : {{ recipe.preptime }}
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i> Préparation: <b>{{ recipe.preptime }}</b>
                                 </li>
                             {% endif %}
                             {% if recipe.cooktime is not empty %}
                                 <li>
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i> Cuisson : {{ recipe.cooktime }}
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i> Cuisson: <b>{{ recipe.cooktime }}</b>
                                 </li>
                             {% endif %}
                             <li>
                                 {% import ":Macros:macro_recipe_min_age.html.twig" as macroAge  %}
-                                <i class="fa fa-calendar" aria-hidden="true"></i> A partir de : {{ macroAge.displayAge(recipe.age) }}
+                                <i class="fa fa-calendar" aria-hidden="true"></i> A partir de: <b>{{ macroAge.displayAge(recipe.age) }}</b>
                             </li>
                             {#<li><i class="fa fa-calendar"></i><a href="#"> May 17, 2014</a></li>#}
                             {#<li><i class="fa fa-user"></i><a href="#"> Admin</a></li>#}
                             {#<li><i class="fa fa-folder-open"></i><a href="#"> Blog</a></li>#}
-                            <li><i class="fa fa-comments"></i> 4 Comments</li>
+                            <li><i class="fa fa-comments"></i> <b>4</b> Comments</li>
                         </ul>
                         <a href="{{ path('app_recipe', {'id': recipe.id}) }}" class="readmore pull-right">Voir la recette <i class="fa fa-angle-right"></i></a>
                     </div>
@@ -137,13 +140,10 @@
             {#</article>#}
 
 
+            {# display navigation #}
+            {{ knp_pagination_render(recipes) }}
 
-            <div id="pagination">
-                <span class="all">Page 1 of 3</span>
-                <span class="current">1</span>
-                <a href="#" class="inactive">2</a>
-                <a href="#" class="inactive">3</a>
-            </div>
+
 
             <div class="clear"></div>
         </div>
