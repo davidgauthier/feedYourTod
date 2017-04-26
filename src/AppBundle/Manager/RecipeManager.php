@@ -7,6 +7,12 @@ use AppBundle\Entity\Recipe;
 
 class RecipeManager extends AbstractDoctrineManager
 {
+    /**
+     * @return array
+     */
+    public function getAll(){
+        return $this->getRepository()->findAll();
+    }
 
     /**
      * @return Recipe

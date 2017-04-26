@@ -1,0 +1,10 @@
+services:
+    app.normalizer.menu:
+        class: AppBundle\Serializer\Normalizer\MenuNormalizer
+        tags:
+            - { name: serializer.normalizer }
+
+    app.normalizer.recipe:
+        class: AppBundle\Serializer\Normalizer\RecipeNormalizer
+        tags:
+            - { name: serializer.normalizer }
