@@ -6,6 +6,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 {% endblock %}
 
 {% block breadcrumb %}
@@ -21,12 +23,16 @@
 
 {% block content %}
 
-    <div class="row">
+    <div class="row" ng-app="FeedYourTod" ng-cloak ng-controller="SearchCtrl">
 
         <div class="col-lg-4">
             <aside class="left-sidebar">
 
                 <div class="widget">
+                    <pre>
+                        [[ searchModel ]]
+                    </pre>
+
                     {% include ':include:_search_form.html.twig' %}
                 </div>
 
@@ -37,6 +43,19 @@
         <div class="col-lg-8">
 
             <h3>Search : {% if app.request.query.get('search')['keyword'] is defined %}{{ app.request.query.get('search')['keyword'] }}{% endif %}</h3>
+
+
+            <ul ng-repeat="(key, value) in results">
+                <li>
+                    <ul>
+                        <li>ID: [[ value.id ]]</li>
+                        <li>NAME: [[ value.title ]]</li>
+                        <li>
+                            <pre>[[value]]</pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
             <ul>
 
@@ -71,4 +90,52 @@
 
 {% block javascripts %}
     {{ parent() }}
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script type="text/javascript">
+        var searchConfig = {
+            route_search: "https://jsonplaceholder.typicode.com/albums"
+        };
+
+
+        var app = angular.module('FeedYourTod', ['ngMaterial', 'ngMessages'], function($interpolateProvider) {
+            $interpolateProvider.startSymbol('[[');
+            $interpolateProvider.endSymbol(']]');
+        });
+
+        app
+            .controller('SearchCtrl', SearchCtrl);
+
+        function SearchCtrl ($scope, $http) {
+            $scope.searchModel = {
+                query: null,
+                age: null
+            };
+
+            $scope.results = [];
+
+            $scope.submit = function() {
+                // get API with keywork ...etc
+                // render(results)
+                console.log($scope.searchModel);
+
+                $http({
+                    method: 'GET',
+                    url: searchConfig.route_search + '?query='+window.encodeURIComponent($scope.searchModel.query)
+                }).then(function successCallback(response) {
+                    $scope.results = response.data;
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            }
+        }
+    </script>
 {% endblock %}
