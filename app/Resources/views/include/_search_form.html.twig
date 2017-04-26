@@ -9,23 +9,23 @@
 {{ form_widget(form.keyword, {
     'attr': {
         'placeholder': 'Search..',
-        'ng-model': 'searchModel.query'
+
     }
 }) }}
 
 {{ form_widget(form.age, {
     'attr': {
         'placeholder': 'age (en mois)',
-        'ng-model': 'searchModel.age'
+
     }
 }) }}
 
 {{ form_rest(form) }}
-<input class="btn btn-theme" ng-click="submit()" value="Search" />
+<input class="btn btn-theme" type="submit" value="Search" />
 {{ form_end(form) }}
 
-{#<form role="form">#}
+{#{<form role="form">}#}
 {#<div class="form-group">#}
 {#<input type="text" class="form-control" id="s" placeholder="Search..">#}
 {#</div>#}
-{#</form>#}
+</form>
