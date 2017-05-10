@@ -17,22 +17,17 @@ class LoadCmsData extends AbstractFixture implements OrderedFixtureInterface, Co
 
     public function load(ObjectManager $manager)
     {
-        $cms = new Block();
-        $cms->setReference('homepage');
-        $cms->setDescription('Homepage content');
-        $cms->setCreatedAt(new \DateTime());
-        $cms->setUpdatedAt(new \DateTime());
+        $block = new Block();
+        $block
+            ->setReference('homepage');
+        $manager->persist($block);
 
-        $translation = new BlockTranslation();
-        $translation->setLocale('fr');
-        $translation->setBlock($cms);
-        $translation->setContent('');
-        $translation->setCreatedAt(new \DateTime());
-        $translation->setUpdatedAt(new \DateTime());
+        $translationBlock = new BlockTranslation();
+        $translationBlock->setBlock($block);
+        $translationBlock->setLocale('fr');
+        $translationBlock->setContent('test');
 
-        $cms->addTranslation($translation);
-
-        $manager->persist($cms);
+        $manager->persist($translationBlock);
         $manager->flush();
     }
 
