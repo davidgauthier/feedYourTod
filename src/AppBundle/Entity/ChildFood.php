@@ -121,6 +121,5 @@ class ChildFood
         return $this->childFoodTag;
     }
 
-
 //    public func
 }

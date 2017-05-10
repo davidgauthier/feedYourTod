@@ -2,10 +2,10 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ChildFoodType extends AbstractType
 {
@@ -13,24 +13,21 @@ class ChildFoodType extends AbstractType
     {
         $builder
             ->add('childFoodTag', EntityType::class, [
-                'class'         => 'AppBundle\Entity\ChildFoodTag',
-                'choice_label'  => 'wording',
+                'class' => 'AppBundle\Entity\ChildFoodTag',
+                'choice_label' => 'wording',
             ])
             ->add('food', EntityType::class, [
-                'class'         => 'AppBundle\Entity\Food',
-                'choice_label'  => 'wording',
+                'class' => 'AppBundle\Entity\Food',
+                'choice_label' => 'wording',
             ])
 
         ;
     }
 
-
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\ChildFood',
-
-        ));
+        ]);
     }
-
 }

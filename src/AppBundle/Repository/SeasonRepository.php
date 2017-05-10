@@ -2,7 +2,6 @@
 
 namespace AppBundle\Repository;
 
-
 /**
  * seasonRepository.
  *
@@ -22,6 +21,5 @@ class SeasonRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('dateT', $dateT)
             ->getQuery()
             ->getOneOrNullResult();
-
     }
 }

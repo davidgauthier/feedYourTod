@@ -62,7 +62,6 @@ class RecipeType
         return $this->wording;
     }
 
-
     /**
      * @return string
      */

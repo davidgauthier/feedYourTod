@@ -62,8 +62,6 @@ class FoodType
         return $this->wording;
     }
 
-
-
     /**
      * @return string
      */

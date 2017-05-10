@@ -4,21 +4,20 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Child;
 use AppBundle\Form\ChildFoodType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class ChildFoodController extends Controller
 {
-
     /**
      * @Route("/childfood/{idChild}/new", name="app_childfood_new")
      */
-    public function newAction(Request $request, $idChild){
-
+    public function newAction(Request $request, $idChild)
+    {
         $child = $this->getDoctrine()->getRepository(Child::class)->find($idChild);
 
-        if ($child === null){
+        if ($child === null) {
             throw $this->createNotFoundException('This child does not exists');
         }
 
@@ -27,8 +26,7 @@ class ChildFoodController extends Controller
         $form = $this->createForm(ChildFoodType::class, $childFood);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
-
+        if ($form->isSubmitted() && $form->isValid()) {
             $childFood = $form->getData();
             $childFood->setChild($child);
 
@@ -39,5 +37,4 @@ class ChildFoodController extends Controller
 
         return $this->render(':child:newChildFood.html.twig', ['form' => $form->createView()]);
     }
-
 }

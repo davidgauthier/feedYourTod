@@ -3,310 +3,305 @@
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Food;
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadFoodData extends AbstractFixture implements OrderedFixtureInterface
 {
-    public function load(ObjectManager $manager){
-
-        $foodData = array(
-            array(
-                'wording'  => 'potimarron',
+    public function load(ObjectManager $manager)
+    {
+        $foodData = [
+            [
+                'wording' => 'potimarron',
                 'foodType' => $this->getReference('foodType-0'),        //-----------0
-            ),
-            array(
-                'wording'  => 'lait en poudre',
+            ],
+            [
+                'wording' => 'lait en poudre',
                 'foodType' => $this->getReference('foodType-4'),        //-----------1
-            ),
-            array(
-                'wording'  => 'persil',
+            ],
+            [
+                'wording' => 'persil',
                 'foodType' => $this->getReference('foodType-0'),        //-----------2
-            ),
-            array(
-                'wording'  => 'pomme',
+            ],
+            [
+                'wording' => 'pomme',
                 'foodType' => $this->getReference('foodType-3'),        //-----------3
-            ),
-            array(
-                'wording'  => 'vanille en poudre',
+            ],
+            [
+                'wording' => 'vanille en poudre',
                 'foodType' => $this->getReference('foodType-4'),        //-----------4
-            ),
-            array(
-                'wording'  => 'eau de fleur d\'oranger',
+            ],
+            [
+                'wording' => 'eau de fleur d\'oranger',
                 'foodType' => $this->getReference('foodType-5'),        //-----------5
-            ),
-            array(
-                'wording'  => 'potiron',
+            ],
+            [
+                'wording' => 'potiron',
                 'foodType' => $this->getReference('foodType-0'),        //-----------6
-            ),
-            array(
-                'wording'  => 'banane',
+            ],
+            [
+                'wording' => 'banane',
                 'foodType' => $this->getReference('foodType-3'),        //-----------7
-            ),
-            array(
-                'wording'  => 'poudre de cacao',
+            ],
+            [
+                'wording' => 'poudre de cacao',
                 'foodType' => $this->getReference('foodType-4'),        //-----------8
-            ),
-            array(
-                'wording'  => 'poire',
+            ],
+            [
+                'wording' => 'poire',
                 'foodType' => $this->getReference('foodType-3'),        //-----------9
-            ),
-            array(
-                'wording'  => 'pétale de maïs',
+            ],
+            [
+                'wording' => 'pétale de maïs',
                 'foodType' => $this->getReference('foodType-6'),        //-----------10
-            ),
-            array(
-                'wording'  => 'lentille',
+            ],
+            [
+                'wording' => 'lentille',
                 'foodType' => $this->getReference('foodType-0'),        //-----------11
-            ),
-            array(
-                'wording'  => 'tomate',
+            ],
+            [
+                'wording' => 'tomate',
                 'foodType' => $this->getReference('foodType-3'),        //-----------12
-            ),
-            array(
-                'wording'  => 'flocons d\'avoine',
+            ],
+            [
+                'wording' => 'flocons d\'avoine',
                 'foodType' => $this->getReference('foodType-6'),        //-----------13
-            ),
-            array(
-                'wording'  => 'framboises',
+            ],
+            [
+                'wording' => 'framboises',
                 'foodType' => $this->getReference('foodType-3'),        //-----------14
-            ),
-            array(
-                'wording'  => 'sirop d\'orgeat',
+            ],
+            [
+                'wording' => 'sirop d\'orgeat',
                 'foodType' => $this->getReference('foodType-2'),        //-----------15
-            ),
-            array(
-                'wording'  => 'prunes',
+            ],
+            [
+                'wording' => 'prunes',
                 'foodType' => $this->getReference('foodType-3'),        //-----------16
-            ),
-            array(
-                'wording'  => 'poudre de canelle',
+            ],
+            [
+                'wording' => 'poudre de canelle',
                 'foodType' => $this->getReference('foodType-4'),        //-----------17
-            ),
-            array(
-                'wording'  => 'poudre de gimgembre',
+            ],
+            [
+                'wording' => 'poudre de gimgembre',
                 'foodType' => $this->getReference('foodType-4'),        //-----------18
-            ),
-            array(
-                'wording'  => 'poudre de curcuma',
+            ],
+            [
+                'wording' => 'poudre de curcuma',
                 'foodType' => $this->getReference('foodType-4'),        //-----------19
-            ),
-            array(
-                'wording'  => 'sucre',
+            ],
+            [
+                'wording' => 'sucre',
                 'foodType' => $this->getReference('foodType-4'),        //-----------20
-            ),
+            ],
 
-            array(
-                'wording'  => 'beurre',
+            [
+                'wording' => 'beurre',
                 'foodType' => $this->getReference('foodType-7'),        //-----------21
-            ),
+            ],
 
-            array(
-                'wording'  => 'chocolat noir',
+            [
+                'wording' => 'chocolat noir',
                 'foodType' => $this->getReference('foodType-7'),        //-----------22
-            ),
+            ],
 
-            array(
-                'wording'  => 'chocolat',
+            [
+                'wording' => 'chocolat',
                 'foodType' => $this->getReference('foodType-7'),        //-----------23
-            ),
-            array(
-                'wording'  => 'farine',
+            ],
+            [
+                'wording' => 'farine',
                 'foodType' => $this->getReference('foodType-4'),        //-----------24
-            ),
+            ],
 
-            array(
-                'wording'  => 'levure',
+            [
+                'wording' => 'levure',
                 'foodType' => $this->getReference('foodType-4'),        //-----------25
-            ),
-            array(
-                'wording'  => 'semoule',
+            ],
+            [
+                'wording' => 'semoule',
                 'foodType' => $this->getReference('foodType-8'),        //-----------26
-            ),
-            array(
-                'wording'  => 'fraise',
+            ],
+            [
+                'wording' => 'fraise',
                 'foodType' => $this->getReference('foodType-3'),        //-----------27
-            ),
-            array(
-                'wording'  => 'yaourt',
+            ],
+            [
+                'wording' => 'yaourt',
                 'foodType' => $this->getReference('foodType-9'),        //-----------28
-            ),
-            array(
-                'wording'  => 'lait',
+            ],
+            [
+                'wording' => 'lait',
                 'foodType' => $this->getReference('foodType-9'),        //-----------29
-            ),
-            array(
-                'wording'  => 'oeuf de poule',
+            ],
+            [
+                'wording' => 'oeuf de poule',
                 'foodType' => $this->getReference('foodType-10'),       //-----------30
-            ),
-            array(
-                'wording'  => 'pêche',
+            ],
+            [
+                'wording' => 'pêche',
                 'foodType' => $this->getReference('foodType-3'),        //-----------31
-            ),
-            array(
-                'wording'  => 'mangue',
+            ],
+            [
+                'wording' => 'mangue',
                 'foodType' => $this->getReference('foodType-3'),        //-----------32
-            ),
-            array(
-                'wording'  => 'carotte',
+            ],
+            [
+                'wording' => 'carotte',
                 'foodType' => $this->getReference('foodType-0'),        //-----------33
-            ),
-            array(
-                'wording'  => 'ciboulette',
+            ],
+            [
+                'wording' => 'ciboulette',
                 'foodType' => $this->getReference('foodType-0'),        //-----------34
-            ),
-            array(
-                'wording'  => 'crème fraîche',
+            ],
+            [
+                'wording' => 'crème fraîche',
                 'foodType' => $this->getReference('foodType-7'),        //-----------35
-            ),
-            array(
-                'wording'  => 'pomme de terre',
+            ],
+            [
+                'wording' => 'pomme de terre',
                 'foodType' => $this->getReference('foodType-0'),        //-----------36
-            ),
-            array(
-                'wording'  => 'petits pois',
+            ],
+            [
+                'wording' => 'petits pois',
                 'foodType' => $this->getReference('foodType-0'),        //-----------37
-            ),
-            array(
-                'wording'  => 'cereale au cacao',
+            ],
+            [
+                'wording' => 'cereale au cacao',
                 'foodType' => $this->getReference('foodType-6'),        //-----------38
-            ),
-            array(
-                'wording'  => 'chou-fleur',
+            ],
+            [
+                'wording' => 'chou-fleur',
                 'foodType' => $this->getReference('foodType-0'),        //-----------39
-            ),
-            array(
-                'wording'  => 'celery-rave',
+            ],
+            [
+                'wording' => 'celery-rave',
                 'foodType' => $this->getReference('foodType-0'),        //-----------40
-            ),
-            array(
-                'wording'  => 'multi-cereale',
+            ],
+            [
+                'wording' => 'multi-cereale',
                 'foodType' => $this->getReference('foodType-6'),        //-----------41
-            ),
-             array(
-                 'wording'  => 'cereale nature',
+            ],
+             [
+                 'wording' => 'cereale nature',
                  'foodType' => $this->getReference('foodType-6'),        //-----------42
-             ),
-            array(
-                'wording'  => 'cereale vanille',
+             ],
+            [
+                'wording' => 'cereale vanille',
                 'foodType' => $this->getReference('foodType-6'),         //-----------43
-            ),
-            array(
-                'wording'  => 'cereale légumes',
+            ],
+            [
+                'wording' => 'cereale légumes',
                 'foodType' => $this->getReference('foodType-6'),         //-----------44
-            ),
-            array(
-                'wording'  => 'épinards',
+            ],
+            [
+                'wording' => 'épinards',
                 'foodType' => $this->getReference('foodType-0'),         //-----------45
-            ),
+            ],
 
-            array(
-                'wording'  => 'feuille de gélatine',
+            [
+                'wording' => 'feuille de gélatine',
                 'foodType' => $this->getReference('foodType-11'),        //-----------46
-            ),
-            array(
-                'wording'  => 'caramel',
+            ],
+            [
+                'wording' => 'caramel',
                 'foodType' => $this->getReference('foodType-7'),         //-----------47
-            ),
-             array(
-                 'wording'  => 'cabillaud',
+            ],
+             [
+                 'wording' => 'cabillaud',
                  'foodType' => $this->getReference('foodType-12'),       //-----------48
-             ),
-             array(
-                 'wording'  => 'sel',
+             ],
+             [
+                 'wording' => 'sel',
                  'foodType' => $this->getReference('foodType-4'),        //-----------49
-             ),
-            array(
-                'wording'  => 'poivre',
+             ],
+            [
+                'wording' => 'poivre',
                 'foodType' => $this->getReference('foodType-4'),         //-----------50
-            ),
-            array(
-                'wording'  => 'saumon',
+            ],
+            [
+                'wording' => 'saumon',
                 'foodType' => $this->getReference('foodType-12'),        //-----------51
-            ),
-            array(
-                'wording'  => 'poireau',
+            ],
+            [
+                'wording' => 'poireau',
                 'foodType' => $this->getReference('foodType-0'),         //-----------52
-            ),
-            array(
-                'wording'  => 'thon',
+            ],
+            [
+                'wording' => 'thon',
                 'foodType' => $this->getReference('foodType-12'),        //-----------53
-            ),
-            array(
-                'wording'  => 'mozzarella',
+            ],
+            [
+                'wording' => 'mozzarella',
                 'foodType' => $this->getReference('foodType-7'),         //-----------54
-            ),
-            array(
-                'wording'  => 'jambon',
+            ],
+            [
+                'wording' => 'jambon',
                 'foodType' => $this->getReference('foodType-1'),         //-----------55
-            ),
-            array(
-                'wording'  => 'poivron',
+            ],
+            [
+                'wording' => 'poivron',
                 'foodType' => $this->getReference('foodType-0'),         //-----------56
-            ),
-            array(
-                'wording'  => 'courgette',
+            ],
+            [
+                'wording' => 'courgette',
                 'foodType' => $this->getReference('foodType-0'),         //-----------57
-            ),
-            array(
-                'wording'  => 'aubergine',
+            ],
+            [
+                'wording' => 'aubergine',
                 'foodType' => $this->getReference('foodType-0'),         //-----------58
-            ),
-            array(
-                'wording'  => 'oignon',
+            ],
+            [
+                'wording' => 'oignon',
                 'foodType' => $this->getReference('foodType-0'),         //-----------59
-            ),
-            array(
-                'wording'  => 'huile d\'olive',
+            ],
+            [
+                'wording' => 'huile d\'olive',
                 'foodType' => $this->getReference('foodType-0'),         //-----------60
-            ),
-            array(
-                'wording'  => 'origan',
+            ],
+            [
+                'wording' => 'origan',
                 'foodType' => $this->getReference('foodType-0'),         //-----------61
-            ),
-            array(
-                'wording'  => 'fromage chèvre',
+            ],
+            [
+                'wording' => 'fromage chèvre',
                 'foodType' => $this->getReference('foodType-7'),         //-----------62
-            ),
-            array(
-                'wording'  => 'sole',
+            ],
+            [
+                'wording' => 'sole',
                 'foodType' => $this->getReference('foodType-12'),        //-----------62
-            ),
-            array(
-                'wording'  => 'asperge',
+            ],
+            [
+                'wording' => 'asperge',
                 'foodType' => $this->getReference('foodType-0'),          //-----------63
-            ),
-            array(
-                'wording'  => 'boeuf',
+            ],
+            [
+                'wording' => 'boeuf',
                 'foodType' => $this->getReference('foodType-1'),          //-----------64
-            ),
-            array(
-                'wording'  => 'thym',
+            ],
+            [
+                'wording' => 'thym',
                 'foodType' => $this->getReference('foodType-0'),          //-----------65
-            ),
-            array(
-                'wording'  => 'saucisse',
+            ],
+            [
+                'wording' => 'saucisse',
                 'foodType' => $this->getReference('foodType-1'),          //-----------66
-            ),
-            array(
-                'wording'  => 'ananas',
+            ],
+            [
+                'wording' => 'ananas',
                 'foodType' => $this->getReference('foodType-3'),          //-----------67
-            ),
-            array(
-                'wording'  => 'muscade',
+            ],
+            [
+                'wording' => 'muscade',
                 'foodType' => $this->getReference('foodType-4'),          //-----------68
-            ),
-            array(
-                'wording'  => 'fromage',
+            ],
+            [
+                'wording' => 'fromage',
                 'foodType' => $this->getReference('foodType-7'),          //-----------69
-            ),
-
-
-
-
-
-        );
+            ],
+        ];
 
         foreach ($foodData as $i => $f) {
             $food = new Food();

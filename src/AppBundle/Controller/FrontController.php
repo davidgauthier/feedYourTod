@@ -11,14 +11,13 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class FrontController extends Controller
 {
-
     /**
      * @Route("/", name="app_homepage", methods={"GET"})
      */
     public function indexAction(Request $request)
     {
         $dateTime = new \DateTime();
-        $seasonManager = $this->container->get("app.season_manager");
+        $seasonManager = $this->container->get('app.season_manager');
         $season = $seasonManager->getCurrentSeason($dateTime);
 
         $mm = $this->container->get('app.menu_manager');
@@ -39,10 +38,10 @@ class FrontController extends Controller
      */
     public function menusAction(Request $request)
     {
-        $menuManager = $this->container->get("app.menu_manager");
+        $menuManager = $this->container->get('app.menu_manager');
         $menus = $menuManager->getListMenus();
 
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
         $menus_p = $paginator->paginate(
             $menus, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
@@ -59,19 +58,16 @@ class FrontController extends Controller
      */
     public function menuAction($id)
     {
-        $menuManager = $this->container->get("app.menu_manager");
+        $menuManager = $this->container->get('app.menu_manager');
         $menu = $menuManager->getMenuById($id);
 
-
-        if($menu == null)
-        {
+        if ($menu === null) {
             throw new NotFoundHttpException("Le menu recherché n'existe pas.");
         }
 
-        return $this->render(':front:menu.html.twig',[
+        return $this->render(':front:menu.html.twig', [
             'menu' => $menu,
         ]);
-
     }
 
     /**
@@ -79,10 +75,10 @@ class FrontController extends Controller
      */
     public function recipesAction(Request $request)
     {
-        $recipeManager = $this->container->get("app.recipe_manager");
+        $recipeManager = $this->container->get('app.recipe_manager');
         $recipes = $recipeManager->getAll();
 
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
         $recipes_p = $paginator->paginate(
             $recipes, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
@@ -99,18 +95,16 @@ class FrontController extends Controller
      */
     public function recipeAction($id)
     {
-        $recipeManager = $this->container->get("app.recipe_manager");
+        $recipeManager = $this->container->get('app.recipe_manager');
         $recipe = $recipeManager->getRecipeById($id);
 
-        if($recipe == null)
-        {
+        if ($recipe === null) {
             throw new NotFoundHttpException("La recette recherchée n'existe pas.");
         }
 
-        return $this->render(':front:recipe.html.twig',[
+        return $this->render(':front:recipe.html.twig', [
             'recipe' => $recipe,
         ]);
-
     }
 
     /**
@@ -123,17 +117,17 @@ class FrontController extends Controller
         $form = $this->createForm(MessageContactType::class, $messageContact);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
-
+        if ($form->isSubmitted() && $form->isValid()) {
             $messageContact = $form->getData();
 
-            if(null !== $this->getUser()){
+            if (null !== $this->getUser()) {
                 $messageContact->setUser($this->getUser());
             }
 
             $this->container->get('app.message_contact_manager')->save($messageContact);
 
             $this->get('session')->getFlashBag()->add('info', 'Votre message a bien été enregistré !');
+
             return $this->redirectToRoute('app_homepage');
         }
 
@@ -143,35 +137,32 @@ class FrontController extends Controller
     }
 
     //Génerer des PDFs
+
     /**
      * @Route("/pdf/{id}", name="app_generate_pdf")
      */
     public function returnPDFAction($id)
     {
-        $recipeManager = $this->container->get("app.recipe_manager");
+        $recipeManager = $this->container->get('app.recipe_manager');
         $recipe = $recipeManager->getRecipeById($id);
 
-        if($recipe == null)
-        {
+        if ($recipe === null) {
             throw new NotFoundHttpException("La recette recherchée n'existe pas.");
+        }
 
-        }else {
+        $html = $this->renderView(':pdf:recipepdf.html.twig', [
+                'recipe' => $recipe,
+            ]);
 
-            $html = $this->renderView(':pdf:recipepdf.html.twig', array(
-                'recipe' => $recipe
-            ));
-
-            return new Response(
+        return new Response(
                 $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
                 200,
-                array(
+                [
                     'Content-Type' => 'application/pdf',
-                    'Content-Disposition' => 'attachment; filename="Recette'.$id.'.pdf"'
-                )
+                    'Content-Disposition' => 'attachment; filename="Recette'.$id.'.pdf"',
+                ]
             );
 
-            return $this->redirectToRoute('app_recipe');
-        }
+        return $this->redirectToRoute('app_recipe');
     }
-
 }

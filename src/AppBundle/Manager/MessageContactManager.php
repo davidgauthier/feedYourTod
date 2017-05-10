@@ -2,12 +2,10 @@
 
 namespace AppBundle\Manager;
 
-
 use AppBundle\Entity\MessageContact;
 
 class MessageContactManager extends AbstractDoctrineManager
 {
-
     /**
      * @return MessageContact
      */
@@ -23,6 +21,4 @@ class MessageContactManager extends AbstractDoctrineManager
     {
         return $this->entityManager->getRepository(MessageContact::class);
     }
-
-
 }

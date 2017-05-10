@@ -3,17 +3,15 @@
  * Created by PhpStorm.
  * User: Utilisateur
  * Date: 18/04/2017
- * Time: 10:12
+ * Time: 10:12.
  */
 
 namespace AppBundle\DQL;
-
 
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
 use Doctrine\ORM\Query\Lexer;
 use Doctrine\ORM\Query\Parser as Parser;
 use Doctrine\ORM\Query\SqlWalker as SqlWalker;
-
 
 class RandomFunction extends FunctionNode
 {

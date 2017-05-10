@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-
 use AppBundle\Entity\ChildFood;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -22,12 +21,10 @@ class ChildFoodManager
         return $child;
     }
 
-    public function saveChild($childFood){
-
+    public function saveChild($childFood)
+    {
         $em = $this->entityManager;
         $em->persist($childFood);
         $em->flush();
-
     }
-
 }

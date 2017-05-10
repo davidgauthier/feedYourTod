@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-
 use AppBundle\Entity\Menu;
 
 class MenuManager extends AbstractDoctrineManager
@@ -10,7 +9,8 @@ class MenuManager extends AbstractDoctrineManager
     /**
      * @return array
      */
-    public function getAll(){
+    public function getAll()
+    {
         return $this->getRepository()->findAll();
     }
 
@@ -24,9 +24,8 @@ class MenuManager extends AbstractDoctrineManager
      */
     public function getMenuById($id)
     {
-//        return $this->entityManager->getRepository(Menu::class)->findOneById($id);
+        //        return $this->entityManager->getRepository(Menu::class)->findOneById($id);
         return $this->getRepository()->getMenuById($id);
-
     }
 
     public function getRandomMenus($limit = 5, $season = null)
@@ -34,12 +33,10 @@ class MenuManager extends AbstractDoctrineManager
         return $this->getRepository()->getRandomMenus($limit, $season);
     }
 
-
-    public function getMenuBySearch($search){
+    public function getMenuBySearch($search)
+    {
         return $this->getRepository()->getSearchMenu($search);
     }
-
-
 
     /**
      * @return Menu
@@ -56,5 +53,4 @@ class MenuManager extends AbstractDoctrineManager
     {
         return $this->entityManager->getRepository(Menu::class);
     }
-
 }

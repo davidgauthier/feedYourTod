@@ -5,7 +5,6 @@ namespace AppBundle\Repository;
 use AppBundle\Entity\Season;
 use Doctrine\ORM\QueryBuilder;
 
-
 /**
  * RecipeRepository.
  *
@@ -24,15 +23,14 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
             ->getOneOrNullResult();
     }
 
-
-    public function getRandomRecipes($limit = 5, Season $season = null){
-
+    public function getRandomRecipes($limit = 5, Season $season = null)
+    {
         $qb = $this->createQueryBuilder('r')
             ->addSelect('RAND() as HIDDEN rand')
             ->addOrderBy('rand');
 
-        if(null !== $season){
-            $qb->leftJoin('r.season','s')
+        if (null !== $season) {
+            $qb->leftJoin('r.season', 's')
                 ->where('s.id = :idSeason')
                 ->setParameter(':idSeason', $season->getId());
         }
@@ -42,8 +40,8 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-
-    public function getRandomRecipe($count = 1){
+    public function getRandomRecipe($count = 1)
+    {
         return $this->createQueryBuilder('r')
             ->addSelect('RAND() as HIDDEN rand')
             ->addOrderBy('rand')
@@ -52,18 +50,18 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
             ->getOneOrNullResult();
     }
 
-
-    public function getSearchRecipe($search){
+    public function getSearchRecipe($search)
+    {
         $qb = $this->createQueryBuilder('r')
             ->select('r')
-            ->where("r.name LIKE :searchWord")
+            ->where('r.name LIKE :searchWord')
             ->setParameter(':searchWord', '%'.$search->getKeyword().'%');
 
-        if(null != $search->getAge()){
+        if (null !== $search->getAge()) {
             $this->whereAgeIsDefined($qb, $search->getAge());
         }
 
-           return $qb
+        return $qb
             ->getQuery()
             ->getResult();
     }
@@ -73,6 +71,5 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
         $qb
             ->andWhere('r.age <= :age')
             ->setParameter(':age', $age);
-
     }
 }

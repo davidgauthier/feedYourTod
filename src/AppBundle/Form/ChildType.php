@@ -2,13 +2,12 @@
 
 namespace AppBundle\Form;
 
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ChildType extends AbstractType
 {
@@ -19,26 +18,24 @@ class ChildType extends AbstractType
                 'label' => 'Prénom',
             ])
             ->add('birthDate', DateType::class, [
-                'widget'    => 'single_text',
-                'label'     => 'Date de naissance',
+                'widget' => 'single_text',
+                'label' => 'Date de naissance',
             ])
 
-        ->add('childFoods', CollectionType::class, array(
-                'entry_type'    => ChildFoodType::class,
-                'allow_add'     => true,
-                'allow_delete'  => true,
-                'by_reference'  => false,
-                'attr'          => array('class' => 'row'),
-            ))
+        ->add('childFoods', CollectionType::class, [
+                'entry_type' => ChildFoodType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'attr' => ['class' => 'row'],
+            ])
         ;
     }
 
-
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\Child',
-
-        ));
+        ]);
     }
 }

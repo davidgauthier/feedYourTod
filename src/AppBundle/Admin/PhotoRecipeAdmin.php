@@ -1,11 +1,12 @@
 <?php
 
 // src/AppBundle/Admin/PhotoRecipeAdmin.php
+
 namespace AppBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
-use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\Image;
@@ -15,7 +16,7 @@ class PhotoRecipeAdmin extends AbstractAdmin
     public function getFormBuilder()
     {
         if ($this->isCurrentRoute('create')) {
-            $this->formOptions = array('validation_groups' => 'Create');
+            $this->formOptions = ['validation_groups' => 'Create'];
         }
 
         $formBuilder = parent::getFormBuilder();
@@ -23,15 +24,14 @@ class PhotoRecipeAdmin extends AbstractAdmin
         return $formBuilder;
     }
 
-
     protected function configureFormFields(FormMapper $formMapper)
     {
         // the field will be added only when create an item
         if ($this->isCurrentRoute('create')) {
             $formMapper
-                ->add('src', FileType::class, array(
+                ->add('src', FileType::class, [
                     'label' => 'La photo',
-                ));
+                ]);
             $formMapper->add('legend');
             $formMapper->add('recipe');
         }
@@ -40,9 +40,9 @@ class PhotoRecipeAdmin extends AbstractAdmin
         if ($this->isCurrentRoute('edit')) {
             // get the current Image instance
             $pr = $this->getSubject();
-            $fileFieldOptions = ['required'     => false,
-                                'data_class'    => null,
-                                'label'         => 'La photo'];
+            $fileFieldOptions = ['required' => false,
+                                'data_class' => null,
+                                'label' => 'La photo', ];
             if ($pr) {
                 // add a 'help' option containing the preview's img tag
                 $fileFieldOptions['help'] = '<img src="'.'../../../../../'.$pr->getWebPath().'" class="admin-preview" style="max-height: 300px;" />';
@@ -66,8 +66,7 @@ class PhotoRecipeAdmin extends AbstractAdmin
 
     public function preUpdate($object)
     {
-        if($this->getPhotoRecipeDirectory().$object->getOldSrc())
-        {
+        if ($this->getPhotoRecipeDirectory().$object->getOldSrc()) {
             $file = $object->getSrc();
             //dump($object->getOldSrc());exit();
             $fileName = $object->getOldSrc();
@@ -75,27 +74,24 @@ class PhotoRecipeAdmin extends AbstractAdmin
                 $fileName = $this->generateFileName($file);
             }
 
-
-            if(null !== $file){
+            if (null !== $file) {
                 $file->move($this->getPhotoRecipeDirectory(), $fileName);
                 $object->setSrc($fileName);
             } else {
                 $object->setSrc($fileName);
             }
-
         }
-
     }
 
-    private function generateFileName($file){
+    private function generateFileName($file)
+    {
         return md5(uniqid()).'.'.$file->guessExtension();
     }
 
-    private function getPhotoRecipeDirectory(){
+    private function getPhotoRecipeDirectory()
+    {
         return $this->getConfigurationPool()->getContainer()->getParameter('photo_recipe_directory');
     }
-
-
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
@@ -106,7 +102,6 @@ class PhotoRecipeAdmin extends AbstractAdmin
             ->add('recipe');
     }
 
-
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
@@ -114,6 +109,6 @@ class PhotoRecipeAdmin extends AbstractAdmin
             ->add('src', 'text')
             ->add('legend')
             ->add('recipe')
-            ->add('preview', null, array('template' => 'AppBundle:SonataAdmin:list_image_photo_recipe.html.twig'));
+            ->add('preview', null, ['template' => 'AppBundle:SonataAdmin:list_image_photo_recipe.html.twig']);
     }
 }

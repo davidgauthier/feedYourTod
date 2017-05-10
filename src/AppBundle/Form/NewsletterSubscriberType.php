@@ -18,15 +18,15 @@ class NewsletterSubscriberType extends AbstractType
 //            ->add('user')
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\NewsletterSubscriber'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\NewsletterSubscriber',
+        ]);
     }
 
     /**
@@ -36,6 +36,4 @@ class NewsletterSubscriberType extends AbstractType
     {
         return 'appbundle_newslettersubscriber';
     }
-
-
 }

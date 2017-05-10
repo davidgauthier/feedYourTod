@@ -6,11 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
-
 class MailCommand extends ContainerAwareCommand
 {
-
     protected function configure()
     {
         $this
@@ -20,14 +17,13 @@ class MailCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $userManager = $this->getContainer()->get("app.user_manager");
+        $userManager = $this->getContainer()->get('app.user_manager');
         $users = $userManager->getAllUsers();
 
         foreach ($users as $user) {
-
             $usermail = $user->getEmail();
 
-            $recipeManager = $this->getContainer()->get("app.recipe_manager");
+            $recipeManager = $this->getContainer()->get('app.recipe_manager');
             $recipe = $recipeManager->getRandomRecipe();
 
             $message = \Swift_Message::newInstance()
@@ -48,7 +44,5 @@ class MailCommand extends ContainerAwareCommand
         $text = 'Mail sent';
 
         $output->writeln($text);
-
     }
-
 }

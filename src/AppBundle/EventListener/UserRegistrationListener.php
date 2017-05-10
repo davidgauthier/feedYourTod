@@ -2,14 +2,14 @@
 
 namespace AppBundle\EventListener;
 
-use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
- * Listener responsible to change the redirection at the end of the registration
+ * Listener responsible to change the redirection at the end of the registration.
  */
 class UserRegistrationListener implements EventSubscriberInterface
 {

@@ -2,12 +2,11 @@
 
 namespace AppBundle\Form;
 
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class SearchType extends AbstractType
 {
@@ -15,22 +14,20 @@ class SearchType extends AbstractType
     {
         $builder
             ->add('keyword', TextType::class, [
-                'label'     => 'search',
-                'required'  => false,
+                'label' => 'search',
+                'required' => false,
             ])
             ->add('age', IntegerType::class, [
-                'label'     => 'age (en mois)',
-                'required'  => false,
+                'label' => 'age (en mois)',
+                'required' => false,
             ])
         ;
     }
 
-
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'AppBundle\Form\Model\Search',
-
-        ));
+        ]);
     }
 }

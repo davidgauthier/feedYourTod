@@ -2,10 +2,10 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\DataFixtures\AbstractFixture;
 use AppBundle\Entity\ChildFoodTag;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -21,7 +21,6 @@ class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInte
         ];
 
         foreach ($childFoodTagsData as $i => $cft) {
-
             $childFoodTag = new ChildFoodTag();
 
             $childFoodTag->setWording($cft);
@@ -31,7 +30,7 @@ class LoadChildFoodTagData extends AbstractFixture implements OrderedFixtureInte
         }
         $manager->flush();
     }
-    
+
     public function getOrder()
     {
         return 70;

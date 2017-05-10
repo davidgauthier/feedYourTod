@@ -3,17 +3,15 @@
  * Created by PhpStorm.
  * User: Utilisateur
  * Date: 20/04/2017
- * Time: 15:39
+ * Time: 15:39.
  */
 
 namespace AppBundle\Form\Model;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 class Search
 {
-
     private $keyword;
 
     /**
@@ -27,7 +25,6 @@ class Search
      * )
      */
     private $age;
-
 
     /**
      * @return mixed
@@ -45,7 +42,6 @@ class Search
         $this->age = $age;
     }
 
-
     /**
      * @return mixed
      */
@@ -61,7 +57,4 @@ class Search
     {
         $this->keyword = $keyword;
     }
-
-
-
 }
