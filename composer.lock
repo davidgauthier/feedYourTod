@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f34bc0eea61538bc6e7291cc8723cd3",
+    "content-hash": "26f83817af84b64dee990e00254749a6",
     "packages": [
         {
             "name": "beberlei/DoctrineExtensions",
@@ -1948,7 +1948,7 @@
         },
         {
             "name": "lexik/cmsi18n-bundle",
-            "version": "v1.4.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/lexik/lexikcmsi18nbundle.git",
@@ -2004,7 +2004,7 @@
                 "cms",
                 "i18n"
             ],
-            "time": "2017-02-02T13:33:32+00:00"
+            "time": "2017-02-02 12:33:32"
         },
         {
             "name": "monolog/monolog",
@@ -4644,7 +4644,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "lexik/cmsi18n-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

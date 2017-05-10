@@ -33,7 +33,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "knplabs/knp-paginator-bundle": "^2.5",
         "knplabs/knp-snappy-bundle": "^1.4",
-        "lexik/cmsi18n-bundle": "^1.4",
+        "lexik/cmsi18n-bundle": "dev-master",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "sonata-project/admin-bundle": "^3.16",
