@@ -35,6 +35,11 @@ framework:
     php_errors:
         log: true
 
+lexik_cmsi18n:
+    frontend_layout: '::base.html.twig'
+    preferred_locales: []
+    templating_extensions: []
+
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'

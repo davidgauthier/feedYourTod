@@ -25,6 +25,12 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         // Array of data for the fixture
         $usersData = [
             [
+                'username' => 'lexik',
+                'email' => 'contact@lexik.fr',
+                'password' => 'lexik',
+                'roles' => ['ROLE_ADMIN'],
+            ],
+            [
                 'username' => 'superman',
                 'email' => 'superman@user.sup',
                 'password' => 'sup',

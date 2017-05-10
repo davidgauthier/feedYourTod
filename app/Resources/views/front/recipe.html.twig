@@ -20,12 +20,18 @@
 
 
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
 
             <div class="pdf">
                 <h1 class="text-center">{{ recipe.name }}</h1>
 
                 <article>
+
+                    <p class="pull-right">
+                        <a class="btn btn-default" href="{{ path('app_generate_pdf', {id:recipe.id}) }}">Télécharger PDF</a>
+
+                    </p>
+
                     <div class="{% if recipe.photoRecipes|length > 1 %}
                                     post-slider
                                 {% else %}
@@ -110,116 +116,11 @@
                         </p>
                     {% endif %}
 
-                    <p class="pull-right">
-                        <a href="{{ path('app_generate_pdf', {id:recipe.id}) }}">Télécharger en tant que PDF</a>
-
-                    </p>
-
-
-                    {#<div class="bottom-article">#}
-                        {#<ul class="meta-post">#}
-                            {#<li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>#}
-                            {#<li><i class="fa fa-user"></i><a href="#"> Admin</a></li>#}
-                            {#<li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>#}
-                            {#<li><i class="fa fa-tags"></i><a href="#">Design</a>, <a href="#">Blog</a></li>#}
-                        {#</ul>#}
-                    {#</div>#}
                 </article>
             </div>
 
-            <div class="comment-area">
-
-                <h4>4 Comments</h4>
-                <div class="media">
-                    <a href="#" class="pull-left"><img src="{{ asset('public/Sailor/img/avatar.png') }}" alt="" class="img-circle" /></a>
-                    <div class="media-body">
-                        <div class="media-content">
-                            <h6><span>March 12, 2013</span> Michael Simpson</h6>
-                            <p>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </p>
-
-                            <a href="#" class="align-right reply">Reply</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="media">
-                    <a href="#" class="pull-left"><img src="{{ asset('public/Sailor/img/avatar.png') }}" alt="" class="img-circle" /></a>
-                    <div class="media-body">
-                        <div class="media-content">
-                            <h6><span>March 12, 2013</span> Smith karlsen</h6>
-                            <p>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </p>
-
-                            <a href="#" class="align-right reply">Reply</a>
-                        </div>
-                        <div class="media">
-                            <a href="#" class="pull-left"><img src="{{ asset('public/Sailor/img/avatar.png') }}" alt="" class="img-circle" /></a>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <h6><span>June 22, 2013</span> Jay Moeller</h6>
-                                    <p>
-                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                                    </p>
-
-                                    <a href="#" class="align-right reply">Reply</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="media">
-                    <a href="#" class="pull-left"><img src="{{ asset('public/Sailor/img/avatar.png') }}" alt="" class="img-circle" /></a>
-                    <div class="media-body">
-                        <div class="media-content">
-                            <h6><span>June 24, 2013</span> Dean Zaloza</h6>
-                            <p>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </p>
-
-                            <a href="#" class="align-right reply">Reply</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="marginbot30"></div>
-                <h4>Leave your comment</h4>
-
-
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="* Enter name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="* Enter email address">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="8" placeholder="* Your comment here"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-theme btn-md">Submit</button>
-                </form>
-
-            </div>
 
             <div class="clear"></div>
-        </div>
-        <div class="col-lg-4">
-            <aside class="right-sidebar">
-
-
-                <div class="widget">
-                    <h5 class="widgetheading">Categories</h5>
-                    <ul class="cat">
-                        <li><i class="fa fa-angle-right"></i><a href="#">Web design</a><span> (20)</span></li>
-                        <li><i class="fa fa-angle-right"></i><a href="#">Online business</a><span> (11)</span></li>
-                        <li><i class="fa fa-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>
-                        <li><i class="fa fa-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>
-                        <li><i class="fa fa-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>
-                    </ul>
-                </div>
-
-            </aside>
         </div>
     </div>
 

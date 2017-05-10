@@ -1,32 +1,5 @@
 <!-- start header -->
 <header>
-    <div class="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="topleft-info">
-                        {#<li><i class="fa fa-phone"></i> +62 088 999 123</li>#}
-                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <li>
-                                <i class="fa fa-user" aria-hidden="true"></i> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-                            </li>
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <li>
-                                    <a href="{{ path('sonata_admin_dashboard') }}"target="_blank">
-                                        <i class="fa fa-external-link" aria-hidden="true"></i> Admin Dashboard
-                                    </a>
-                                </li>
-                            {% endif %}
-                        {% endif %}
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    {{ render(controller('AppBundle:Search:createNavSearchForm')) }}
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -40,20 +13,14 @@
             </div>
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav">
-                    <li {% if app.request.get('_route') == 'app_homepage' %}class="active"{% endif %}>
-                        <a href="{{ path('app_homepage') }}">Home</a>
+                    <li {% if app.request.get('_route') == 'app_search_results' %}class="active"{% endif %}>
+                        <a href="{{ path('app_search_results') }}">Chercher</a>
                     </li>
                     <li {% if app.request.get('_route') == 'app_menus' %}class="active"{% endif %}>
                         <a href="{{ path('app_menus') }}">Menus</a>
                     </li>
                     <li {% if app.request.get('_route') == 'app_recipes' %}class="active"{% endif %}>
-                        <a href="{{ path('app_recipes') }}">Recipes</a>
-                    </li>
-                    <li {% if app.request.get('_route') == 'app_contact' %}class="active"{% endif %}>
-                        <a href="{{ path('app_contact') }}">Contact</a>
-                    </li>
-                    <li {% if app.request.get('_route') == 'app_search_results' %}class="active"{% endif %}>
-                        <a href="{{ path('app_search_results') }}">Search</a>
+                        <a href="{{ path('app_recipes') }}">Recettes</a>
                     </li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
@@ -61,6 +28,18 @@
                         <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
                         <li><a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
                         </li>
+                    {% endif %}
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li>
+                            <a href="{{ path('app_children') }}">Mes enfants</a>
+                        </li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li>
+                                <a href="{{ path('sonata_admin_dashboard') }}" ="_blank">
+                                    <i class="fa fa-external-link" aria-hidden="true"></i> Admin Dashboard
+                                </a>
+                            </li>
+                        {% endif %}
                     {% endif %}
                 </ul>
             </div>

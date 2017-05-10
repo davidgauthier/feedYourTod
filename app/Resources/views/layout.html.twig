@@ -9,7 +9,8 @@
     <meta name="author" content="Dave, Toufik, et David">
 
     <link rel="icon" href="{{ asset('public/images/ico.png') }}">
-    <title>{% block title %}FeedYourTod{% endblock %}</title>
+
+    <title>{% block title %}FidZeKids{% endblock %}</title>
 
     {% block stylesheets %}
         <!-- css -->
@@ -33,46 +34,9 @@
 </head>
 <body>
 
-
-
-
-
     <div id="wrapper">
 
         {{ include("::include/_header.html.twig") }}
-
-
-
-
-        {#{{ include("::include/headline_breadcrumb.html.twig") }}#}
-        <section id="inner-headline">
-            <div class="container">
-                <div class="row">
-                    {#<div class="col-lg-12">#}
-                    <div class="col-sm-6">
-                        <ul class="breadcrumb">
-                            {% block breadcrumb %}{% endblock %}
-                        </ul>
-                    </div>
-                    <div class="col-sm-6">
-                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-                            <ul class="list-inline pull-right">
-                                <li>
-                                    <a href="{{ path('app_children') }}">Mes enfants</a>
-                                </li>
-                                {#<li>#}
-                                    {#<a href="#">Mes enfants</a>#}
-                                {#</li>#}
-                            </ul>
-                        {% endif %}
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
 
 
         <section id="content">
