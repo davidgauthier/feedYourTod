@@ -145,3 +145,10 @@ knp_paginator:
 
 
 
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    orm:
+        default:
+            loggable: true
+            softdeleteable: true
+            timestampable: true
