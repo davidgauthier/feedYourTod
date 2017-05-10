@@ -116,7 +116,7 @@ sonata_block:
 sonata_admin:
     templates:
         layout: ':admin:layout.html.twig'
-    title: 'FeedYourTod Administration'
+    title: 'Administration'
     title_logo: public/images/ico.png
 
 
