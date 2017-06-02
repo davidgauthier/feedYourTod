@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * MessageContact
+ * MessageContact.
  *
  * @ORM\Table(name="message_contact")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MessageContactRepository")
@@ -65,9 +65,8 @@ class MessageContact
      */
     private $user;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -77,7 +76,7 @@ class MessageContact
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -91,7 +90,7 @@ class MessageContact
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -101,7 +100,7 @@ class MessageContact
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
      *
@@ -115,7 +114,7 @@ class MessageContact
     }
 
     /**
-     * Get email
+     * Get email.
      *
      * @return string
      */
@@ -125,7 +124,7 @@ class MessageContact
     }
 
     /**
-     * Set subject
+     * Set subject.
      *
      * @param string $subject
      *
@@ -139,7 +138,7 @@ class MessageContact
     }
 
     /**
-     * Get subject
+     * Get subject.
      *
      * @return string
      */
@@ -149,7 +148,7 @@ class MessageContact
     }
 
     /**
-     * Set message
+     * Set message.
      *
      * @param string $message
      *
@@ -163,7 +162,7 @@ class MessageContact
     }
 
     /**
-     * Get message
+     * Get message.
      *
      * @return string
      */
@@ -173,7 +172,7 @@ class MessageContact
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param \AppBundle\Entity\User $user
      *
@@ -187,7 +186,7 @@ class MessageContact
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return \AppBundle\Entity\User
      */

@@ -12,7 +12,8 @@ use AppBundle\Entity\User;
  */
 class ChildRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getChild(User $user){
+    public function getChild(User $user)
+    {
         return $this->createQueryBuilder('i')
             ->select('i')
             ->andWhere('i.user = :userid')

@@ -4,144 +4,58 @@
     {{ parent() }} - Accueil
 {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link href="{{ asset('public/Sailor/plugins/flexslider/flexslider.css') }}" rel="stylesheet" media="screen" />
-{% endblock %}
-
-
-{% block breadcrumb %}
-    <li class="active"><i class="fa fa-home"></i><i class="icon-angle-right"></i></li>
-{% endblock %}
-
-
 {% block content %}
-
     <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <fieldset>
+                {{ form_start(form, {
+                    action: path('app_search_results'),
+                    method: 'GET',
+                    attr: {
+                        role: 'form',
+                        class: 'form-inline'
+                    }
+                }) }}
 
-        <div class="col-lg-8">
+                {{ form_errors(form) }}
 
-            <article>
-                <div class="post-slider">
-                    <div class="post-heading">
-                        <h3>Menu de saison {{ season }} : <a href="{{ path('app_menu', {'id': randomMenu.id}) }}">{{ randomMenu.name }}</a></h3>
-                    </div>
-                    {% if randomMenu.recipes|length > 0 %}
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                                <!-- start flexslider -->
-                                <div id="post-slider" class="postslider flexslider">
-                                    <ul class="slides">
-                                        {% for recipe in randomMenu.recipes %}
-                                            {% if recipe.photoRecipes|length > 0 %}
-                                                {% for photoRecipe in recipe.photoRecipes %}
-                                                    <li>
-                                                        <a href="{{ path('app_menu', {'id': randomMenu.id}) }}">
-                                                            <img src="{{ asset('uploads/photoRecipes/'~photoRecipe.src) }}" alt="{{ photoRecipe.legend }}"
-                                                                 class="img-responsive" >
-                                                        </a>
-                                                    </li>
-                                                {% endfor %}
-                                            {% endif %}
-                                        {% endfor %}
-
-                                        {#<li>#}
-                                        {#<img src="img/dummies/blog/img2.jpg" alt="" />#}
-                                        {#</li>#}
-                                        {#<li>#}
-                                        {#<img src="img/dummies/blog/img3.jpg" alt="" />#}
-                                        {#</li>#}
-                                    </ul>
-                                </div>
-                                <!-- end flexslider -->
-                            </div>
-                        </div>
-                    {% endif %}
+                <div class="form-group">
+                    <label>Proposez-moi 5 recettes et menus</label>
+                    {{ form_widget(form.age, {
+                        'attr': {'placeholder': 'age (en mois)'}
+                    }) }}
                 </div>
 
-                {#{% for recipe in listRandomMenus.recipes %}#}
-                    {#<h4><a href="{{ path('app_recipe', {'id': recipe.id}) }}">{{ recipe.name }}</a></h4>#}
-                    {#<p>#}
-                        {#{% if recipe.content|length > 150 %}#}
-                            {#{{ recipe.content|slice(0, 150)~'.....' }}#}
-                        {#{% else %}#}
-                            {#{{ recipe.content }}#}
-                        {#{% endif %}#}
-                    {#</p>#}
-                {#{% else %}#}
-                    {#<p>Pas (encore) de recette</p>#}
-                {#{% endfor %}#}
+                {{ form_rest(form) }}
 
-
-                {#<p>#}
-                {#Lorem ipsum dolor sit amet, id integre rationibus mei, nec eu erat dicunt sapientem. Sit cu augue referrentur, pri omnes complectitur comprehensam te. Doctus alienum ad sed, at doming cetero referrentur mei. Qui quas oportere inciderint et, et persius antiopam has, sed ex verterem quaestio. Id alii eligendi mei, an cum feugiat persequeris. Eam id sententiae intellegebat, accusata tractatos urbanitas ei mea, pro causae doctus quaestio at.#}
-                {#</p>#}
-                <div class="bottom-article">
-                    <ul class="meta-post">
-                        <li>
-                            <i class="fa fa-sun-o" aria-hidden="true"></i> Saison: <b>{{ randomMenu.season.name}}</b>
-                        </li>
-                        <li>
-                            {% import ":Macros:macro_recipe_min_age.html.twig" as macroAge  %}
-                            <i class="fa fa-calendar" aria-hidden="true"></i> A partir de: <b>{{ macroAge.displayAge(randomMenu.age) }}</b>
-                        </li>
-                        {#<li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>#}
-                        {#<li><i class="fa fa-user"></i><a href="#"> Admin</a></li>#}
-                        {#<li><i class="fa fa-folder-open"></i><a href="#"> Blog</a></li>#}
-                        <li><i class="fa fa-comments"></i><b>4</b> Comments</li>
-                    </ul>
-                    <a href="{{ path('app_menu', {'id': randomMenu.id}) }}" class="readmore pull-right">Voir le menu <i class="fa fa-angle-right"></i></a>
-                </div>
-            </article>
-
-
-            <div>
-                <h3>Notre ambition : Feed Your Tod</h3>
-
-                {#<img src="{{ asset('public/Sailor/img/dummies/dummy-1200.jpg') }}" alt="" class="img-responsive" />#}
-                <img src="{{ asset('public/images/index_baby_food.jpg') }}" alt="baby and food" class="img-responsive" />
-
-                <p>
-                    Nous Faisons tout pour que ........ <strong>Lorem ipsum dolor sit amet,</strong> no vix sint solet, et ius utinam deseruisse intellegam, ne pro modus vitae tation. Vis ex soluta tritani. Ne pro esse facete expetendis, laudem eirmod minimum nec in. Est quidam urbanitas gloriatur no, eu unum suscipit disputando eam, nam bonorum facilisi ut.
-                    Putent efficiantur et pri, eu primis laoreet eum, ut malis everti mel.
-                </p>
-
-            </div>
-
+                <input class="btn btn-theme" type="submit" value="Rechercher" />
+                {{ form_end(form) }}
+            </fieldset>
+        </div>
+        <div class="col-lg-12">
+            <img src="http://fidzekids.com/wp-content/uploads/2017/03/VR-blog-1.jpg" alt="" />
         </div>
 
-        <div class="col-lg-4">
-            <aside class="right-sidebar">
-
-                {#<div class="widget">#}
-                    {#<form role="form">#}
-                        {#<div class="form-group">#}
-                            {#<input type="text" class="form-control" id="s" placeholder="Search..">#}
-                        {#</div>#}
-                    {#</form>#}
-                {#</div>#}
-
-
-                {{ render(controller('AppBundle:Recipe:displayRandomRecipes')) }}
-
-                {{ render(controller('AppBundle:Menu:displayRandomMenus')) }}
-
-
-            </aside>
+        <div class="col-lg-12">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum accumsan nunc, ac placerat
+                libero fermentum non. Integer pharetra urna vitae erat lobortis, scelerisque iaculis neque convallis.
+                Etiam vel finibus mi, id venenatis arcu. Fusce quis molestie diam, sollicitudin iaculis purus. Curabitur
+                leo mi, porta at tempor eget, dignissim sit amet lectus. Integer tempus at nulla a ultrices. Sed
+                consequat ultrices eros a semper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec
+                euismod mi mollis ante lobortis, id placerat neque rutrum. Praesent vitae neque sagittis mi blandit
+                suscipit mattis sit amet velit. Sed dapibus ligula ut justo vulputate, a sollicitudin diam imperdiet. Ut
+                vitae pulvinar libero, id pulvinar justo. Etiam fringilla sem eu pharetra laoreet.
+            </p>
+            <p>
+                Praesent nec ultricies lorem, sed elementum purus. Aenean venenatis ipsum id nisi posuere, a gravida
+                nunc aliquet. Aliquam viverra interdum metus, sollicitudin lacinia nisi condimentum posuere. Quisque
+                vulputate tortor at nisi tempor viverra. Ut quis velit id neque ultricies molestie et non quam. Donec
+                faucibus diam tristique iaculis aliquam. Sed convallis mattis sapien, quis sollicitudin felis gravida
+                nec. Vestibulum non posuere tortor, at tristique felis. Nullam non enim enim. Aliquam euismod efficitur
+                metus, et porta est finibus nec. Vivamus id lorem egestas, viverra nisl sit amet, auctor nisi. Phasellus
+                eget efficitur turpis.
+            </p>
         </div>
-
     </div>
-
-
-
 {% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('public/Sailor/plugins/flexslider/jquery.flexslider-min.js') }}"></script>
-    <script src="{{ asset('public/Sailor/plugins/flexslider/flexslider.config.js') }}"></script>
-{% endblock %}
-
-
-
-

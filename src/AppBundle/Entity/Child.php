@@ -39,7 +39,6 @@ class Child
      * @ORM\Column(name="birthDate", type="datetime")
      * @Assert\NotBlank
      * @Assert\DateTime
-     *
      */
     private $birthDate;
 
@@ -48,7 +47,6 @@ class Child
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
-
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ChildFood", mappedBy="child", orphanRemoval=true, cascade={"persist"})
@@ -137,7 +135,6 @@ class Child
         return $this->user;
     }
 
-
     /**
      * @return string
      */
@@ -145,8 +142,9 @@ class Child
     {
         return (string) $this->getFirstName();
     }
+
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -154,7 +152,7 @@ class Child
     }
 
     /**
-     * Add childFood
+     * Add childFood.
      *
      * @param \AppBundle\Entity\ChildFood $childFood
      *
@@ -170,7 +168,7 @@ class Child
     }
 
     /**
-     * Remove childFood
+     * Remove childFood.
      *
      * @param \AppBundle\Entity\ChildFood $childFood
      */
@@ -180,12 +178,22 @@ class Child
     }
 
     /**
-     * Get childFoods
+     * Get childFoods.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getChildFoods()
     {
         return $this->childFoods;
+    }
+
+    public function getAge()
+    {
+        $d1 = new \DateTime("now");
+        $d2 = $this->birthDate;
+
+        $diff = $d1->diff($d2)->m + ($d1->diff($d2)->y*12);
+
+        return $diff;
     }
 }

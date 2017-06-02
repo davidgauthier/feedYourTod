@@ -75,10 +75,6 @@
                                 {% import ":Macros:macro_recipe_min_age.html.twig" as macroAge  %}
                                 <i class="fa fa-calendar" aria-hidden="true"></i> A partir de: <b>{{ macroAge.displayAge(menu.age) }}</b>
                             </li>
-                            {#<li><i class="fa fa-calendar"></i><a href="#"> Mar 27, 2014</a></li>#}
-                            {#<li><i class="fa fa-user"></i><a href="#"> Admin</a></li>#}
-                            {#<li><i class="fa fa-folder-open"></i><a href="#"> Blog</a></li>#}
-                            <li><i class="fa fa-comments"></i><b>4</b> Comments</li>
                         </ul>
                         <a href="{{ path('app_menu', {'id': menu.id}) }}" class="readmore pull-right">Voir le menu <i class="fa fa-angle-right"></i></a>
                     </div>

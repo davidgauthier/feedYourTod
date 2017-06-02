@@ -16,12 +16,12 @@ class MenuNormalizer extends AbstractNormalizer
     {
         /* @var Menu $object */
         return [
-            'id'        => $object->getId(),
-            'name'      => $object->getName(),
-            'season'    => $this->normalizeObject($object->getSeason(), $format, $context),
+            'id' => $object->getId(),
+            'name' => $object->getName(),
+            'season' => $this->normalizeObject($object->getSeason(), $format, $context),
 //            'recipes'   => $this->normalizeObject($object->getRecipes(), $format, $context),
-            'age'       => $object->getAge(),
-            'subtitle'  => $object->getSubtitle(),
+            'age' => $object->getAge(),
+            'subtitle' => $object->getSubtitle(),
         ];
     }
 

@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form;
 
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -14,8 +13,6 @@ class SearchNavType extends AbstractType
             ->remove('age')
         ;
     }
-
-
 
     public function getParent()
     {

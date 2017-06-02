@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-
 use AppBundle\Entity\Recipe;
 
 class RecipeManager extends AbstractDoctrineManager
@@ -10,7 +9,8 @@ class RecipeManager extends AbstractDoctrineManager
     /**
      * @return array
      */
-    public function getAll(){
+    public function getAll()
+    {
         return $this->getRepository()->findAll();
     }
 
@@ -29,7 +29,6 @@ class RecipeManager extends AbstractDoctrineManager
     {
         return $this->getRepository()->getSearchRecipe($search);
     }
-
 
     public function getRandomRecipes($limit = 5, $season = null)
     {
@@ -59,6 +58,4 @@ class RecipeManager extends AbstractDoctrineManager
     {
         return $this->entityManager->getRepository(Recipe::class);
     }
-
-
 }

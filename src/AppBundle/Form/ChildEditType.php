@@ -2,13 +2,8 @@
 
 namespace AppBundle\Form;
 
-
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ChildEditType extends AbstractType
 {
@@ -19,7 +14,6 @@ class ChildEditType extends AbstractType
             ->remove('birthDate')
         ;
     }
-
 
     public function getParent()
     {

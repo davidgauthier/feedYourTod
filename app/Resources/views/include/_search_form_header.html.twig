@@ -3,16 +3,8 @@
     {{ form_start(form) }}
     {{ form_errors(form) }}
 
-    {{ form_widget(form.keyword, {'attr': {'class': 'sb-search-input', 'placeholder':'Enter your search term', 'value': ''} }) }}
-
     <span class="sb-icon-search" title="Click to start searching"></span>
 
     {{ form_rest(form) }}
     {{ form_end(form) }}
-
-    {#<form action="{{ path('app_search') }}">#}
-        {#<input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search">#}
-        {#<input class="sb-search-submit" type="submit" value="">#}
-        {#<span class="sb-icon-search" title="Click to start searching"></span>#}
-    {#</form>#}
 </div>

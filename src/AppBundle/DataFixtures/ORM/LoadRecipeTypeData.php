@@ -3,25 +3,25 @@
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\RecipeType;
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadRecipeTypeData extends AbstractFixture implements OrderedFixtureInterface
 {
-    public function load(ObjectManager $manager){
-
-        $recipeTypes = array(
-            array(
-                'wording'   => 'Entrée',
-            ),
-            array(
+    public function load(ObjectManager $manager)
+    {
+        $recipeTypes = [
+            [
+                'wording' => 'Entrée',
+            ],
+            [
                 'wording' => 'Plat',
-            ),
-            array(
+            ],
+            [
                 'wording' => 'Dessert',
-            ),
-        );
+            ],
+        ];
 
         foreach ($recipeTypes as $i => $rt) {
             $recipeType = new RecipeType();
@@ -38,5 +38,4 @@ class LoadRecipeTypeData extends AbstractFixture implements OrderedFixtureInterf
     {
         return 90;
     }
-
 }

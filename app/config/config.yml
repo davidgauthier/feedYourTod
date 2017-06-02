@@ -35,6 +35,11 @@ framework:
     php_errors:
         log: true
 
+lexik_cmsi18n:
+    frontend_layout: '::base.html.twig'
+    preferred_locales: []
+    templating_extensions: []
+
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
@@ -55,7 +60,7 @@ doctrine:
         charset: UTF8
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/../var/data/data.sqlite"
+        #database_path: "%kernel.root_dir%/../var/data/data.sqlite"
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #path: '%database_path%'
@@ -111,7 +116,7 @@ sonata_block:
 sonata_admin:
     templates:
         layout: ':admin:layout.html.twig'
-    title: 'FeedYourTod Administration'
+    title: 'Administration'
     title_logo: public/images/ico.png
 
 
@@ -140,3 +145,10 @@ knp_paginator:
 
 
 
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    orm:
+        default:
+            loggable: true
+            softdeleteable: true
+            timestampable: true

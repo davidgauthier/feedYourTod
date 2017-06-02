@@ -17,7 +17,6 @@ class MenuController extends FOSRestController
      * @FOSRest\View()
      * @FOSRest\Get("/")
      *
-     *
      * @return Menu[]
      */
     public function cgetAction()

@@ -17,7 +17,6 @@ class RecipeController extends FOSRestController
      * @FOSRest\View()
      * @FOSRest\Get("/")
      *
-     *
      * @return Recipe[]
      */
     public function cgetAction()

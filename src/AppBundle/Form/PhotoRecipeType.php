@@ -15,23 +15,23 @@ class PhotoRecipeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('src', FileType::class, array(
+            ->add('src', FileType::class, [
                 'label' => 'La photo',
-            ))
+            ])
 
             ->add('legend')
             ->add('recipe');
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\PhotoRecipe',
-            'validation_groups' => ['Create']
-        ));
+            'validation_groups' => ['Create'],
+        ]);
     }
 
     /**
@@ -41,6 +41,4 @@ class PhotoRecipeType extends AbstractType
     {
         return 'appbundle_photorecipe';
     }
-
-
 }

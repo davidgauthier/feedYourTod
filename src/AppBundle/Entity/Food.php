@@ -97,7 +97,6 @@ class Food
         return $this->foodType;
     }
 
-
     /**
      * @return string
      */
@@ -105,18 +104,17 @@ class Food
     {
         return (string) $this->getWording();
     }
+
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
         $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    
-
     /**
-     * Add recipe
+     * Add recipe.
      *
      * @param \AppBundle\Entity\Recipe $recipe
      *
@@ -130,7 +128,7 @@ class Food
     }
 
     /**
-     * Remove recipe
+     * Remove recipe.
      *
      * @param \AppBundle\Entity\Recipe $recipe
      */
@@ -140,7 +138,7 @@ class Food
     }
 
     /**
-     * Get recipes
+     * Get recipes.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

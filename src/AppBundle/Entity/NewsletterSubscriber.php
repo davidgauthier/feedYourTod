@@ -3,13 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
- * NewsletterSubscriber
+ * NewsletterSubscriber.
  *
  * @ORM\Table(name="newsletter_subscriber")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\NewsletterSubscriberRepository")
@@ -41,9 +39,8 @@ class NewsletterSubscriber
      */
     private $user;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -53,7 +50,7 @@ class NewsletterSubscriber
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
      *
@@ -67,7 +64,7 @@ class NewsletterSubscriber
     }
 
     /**
-     * Get email
+     * Get email.
      *
      * @return string
      */
@@ -76,9 +73,8 @@ class NewsletterSubscriber
         return $this->email;
     }
 
-
     /**
-     * Set user
+     * Set user.
      *
      * @param \AppBundle\Entity\User $user
      *
@@ -92,7 +88,7 @@ class NewsletterSubscriber
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return \AppBundle\Entity\User
      */
@@ -100,6 +96,4 @@ class NewsletterSubscriber
     {
         return $this->user;
     }
-
 }
-

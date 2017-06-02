@@ -3,14 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * PhotoRecipe.
  *
  * @ORM\Table(name="photo_recipe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PhotoRecipeRepository")
- *
  */
 class PhotoRecipe
 {
@@ -127,17 +126,16 @@ class PhotoRecipe
         return $this->legend;
     }
 
-
     /**
      * @return string
      */
     public function __toString()
     {
-        return "".$this->getId();
+        return ''.$this->getId();
     }
 
     /**
-     * Set recipe
+     * Set recipe.
      *
      * @param \AppBundle\Entity\Recipe $recipe
      *
@@ -151,7 +149,7 @@ class PhotoRecipe
     }
 
     /**
-     * Get recipe
+     * Get recipe.
      *
      * @return \AppBundle\Entity\Recipe
      */
@@ -184,6 +182,6 @@ class PhotoRecipe
     {
         // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
         // le document/image dans la vue.
-        return PhotoRecipe::SERVER_PATH_TO_IMAGE_FOLDER;
+        return self::SERVER_PATH_TO_IMAGE_FOLDER;
     }
 }

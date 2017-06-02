@@ -20,15 +20,15 @@ class MessageContactType extends AbstractType
             ->add('message')
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\MessageContact'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\MessageContact',
+        ]);
     }
 
     /**
@@ -38,6 +38,4 @@ class MessageContactType extends AbstractType
     {
         return 'appbundle_messagecontact';
     }
-
-
 }

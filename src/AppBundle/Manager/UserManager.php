@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-
 use AppBundle\Entity\User;
 
 class UserManager extends AbstractDoctrineManager
@@ -19,5 +18,4 @@ class UserManager extends AbstractDoctrineManager
     {
         return $this->entityManager->getRepository(User::class);
     }
-
 }

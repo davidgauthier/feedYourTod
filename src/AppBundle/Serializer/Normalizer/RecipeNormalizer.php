@@ -16,19 +16,19 @@ class RecipeNormalizer extends AbstractNormalizer
     {
         /* @var Recipe $object */
         return [
-            'id'            => $object->getId(),
-            'name'          => $object->getName(),
-            'recipeType'    => $this->normalizeObject($object->getRecipeType(), $format, $context),
-            'season'        => $this->normalizeObject($object->getSeason(), $format, $context),
-            'prepTime'      => $object->getPreptime(),
-            'cookTime'      => $object->getCooktime(),
-            'age'           => $object->getAge(),
+            'id' => $object->getId(),
+            'name' => $object->getName(),
+            'recipeType' => $this->normalizeObject($object->getRecipeType(), $format, $context),
+            'season' => $this->normalizeObject($object->getSeason(), $format, $context),
+            'prepTime' => $object->getPreptime(),
+            'cookTime' => $object->getCooktime(),
+            'age' => $object->getAge(),
 //            'ingredients'   => $this->normalizeObject($object->getIngredients(), $format, $context),
-            'content'       => $object->getContent(),
+            'content' => $object->getContent(),
 //            'menus'         => $this->normalizeObject($object->getMenus(), $format, $context),
 //            'photoRecipes'  => $this->normalizeObject($object->getPhotoRecipes(), $format, $context),
-            'filling'       => $object->getFilling(),
-            'observation'   => $object->getObservation(),
+            'filling' => $object->getFilling(),
+            'observation' => $object->getObservation(),
         ];
     }
 

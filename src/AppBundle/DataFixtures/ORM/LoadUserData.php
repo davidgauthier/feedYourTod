@@ -3,21 +3,17 @@
  * Created by PhpStorm.
  * User: Utilisateur
  * Date: 12/04/2017
- * Time: 10:20
+ * Time: 10:20.
  */
 
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\User;
-
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
-
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -27,58 +23,62 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     public function load(ObjectManager $manager)
     {
         // Array of data for the fixture
-        $usersData = array(
-            array(
-                'username'  => 'superman',
-                'email'     => 'superman@user.sup',
-                'password'  => 'sup',
-                'roles'     => array('ROLE_ADMIN'),
-            ),
-            array(
-                'username'  => 'batman',
-                'email'     => 'batman@user.bat',
-                'password'  => 'bat',
-                'roles'     => array('ROLE_ADMIN'),
-            ),
-            array(
-                'username'  => 'spiderman',
-                'email'     => 'spiderman@user.spi',
-                'password'  => 'spi',
+        $usersData = [
+            [
+                'username' => 'lexik',
+                'email' => 'contact@lexik.fr',
+                'password' => 'lexik',
+                'roles' => ['ROLE_ADMIN'],
+            ],
+            [
+                'username' => 'superman',
+                'email' => 'superman@user.sup',
+                'password' => 'sup',
+                'roles' => ['ROLE_ADMIN'],
+            ],
+            [
+                'username' => 'batman',
+                'email' => 'batman@user.bat',
+                'password' => 'bat',
+                'roles' => ['ROLE_ADMIN'],
+            ],
+            [
+                'username' => 'spiderman',
+                'email' => 'spiderman@user.spi',
+                'password' => 'spi',
 //                'roles'     => array(),
-                'roles'     => array('ROLE_USER'),
-            ),
-            array(
-                'username'  => 'Martine',
-                'email'     => 'martine@user.fr',
-                'password'  => 'mar',
-                'roles'     => array(),
-            ),
-            array(
-                'username'  => 'Jean',
-                'email'     => 'jean@user.fr',
-                'password'  => 'jea',
-                'roles'     => array(),
-            ),
-            array(
-                'username'  => 'Marc',
-                'email'     => 'marc@user.fr',
-                'password'  => 'mar',
-                'roles'     => array(),
-            ),
-            array(
-                'username'  => 'David',
-                'email'     => 'david@user.fr',
-                'password'  => 'dav',
-                'roles'     => array(),
-            ),
-
-        );
+                'roles' => ['ROLE_USER'],
+            ],
+            [
+                'username' => 'Martine',
+                'email' => 'martine@user.fr',
+                'password' => 'mar',
+                'roles' => [],
+            ],
+            [
+                'username' => 'Jean',
+                'email' => 'jean@user.fr',
+                'password' => 'jea',
+                'roles' => [],
+            ],
+            [
+                'username' => 'Marc',
+                'email' => 'marc@user.fr',
+                'password' => 'mar',
+                'roles' => [],
+            ],
+            [
+                'username' => 'David',
+                'email' => 'david@user.fr',
+                'password' => 'dav',
+                'roles' => [],
+            ],
+        ];
 
         // Accessing the user manager service
         $userManager = $this->container->get('fos_user.user_manager');
 
-        foreach ($usersData as $i => $userData)
-        {
+        foreach ($usersData as $i => $userData) {
             $user = $userManager->createUser();
             $user->setUsername($userData['username']);
             $user->setEmail($userData['email']);
@@ -96,5 +96,4 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     {
         return 10;
     }
-
 }

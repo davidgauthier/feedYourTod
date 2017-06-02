@@ -101,7 +101,7 @@ class Season
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -115,7 +115,7 @@ class Season
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */

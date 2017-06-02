@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-
 use AppBundle\Entity\Child;
 use AppBundle\Entity\User;
 
@@ -16,9 +15,9 @@ class ChildManager extends AbstractDoctrineManager
         return $this->getRepository()->findOneById($id);
     }
 
-
     /**
      * @param User $user
+     *
      * @return Child
      */
     public function create(User $user)
@@ -29,7 +28,6 @@ class ChildManager extends AbstractDoctrineManager
         return $child;
     }
 
-
     /**
      * @return \AppBundle\Repository\RecipeRepository
      */
@@ -37,5 +35,4 @@ class ChildManager extends AbstractDoctrineManager
     {
         return $this->entityManager->getRepository(Child::class);
     }
-
 }

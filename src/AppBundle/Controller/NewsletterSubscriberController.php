@@ -9,8 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NewsletterSubscriberController extends Controller
 {
-
-
     public function createNewsletterFormAction(Request $request)
     {
         $form = $this->createNewsletterForm();
@@ -20,14 +18,12 @@ class NewsletterSubscriberController extends Controller
         ]);
     }
 
-
-    private function createNewsletterForm(){
+    private function createNewsletterForm()
+    {
         return $this->createForm(NewsletterSubscriberType::class, null, [
             'action' => $this->generateUrl('app_newsletter_subscriber_subscribe'),
         ]);
     }
-
-
 
     /**
      * @Route("/subscribe-newsletter", name="app_newsletter_subscriber_subscribe", methods={"POST"})
@@ -39,30 +35,26 @@ class NewsletterSubscriberController extends Controller
         $form->handleRequest($request);
         $nsm = $this->container->get('app.newsletter_subscriber_manager');
 
-        if(null !== $nsm->getNewsletterSubscriberByEmail($request->request->get($form->getName())['email'])){
+        if (null !== $nsm->getNewsletterSubscriberByEmail($request->request->get($form->getName())['email'])) {
             $this->get('session')->getFlashBag()->add('warning', 'L\'email est déjà dans la liste pour les newsletters!');
+
             return $this->redirectToRoute('app_homepage');
         }
 
-        if($form->isValid() && $form->isSubmitted()){
+        if ($form->isValid() && $form->isSubmitted()) {
             $newsletterSubscriber = $form->getData();
 
-            if(null !== $this->getUser()){
+            if (null !== $this->getUser()) {
                 $newsletterSubscriber->setUser($this->getUser());
             }
 
             $nsm->save($newsletterSubscriber);
 
             $this->get('session')->getFlashBag()->add('info', 'L\'email a bien été ajouté à la liste pour les newsletters!');
+
             return $this->redirectToRoute('app_homepage');
         }
 
         return $this->redirectToRoute('app_homepage');
-
     }
-
-
-
-
-
 }

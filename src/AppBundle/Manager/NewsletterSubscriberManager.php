@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-
 use AppBundle\Entity\NewsletterSubscriber;
 
 class NewsletterSubscriberManager extends AbstractDoctrineManager
@@ -30,6 +29,4 @@ class NewsletterSubscriberManager extends AbstractDoctrineManager
     {
         return $this->entityManager->getRepository(NewsletterSubscriber::class);
     }
-
-
 }

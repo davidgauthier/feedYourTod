@@ -1,11 +1,12 @@
 <?php
 
 // src/AppBundle/Admin/RecipeAdmin.php
+
 namespace AppBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
-use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 class RecipeAdmin extends AbstractAdmin
@@ -21,7 +22,7 @@ class RecipeAdmin extends AbstractAdmin
             ->add('preptime')
             ->add('cooktime')
             ->add('filling', 'text', [
-                'required' => FALSE,
+                'required' => false,
             ])
             ->add('observation')
             ->add('menus', null, [
@@ -41,7 +42,6 @@ class RecipeAdmin extends AbstractAdmin
             ->add('content')
             ->add('preptime')
             ->add('cooktime');
-
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -55,6 +55,5 @@ class RecipeAdmin extends AbstractAdmin
             ->add('content')
             ->add('preptime')
             ->add('cooktime');
-
     }
 }

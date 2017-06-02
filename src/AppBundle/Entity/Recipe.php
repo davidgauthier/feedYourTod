@@ -2,8 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use \Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Recipe.
@@ -64,7 +64,6 @@ class Recipe
      */
     private $age;
 
-
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Food", cascade={"persist"}, inversedBy="recipes")
      */
@@ -109,8 +108,9 @@ class Recipe
     {
         return (string) $this->getName();
     }
+
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -200,7 +200,7 @@ class Recipe
     }
 
     /**
-     * Set cantent
+     * Set cantent.
      *
      * @param string $content
      *
@@ -214,7 +214,7 @@ class Recipe
     }
 
     /**
-     * Get cantent
+     * Get cantent.
      *
      * @return string
      */
@@ -223,11 +223,8 @@ class Recipe
         return $this->content;
     }
 
-
-
-
     /**
-     * Add menu
+     * Add menu.
      *
      * @param \AppBundle\Entity\Menu $menu
      *
@@ -241,7 +238,7 @@ class Recipe
     }
 
     /**
-     * Remove menu
+     * Remove menu.
      *
      * @param \AppBundle\Entity\Menu $menu
      */
@@ -251,7 +248,7 @@ class Recipe
     }
 
     /**
-     * Get menus
+     * Get menus.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -261,7 +258,7 @@ class Recipe
     }
 
     /**
-     * Add photoRecipe
+     * Add photoRecipe.
      *
      * @param \AppBundle\Entity\PhotoRecipe $photoRecipe
      *
@@ -275,7 +272,7 @@ class Recipe
     }
 
     /**
-     * Remove photoRecipe
+     * Remove photoRecipe.
      *
      * @param \AppBundle\Entity\PhotoRecipe $photoRecipe
      */
@@ -285,7 +282,7 @@ class Recipe
     }
 
     /**
-     * Get photoRecipes
+     * Get photoRecipes.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -295,7 +292,7 @@ class Recipe
     }
 
     /**
-     * Set preptime
+     * Set preptime.
      *
      * @param string $preptime
      *
@@ -309,7 +306,7 @@ class Recipe
     }
 
     /**
-     * Get preptime
+     * Get preptime.
      *
      * @return string
      */
@@ -319,7 +316,7 @@ class Recipe
     }
 
     /**
-     * Set cooktime
+     * Set cooktime.
      *
      * @param string $cooktime
      *
@@ -333,7 +330,7 @@ class Recipe
     }
 
     /**
-     * Get cooktime
+     * Get cooktime.
      *
      * @return string
      */
@@ -343,7 +340,7 @@ class Recipe
     }
 
     /**
-     * Set age
+     * Set age.
      *
      * @param string $age
      *
@@ -357,7 +354,7 @@ class Recipe
     }
 
     /**
-     * Get age
+     * Get age.
      *
      * @return string
      */
@@ -367,7 +364,7 @@ class Recipe
     }
 
     /**
-     * Set filling
+     * Set filling.
      *
      * @param string $filling
      *
@@ -381,7 +378,7 @@ class Recipe
     }
 
     /**
-     * Get filling
+     * Get filling.
      *
      * @return string
      */
@@ -391,7 +388,7 @@ class Recipe
     }
 
     /**
-     * Set observation
+     * Set observation.
      *
      * @param string $observation
      *
@@ -405,7 +402,7 @@ class Recipe
     }
 
     /**
-     * Get observation
+     * Get observation.
      *
      * @return string
      */
@@ -414,10 +411,8 @@ class Recipe
         return $this->observation;
     }
 
-    
-
     /**
-     * Get ingredients
+     * Get ingredients.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -427,7 +422,7 @@ class Recipe
     }
 
     /**
-     * Add ingredient
+     * Add ingredient.
      *
      * @param \AppBundle\Entity\Food $ingredient
      *
@@ -441,7 +436,7 @@ class Recipe
     }
 
     /**
-     * Remove ingredient
+     * Remove ingredient.
      *
      * @param \AppBundle\Entity\Food $ingredient
      */

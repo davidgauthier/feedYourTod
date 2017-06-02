@@ -10,5 +10,4 @@ namespace AppBundle\Repository;
  */
 class PhotoRecipeRepository extends \Doctrine\ORM\EntityRepository
 {
-
 }

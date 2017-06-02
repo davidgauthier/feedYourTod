@@ -2,8 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use \Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * menu.
@@ -144,7 +144,6 @@ class Menu
         return $this->season;
     }
 
-
     /**
      * @return string
      */
@@ -152,8 +151,9 @@ class Menu
     {
         return (string) $this->getName();
     }
+
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -161,7 +161,7 @@ class Menu
     }
 
     /**
-     * Add recipe
+     * Add recipe.
      *
      * @param \AppBundle\Entity\Recipe $recipe
      *
@@ -191,7 +191,7 @@ class Menu
     }
 
     /**
-     * Remove recipe
+     * Remove recipe.
      *
      * @param \AppBundle\Entity\Recipe $recipe
      *
@@ -201,7 +201,7 @@ class Menu
     {
         $this->recipes->removeElement($recipe);
 
-        if($recipe->getAge() === $this->getAge()){
+        if ($recipe->getAge() === $this->getAge()) {
             $this->computeRecipeMaxAge();
         }
 
@@ -209,7 +209,7 @@ class Menu
     }
 
     /**
-     * Get recipes
+     * Get recipes.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
