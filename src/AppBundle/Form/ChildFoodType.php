@@ -14,10 +14,12 @@ class ChildFoodType extends AbstractType
         $builder
             ->add('childFoodTag', EntityType::class, [
                 'class' => 'AppBundle\Entity\ChildFoodTag',
+                'label' => 'Tag',
                 'choice_label' => 'wording',
             ])
             ->add('food', EntityType::class, [
                 'class' => 'AppBundle\Entity\Food',
+                'label' => 'Nourriture',
                 'choice_label' => 'wording',
             ])
 

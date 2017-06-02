@@ -14,7 +14,6 @@ $(document).ready(function() {
         return false;
     });
 
-
     // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'un nouveau child par exemple).
     if (index == 0) {
         //addChildFood($container);
@@ -24,7 +23,6 @@ $(document).ready(function() {
             addDeleteLink($(this));
         });
     }
-
 
 
     // La fonction qui ajoute un formulaire ChildFoodType

@@ -186,4 +186,14 @@ class Child
     {
         return $this->childFoods;
     }
+
+    public function getAge()
+    {
+        $d1 = new \DateTime("now");
+        $d2 = $this->birthDate;
+
+        $diff = $d1->diff($d2)->m + ($d1->diff($d2)->y*12);
+
+        return $diff;
+    }
 }

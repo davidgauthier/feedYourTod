@@ -1,7 +1,7 @@
 {%  extends "::layout.html.twig" %}
 
 {% block title %}
-    {{ parent() }} - New child
+    {{ parent() }} - Ajouter un enfant
 {% endblock %}
 
 {% block stylesheets %}
@@ -11,16 +11,13 @@
 
 {% block breadcrumb %}
     <li><a href="{{ path('app_homepage') }}"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-    <li><a href="{{ path('app_children') }}">My children</a><i class="icon-angle-right"></i></li>
-    <li class="active">New</li>
+    <li><a href="{{ path('app_children') }}">Mon enfant</a><i class="icon-angle-right"></i></li>
+    <li class="active">Ajouter</li>
 {% endblock %}
 
 
 {% block content %}
-
-
-    <h2>New child</h2>
-
+    <h2>Ajouter un enfant</h2>
 
     <div class="row">
         <div class="col-sm-12">

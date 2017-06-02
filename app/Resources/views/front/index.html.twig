@@ -6,10 +6,56 @@
 
 {% block content %}
     <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <fieldset>
+                {{ form_start(form, {
+                    action: path('app_search_results'),
+                    method: 'GET',
+                    attr: {
+                        role: 'form',
+                        class: 'form-inline'
+                    }
+                }) }}
+
+                {{ form_errors(form) }}
+
+                <div class="form-group">
+                    <label>Proposez-moi 5 recettes et menus</label>
+                    {{ form_widget(form.age, {
+                        'attr': {'placeholder': 'age (en mois)'}
+                    }) }}
+                </div>
+
+                {{ form_rest(form) }}
+
+                <input class="btn btn-theme" type="submit" value="Rechercher" />
+                {{ form_end(form) }}
+            </fieldset>
+        </div>
         <div class="col-lg-12">
             <img src="http://fidzekids.com/wp-content/uploads/2017/03/VR-blog-1.jpg" alt="" />
         </div>
 
-        {{ cms_block('homepage') }}
+        <div class="col-lg-12">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum accumsan nunc, ac placerat
+                libero fermentum non. Integer pharetra urna vitae erat lobortis, scelerisque iaculis neque convallis.
+                Etiam vel finibus mi, id venenatis arcu. Fusce quis molestie diam, sollicitudin iaculis purus. Curabitur
+                leo mi, porta at tempor eget, dignissim sit amet lectus. Integer tempus at nulla a ultrices. Sed
+                consequat ultrices eros a semper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec
+                euismod mi mollis ante lobortis, id placerat neque rutrum. Praesent vitae neque sagittis mi blandit
+                suscipit mattis sit amet velit. Sed dapibus ligula ut justo vulputate, a sollicitudin diam imperdiet. Ut
+                vitae pulvinar libero, id pulvinar justo. Etiam fringilla sem eu pharetra laoreet.
+            </p>
+            <p>
+                Praesent nec ultricies lorem, sed elementum purus. Aenean venenatis ipsum id nisi posuere, a gravida
+                nunc aliquet. Aliquam viverra interdum metus, sollicitudin lacinia nisi condimentum posuere. Quisque
+                vulputate tortor at nisi tempor viverra. Ut quis velit id neque ultricies molestie et non quam. Donec
+                faucibus diam tristique iaculis aliquam. Sed convallis mattis sapien, quis sollicitudin felis gravida
+                nec. Vestibulum non posuere tortor, at tristique felis. Nullam non enim enim. Aliquam euismod efficitur
+                metus, et porta est finibus nec. Vivamus id lorem egestas, viverra nisl sit amet, auctor nisi. Phasellus
+                eget efficitur turpis.
+            </p>
+        </div>
     </div>
 {% endblock %}

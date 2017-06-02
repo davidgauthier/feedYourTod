@@ -38,11 +38,8 @@
 
         {{ include("::include/_header.html.twig") }}
 
-
         <section id="content">
             <div class="container">
-
-
                 {% if app.session.started and app.session.flashBag.peekAll is not empty %}
                     <div class="messages">
                         {% for type, messages in app.session.flashBag.all %}
@@ -61,10 +58,6 @@
                 {% endif %}
 
                 {% block content %}{% endblock %}
-
-
-
-
             </div>
         </section>
 
@@ -90,7 +83,6 @@
         <script src="{{ asset('public/Sailor/js/jquery.cubeportfolio.min.js') }}"></script>
         <script src="{{ asset('public/Sailor/js/google-code-prettify/prettify.js') }}"></script>
         <script src="{{ asset('public/Sailor/js/animate.js') }}"></script>
-        <script src="{{ asset('public/Sailor/js/custom.js') }}"></script>
     {% endblock %}
 
 </body>

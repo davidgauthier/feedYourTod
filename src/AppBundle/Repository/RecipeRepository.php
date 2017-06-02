@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Season;
+use AppBundle\Form\Model\Search;
 use Doctrine\ORM\QueryBuilder;
 
 /**
@@ -13,6 +14,10 @@ use Doctrine\ORM\QueryBuilder;
  */
 class RecipeRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getRecipe($id)
     {
         return $this->createQueryBuilder('r')
@@ -23,6 +28,11 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
             ->getOneOrNullResult();
     }
 
+    /**
+     * @param int $limit
+     * @param Season|null $season
+     * @return array
+     */
     public function getRandomRecipes($limit = 5, Season $season = null)
     {
         $qb = $this->createQueryBuilder('r')
@@ -40,6 +50,10 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * @param int $count
+     * @return mixed
+     */
     public function getRandomRecipe($count = 1)
     {
         return $this->createQueryBuilder('r')
@@ -50,22 +64,28 @@ class RecipeRepository extends \Doctrine\ORM\EntityRepository
             ->getOneOrNullResult();
     }
 
-    public function getSearchRecipe($search)
+    /**
+     * @param $search
+     * @return array
+     */
+    public function getSearchRecipe(Search $search)
     {
         $qb = $this->createQueryBuilder('r')
             ->select('r')
-            ->where('r.name LIKE :searchWord')
-            ->setParameter(':searchWord', '%'.$search->getKeyword().'%');
-
-        if (null !== $search->getAge()) {
-            $this->whereAgeIsDefined($qb, $search->getAge());
-        }
+            ->andWhere('r.age = :age')
+            ->setParameter(':age', $search->getAge())
+            ->setMaxResults(5)
+        ;
 
         return $qb
             ->getQuery()
             ->getResult();
     }
 
+    /**
+     * @param QueryBuilder $qb
+     * @param $age
+     */
     public function whereAgeIsDefined(QueryBuilder $qb, $age)
     {
         $qb

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Model\Search;
 use AppBundle\Form\SearchNavType;
 use AppBundle\Form\SearchType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -18,7 +19,7 @@ class SearchController extends Controller
         ]);
     }
 
-    public function createNavSearchFormAction(Request $request)
+    public function createNavSearchFormAction()
     {
         $navForm = $this->createNavSearchForm();
 
@@ -35,28 +36,29 @@ class SearchController extends Controller
         $menuManager = $this->container->get('app.menu_manager');
         $recipeManager = $this->container->get('app.recipe_manager');
 
-        $form = $this->createForm(SearchType::class, null, [
+        $search = new Search();
+
+        $form = $this->createForm(SearchType::class, $search, [
             'action' => $this->generateUrl('app_search_results'),
             'method' => 'GET',
         ]);
 
+        $form->handleRequest($request);
+
         $navForm = $this->createNavSearchForm();
 
-        if ($request->query->has($form->getName())) {
-            $form->submit($request->query->get($form->getName()));
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData();
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $search = $form->getData();
+            $searchMenus = $menuManager->getMenuBySearch($search);
+            $searchRecipes = $recipeManager->getRecipeBySearch($search);
 
-                $searchMenus = $menuManager->getMenuBySearch($search);
-                $searchRecipes = $recipeManager->getRecipeBySearch($search);
-
-                return $this->render(':front:search_result.html.twig', [
-                    'form' => $form->createView(),
-                    'searchMenus' => $searchMenus,
-                    'searchRecipes' => $searchRecipes,
-                ]);
-            }
+            return $this->render(':front:search_result.html.twig', [
+                'form' => $form->createView(),
+                'searchMenus' => $searchMenus,
+                'searchRecipes' => $searchRecipes,
+                'search' => $form->getData(),
+            ]);
         }
 
         if ($request->query->has($navForm->getName())) {
@@ -80,8 +82,6 @@ class SearchController extends Controller
 
         return $this->render(':front:search_result.html.twig', [
             'form' => $form->createView(),
-//            'searchMenus'   => $searchMenus,
-//            'searchRecipes' => $searchRecipes,
         ]);
     }
 }

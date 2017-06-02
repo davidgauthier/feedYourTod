@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Season;
+use AppBundle\Form\Model\Search;
 
 /**
  * menuRepository.
@@ -12,6 +13,9 @@ use AppBundle\Entity\Season;
  */
 class MenuRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return array
+     */
     public function getListMenus()
     {
         $qb = $this->createQueryBuilder('m')
@@ -23,6 +27,10 @@ class MenuRepository extends \Doctrine\ORM\EntityRepository
         return $qb;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getMenuById($id)
     {
         $q = $this->createQueryBuilder('m')
@@ -34,6 +42,11 @@ class MenuRepository extends \Doctrine\ORM\EntityRepository
         return $q;
     }
 
+    /**
+     * @param int $limit
+     * @param Season|null $season
+     * @return array
+     */
     public function getRandomMenus($limit = 5, Season $season = null)
     {
         $qb = $this->createQueryBuilder('m')
@@ -51,19 +64,19 @@ class MenuRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getSearchMenu($search)
+    /**
+     * @param Search $search
+     * @return array
+     */
+    public function getSearchMenu(Search $search)
     {
         $qb = $this->createQueryBuilder('m')
-            ->select('m')
-            ->where('m.name LIKE :searchWord')
-            ->setParameter(':searchWord', '%'.$search->getKeyword().'%');
-
-        if (null !== $search->getAge()) {
-            $qb
-                ->innerJoin('m.recipes', 'r', 'WITH', 'r.age <= :age')
-                ->addSelect('r')
-                ->setParameter(':age', $search->getAge());
-        }
+            ->select('m, r')
+            ->innerJoin('m.recipes', 'r')
+            ->andWhere('r.age = :age')
+            ->addSelect('r')
+            ->setParameter(':age', $search->getAge())
+        ;
 
         return $qb
             ->getQuery()

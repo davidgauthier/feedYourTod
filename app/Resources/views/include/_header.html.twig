@@ -8,21 +8,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                {#<a class="navbar-brand" href="index.html"><img src="{{ asset('public/Sailor/img/logo.png') }}" alt="" width="199" height="52" /></a>#}
                 <a class="navbar-brand" href="{{ path('app_homepage') }}"><img src="{{ asset('public/images/logo.svg') }}" alt="logo" height="52" /> FidZeKids</a>
             </div>
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav">
-                    <li {% if app.request.get('_route') == 'app_search_results' %}class="active"{% endif %}>
-                        <div style="display: none">{{ render(controller('AppBundle:Search:createNavSearchForm')) }}</div>
-                        <a href="{{ path('app_search_results') }}">Chercher</a>
-                    </li>
-                    <li {% if app.request.get('_route') == 'app_menus' %}class="active"{% endif %}>
-                        <a href="{{ path('app_menus') }}">Menus</a>
-                    </li>
-                    <li {% if app.request.get('_route') == 'app_recipes' %}class="active"{% endif %}>
-                        <a href="{{ path('app_recipes') }}">Recettes</a>
-                    </li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
                     {% else %}

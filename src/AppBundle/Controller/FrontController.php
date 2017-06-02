@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\MessageContactType;
+use AppBundle\Form\SearchType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,23 +13,27 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class FrontController extends Controller
 {
     /**
-     * @Route("/", name="app_homepage", methods={"GET"})
+     * @Route("/", name="app_homepage", methods={"GET", "POST"})
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $dateTime = new \DateTime();
-        $seasonManager = $this->container->get('app.season_manager');
+        $seasonManager = $this->get('app.season_manager');
         $season = $seasonManager->getCurrentSeason($dateTime);
 
-        $mm = $this->container->get('app.menu_manager');
+        $mm = $this->get('app.menu_manager');
 
         $randomMenu = $mm->getRandomMenus(1, $season);
 
+        $form = $this->createForm(SearchType::class, null, [
+            'action' => $this->generateUrl('app_search_results'),
+            'method' => 'POST',
+        ]);
+
         return $this->render(':front:index.html.twig', [
-//              'listMenus' => $mm->getAll(),
                 'randomMenu' => $randomMenu[0],
                 'season' => $season,
-                //'listCategories' => array(),
+                'form' => $form->createView(),
             ]
         );
     }
